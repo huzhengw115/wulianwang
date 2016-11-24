@@ -1,2 +1,3 @@
 angular.module('News', [])
-.controller('MineCtrl', function($scope) {});
+
+.controller('MineCtrl', function ($scope) {})

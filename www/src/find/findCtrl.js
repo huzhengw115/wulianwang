@@ -1,2 +1,3 @@
 angular.module('News', [])
-.controller('FindCtrl', function($scope) {});
+
+.controller('FindCtrl', function ($scope) {})
