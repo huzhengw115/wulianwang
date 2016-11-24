@@ -1,73 +1,73 @@
 .goods-tab {
-    background-color: #fff;
-    padding: 10px 10%;
-    border-bottom: 1px solid #eee;
+  background-color: #fff;
+  padding: 10px 10%;
+  border-bottom: 1px solid #eee;
 }
 
 .goods-tab-input {
-    border: 1px solid #00a0ff;
-    width: 100%;
-    border-radius: 8px;
-    height: 30px;
+  border: 1px solid #00a0ff;
+  width: 100%;
+  border-radius: 8px;
+  height: 30px;
 }
 
 .goods-tab-input input {
-    height: 30px;
-    position: fixed;
-    width: 22.5%;
-    opacity: 0;
-    z-index: 100;
+  height: 30px;
+  position: fixed;
+  width: 22.5%;
+  opacity: 0;
+  z-index: 100;
 }
 
 .goods-tab-input p {
-    height: 28px;
-    width: 26.66%;
-    position: fixed;
-    color: #00a0ff;
-    padding-top: 3px;
-    border-right: 1px solid #00a0ff;
+  height: 28px;
+  width: 26.66%;
+  position: fixed;
+  color: #00a0ff;
+  padding-top: 3px;
+  border-right: 1px solid #00a0ff;
 }
 
 .goods-tab-input p:first-of-type {
-    border-radius: 8px 0 0 8px ;
+  border-radius: 8px 0 0 8px;
 }
 
 .goods-tab-input p:last-of-type {
-    border: 0;
-    border-radius: 0 8px 8px 0;
+  border: 0;
+  border-radius: 0 8px 8px 0;
 }
 
 .goods-tab label {
-    background-color: #00a0ff;
+  background-color: #00a0ff;
 }
 
-#goods-input-9, #goods-input-9 + p {
-    left: 10%;
-    text-align: center;
+#goods-input-9, #goods-input-9+p {
+  left: 10%;
+  text-align: center;
 }
 
-#goods-input-10, #goods-input-10 + p {
-    left: 36.66%;
-    text-align: center;
+#goods-input-10, #goods-input-10+p {
+  left: 36.66%;
+  text-align: center;
 }
 
-#goods-input-11, #goods-input-11 + p {
-    left: 63.32%;
-    text-align: center;
+#goods-input-11, #goods-input-11+p {
+  left: 63.32%;
+  text-align: center;
 }
 
-.goods-tab-input > input:checked + p {
-    background-color: #00a0ff;
-    color: #fff;
+.goods-tab-input>input:checked+p {
+  background-color: #00a0ff;
+  color: #fff;
 }
 
-.goods-tab-input > input:checked {
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background: #00a0ff;
-    bottom: 0px;
-    left: 0;
-    z-index: 100;
-    background-color: #00a0ff;
+.goods-tab-input>input:checked {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #00a0ff;
+  bottom: 0px;
+  left: 0;
+  z-index: 100;
+  background-color: #00a0ff;
 }
