@@ -1,0 +1,76 @@
+.option-button {
+	background-color: #fff;
+	height: 30px;
+	border-bottom: 2px solid #eee;
+}
+
+.option-button > p {
+	float: right;
+	padding: 5px 15px 0;
+	margin: 0;
+}
+
+.option-tab {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-top: 5px;
+}
+
+.option-tab-item {
+
+}
+
+.option-tab-item > input {
+	display: none;
+}
+
+.option-tab-item > label {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	display: inline-table;
+	width: 85px;
+	text-align: center;
+	margin: 5px;
+}
+
+.option-tab-item > input:checked + label {
+	background-color: #00a0ff;
+    color: #fff;
+}
+
+#triangle {
+	float: right;
+	width: 0px;
+    height: 0px;
+    padding: 0px;
+    margin: 5px 0 0 5px;
+    border-top: 8px solid #aaa;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    transition: .6s;
+}
+
+#triangle.close {
+	transform: rotate(90deg);
+}
+
+.option-tab-content {
+	height: 110px;
+}
+
+#option-tab {
+	background-color: #fff;
+	padding: 0 5px;
+	height: 110px;
+}
+
+#option-tab.option-show {
+	transition: all linear 0.3s;
+  	height: 110px;
+}
+
+#option-tab.option-hide {
+	transition: all linear 0.3s;
+  	height: 0px;
+}

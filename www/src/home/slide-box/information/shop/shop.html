@@ -1,0 +1,17 @@
+<ion-content class="shop-content" ng-controller="ShopCtrl">
+<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+	<div class="tabSelect" ng-include="'src/home/slide-box/information/tabSelect/tabSelect.html'"></div>
+	<div ng-include="'src/home/slide-box/information/optionSelect/optionSelect.html'"></div>
+
+	<div class="shop-list">
+		<a href="" class="item shop-list-items item-thumbnail-right" ng-repeat="data in shopItem">
+			<img src="{{data.pic}}" alt="">
+			<h2 class="intwoline">{{data.title}}</h2>
+			<div class="shop-list-item">
+				<label>{{data.source}}</label>
+				<label>{{data.times}}</label>
+			</div>
+		</a>
+	</div>
+<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+</ion-content>

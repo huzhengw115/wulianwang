@@ -1,0 +1,23 @@
+.bids-list-item {
+	padding: 10px;
+}
+
+.bids-list-item h2 {
+	white-space: normal;
+}
+
+.bids-list-items {
+	padding-top: 15px;
+	font-size: 12px;
+}
+
+.bids-list-items label {
+	padding-right: 15px;
+	color: #00a0ff;
+	font-size: 12px;
+}
+
+.bids-list-items label:last-of-type {
+	color: #aaa;
+	padding-right: 0px;
+}

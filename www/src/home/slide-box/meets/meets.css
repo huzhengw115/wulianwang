@@ -1,0 +1,119 @@
+.meets-button {
+	background-color: #fff;
+	margin-top: 12px;
+	overflow: auto;
+}
+
+.meets-button > div {
+	float: left;
+	width: 33.33%;
+	text-align: center;
+	padding: 3px 0 0;
+	border-right: 1px solid #eee;
+}
+
+.item-select {
+	padding-left: 0;
+}
+
+.input-label {
+	width: 0;
+	height: 0;
+	padding: 0;
+}
+
+.select-value {
+	padding: 0;
+}
+
+.select-value-p {
+	margin-bottom: 0;
+	text-align: center;
+	width: auto;
+}
+
+.meets-button div:last-of-type {
+	border: 0px;
+}
+
+.meets-list-item {
+	margin-top: 12px;
+}
+
+@media screen and (min-width: 320px){
+	.meets-list-item > img {
+		max-width: 150px !important;
+		width: 95px !important;
+		max-height: 60px !important;
+		margin-top: 10px;
+	}
+	.meets-list-item > h2 {
+		margin-right: 15px;
+		white-space: normal;
+	}
+}
+
+@media screen and (min-width: 360px){
+	.meets-list-item > img {
+		max-width: 150px !important;
+		width: 120px !important;
+		max-height: 70px !important;
+		margin-top: 10px;
+	}
+	.meets-list-item > h2 {
+		margin-right: 50px;
+		white-space: normal;
+	}
+}
+
+@media screen and (min-width: 400px){
+	.meets-list-item > img {
+		max-width: 150px !important;
+		width: 140px !important;
+		max-height: 80px !important;
+		margin-top: 0px;
+	}
+	.meets-list-item > h2 {
+		margin-right: 60px;
+		white-space: normal;
+	}
+}
+
+@media screen and (min-width: 440px){
+	.meets-list-item > img {
+		max-width: 150px !important;
+		width: 150px !important;
+		max-height: 80px !important;
+		margin-top: 0px;
+	}
+	.meets-list-item > h2 {
+		margin-right: 80px;
+		white-space: normal;
+	}
+}
+
+.meets-list-item {
+	padding-bottom: 10px;
+}
+
+.meets-list-item > p {
+	color: #aaa;
+	font-size: 12px;
+	margin-bottom: 0px;
+}
+
+.meets-list-item >p:first-of-type {
+	padding-top: 10px;
+}
+
+.meets-list-items {
+	padding-top: 3px;
+}
+
+.meets-list-items label {
+	background-color: #efefef;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 1px 8px 3px;
+	font-size: 12px;
+}

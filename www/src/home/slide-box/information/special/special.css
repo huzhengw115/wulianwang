@@ -1,0 +1,17 @@
+.special-items {
+	
+}
+
+.special-items > img {
+	width: 100%;
+}
+
+.special-items > h2 {
+	font-size: 18px;
+	white-space: normal !important;
+}
+
+.special-items> p {
+	white-space: normal !important;
+	color: #bbb;
+}

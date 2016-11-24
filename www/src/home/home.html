@@ -1,0 +1,65 @@
+<ion-view view-title="首页">
+	<div class="homeTop">
+		<p class="homeTop-title">国脉物联网</p>
+		<a type="text" class="ion-search homeTop-find"> 搜索您感兴趣的内容</a>
+	</div>
+
+	<div class="slide-tab">
+		<input type="radio" name="radio-set" ng-checked="slideIndex == 0 ? 'checked' : ''" ng-click="activeSlide(0)" id="home_slide_0">
+		<p>首 页</p>
+		<input type="radio" name="radio-set" ng-checked="slideIndex == 1 ? 'checked' : ''" ng-click="activeSlide(1)" id="home_slide_1">
+		<p>资 讯</p>
+		<input type="radio" name="radio-set" ng-checked="slideIndex == 2 ? 'checked' : ''" ng-click="activeSlide(2)" id="home_slide_2">
+		<p>方 案</p>
+		<input type="radio" name="radio-set" ng-checked="slideIndex == 3 ? 'checked' : ''" ng-click="activeSlide(3)" id="home_slide_3">
+		<p>商 机</p>
+		<input type="radio" name="radio-set" ng-checked="slideIndex == 4 ? 'checked' : ''" ng-click="activeSlide(4)" id="home_slide_4">
+		<p>活 动</p>
+		<input type="radio" name="radio-set" ng-checked="slideIndex == 5 ? 'checked' : ''" ng-click="activeSlide(5)" id="home_slide_5">
+		<p>服 务</p>
+	</div>
+
+  	<ion-content class="home_content" delegate-handle＝"home_content" scroll="false" overflow-scroll="ture">
+    	
+    	<ion-slide-box delegate-handle="homeSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false" style="top: 0;bottom: 0;position: absolute !important; width:100%">
+
+			<ion-slide>
+				<div ng-include="homes">
+						
+				</div>
+			</ion-slide>
+
+			<ion-slide>
+				<div ng-include="information">
+						
+				</div>
+			</ion-slide>
+			
+			<ion-slide>
+				<div ng-include="programme">
+						
+				</div>
+			</ion-slide>
+
+			<ion-slide>
+				<div ng-include="goods">
+						
+				</div>
+			</ion-slide>
+
+			<ion-slide>
+				<div ng-include="meets">
+						
+				</div>
+			</ion-slide>
+
+			<ion-slide>
+				<div ng-include="waiter">
+						
+				</div>
+			</ion-slide>
+
+		</ion-slide-box>
+
+  	</ion-content>
+</ion-view>

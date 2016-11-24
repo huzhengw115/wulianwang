@@ -1,0 +1,35 @@
+<ion-content ng-controller="HomesCtrl">
+
+	<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+	</ion-refresher>
+
+	<div class="homes-pic">
+	  	<ion-slide-box 	on-slide-changed="slideHasChanged($Number);" 
+	  					auto-play="true" 
+	  					does-continue="true" 
+	  					slide-interval="1000" 
+	  					active-slide="true" 
+	  					delegate-handle="homes-pic">
+			<ion-slide ng-repeat="item in ads" class="home-ads-pic">
+				<div class="pic-box">
+					<a ng-href = "">
+					    <img ng-src="{{ item.pic }}">
+					</a>
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+	</div>
+
+	<div class="home-list">
+		<a href="" class="item home-list-items item-thumbnail-right" ng-repeat="data in homeItem">
+			<img src="{{data.titlepic}}" alt="">
+			<h2 class="intwoline">{{data.title}}</h2>
+			<div class="home-list-item">
+				<p class="home-list-item-class">{{data.class}}</p>
+				<p class="home-list-item-adress">{{data.adress}}</p>
+				<p class="home-list-item-time">{{data.time}}</p>
+			</div>
+		</a>
+	</div>
+
+</ion-content>

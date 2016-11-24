@@ -1,0 +1,24 @@
+.tender-list {
+
+}
+
+.tender-list-item {
+	padding: 12px;
+}
+
+.tender-list-item h2 {
+	white-space: normal;
+}
+
+.tender-list-items {
+	margin-top: 10px;
+}
+
+.tender-list-items-class {
+	color: #00a0ff;
+}
+
+.tender-list-items-time {
+	padding-left: 20px;
+	color: #aaa;
+}
