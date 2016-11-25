@@ -1,17 +1,17 @@
 <ion-content class="investment-content" ng-controller="InvestmentCtrl">
-<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
-	<div ng-include="'src/home/slide-box/goods/tabSelect/tabSelect.html'"></div>
+  <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+  <div ng-include="'src/home/slide-box/goods/tabSelect/tabSelect.html'"></div>
 
-	<div class="investment-list">
-		<a class="investment-list-item item item-thumbnail-right" ng-repeat="data in investmentListItem">
-			<img src="{{data.pic}}">
-			<h2 class="intwoline">{{data.title}}</h2>
-			<div class="investment-list-items">
-				<label>{{data.adress}}</label>
-				<label>{{data.times}}</label>
-			</div>
-		</a>
-	</div>
+  <div class="investment-list">
+    <a class="investment-list-item item item-thumbnail-right" ng-repeat="data in investmentListItem">
+      <img src="{{data.pic}}">
+      <h2 class="intwoline">{{data.title}}</h2>
+      <div class="investment-list-items">
+        <label>{{data.adress}}</label>
+        <label>{{data.times}}</label>
+      </div>
+    </a>
+  </div>
 
-<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
 </ion-content>
