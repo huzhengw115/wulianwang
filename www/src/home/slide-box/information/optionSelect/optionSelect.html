@@ -1,17 +1,17 @@
 <link rel="stylesheet" type="text/css" href="src/home/slide-box/information/optionSelect/optionSelect.css">
 
 <div ng-controller="optionSelectCtrl">
-	<div class="option-button">
-		<p ng-click="optionTabShow()">筛选<i id="triangle" class="{{ selectOpened === true ? 'open' : 'close' }}"></i></p>
-	</div>
-	<div id ="option-tab" class="{{ isOptionShow === true ? 'option-show' : 'option-hide' }}">
-	<ion-scroll direction="y" class="option-tab-content">
-		<div class="option-tab">
-			<div class="option-tab-item" ng-repeat="data in optionThings">
-				<input type="radio" id="option-tab-item-{{data.id}}" ng-checked="optionThingsIndex == {{data.id}} ? 'checked' : ''" ng-click="optionThingsSelect({{data.id}})">
-				<label for="option-tab-item-{{data.id}}">{{data.tab}}</label>
-			</div>
-		</div>
-	</ion-scroll>
-	</div>
+  <div class="option-button">
+    <p ng-click="optionTabShow()">筛选<i id="triangle" class="{{ selectOpened === true ? 'open' : 'close' }}"></i></p>
+  </div>
+  <div id="option-tab" class="{{ isOptionShow === true ? 'option-show' : 'option-hide' }}">
+    <ion-scroll direction="y" class="option-tab-content">
+      <div class="option-tab">
+        <div class="option-tab-item" ng-repeat="data in optionThings">
+          <input type="radio" id="option-tab-item-{{data.id}}" ng-checked="optionThingsIndex == {{data.id}} ? 'checked' : ''" ng-click="optionThingsSelect({{data.id}})">
+          <label for="option-tab-item-{{data.id}}">{{data.tab}}</label>
+        </div>
+      </div>
+    </ion-scroll>
+  </div>
 </div>
