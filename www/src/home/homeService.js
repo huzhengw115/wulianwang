@@ -23,9 +23,9 @@ angular.module('Home', [])
     var homeItem = []
     var deferred = $q.defer()
 
-    $http.get('json/information.json')
+    $http.get('json/homeList.json')
       .success(function (data) {
-        homeItem = data.information
+        homeItem = data.homeList
         console.log(homeItem)
         deferred.resolve(homeItem)
       })

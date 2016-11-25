@@ -56,18 +56,18 @@
 }
 
 .option-tab-content {
-	height: 110px;
+	height: 115px;
 }
 
 #option-tab {
 	background-color: #fff;
 	padding: 0 5px;
-	height: 110px;
+	height: 115px;
 }
 
 #option-tab.option-show {
 	transition: all linear 0.3s;
-  	height: 110px;
+  	height: 115px;
 }
 
 #option-tab.option-hide {

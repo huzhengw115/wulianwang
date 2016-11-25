@@ -79,8 +79,6 @@
 .home-list-item-class {
 	float: left;
 	padding: 0px 6px;
-	color: #00a0ff !important;
-	border: 1px solid #00a0ff;
 	border-radius: 30px;
 	font-size: 12px !important;
 }
