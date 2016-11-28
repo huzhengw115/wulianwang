@@ -36,6 +36,18 @@
 	border: 0px;
 }
 
+.ionic-picker {
+	
+	z-index: 100;
+}
+
+.ionic-picker-label {
+	display: none;
+	position: absolute;
+	top: 6px;
+	width: 33.33%
+}
+
 .meets-list-item {
 	margin-top: 12px;
 }

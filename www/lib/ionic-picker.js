@@ -292,8 +292,8 @@ PickerModule.directive('pickerModal', ['$rootScope', function ($rootScope) {
         '<div class="picker-modal-backdrop">' +
         ' <div class="picker-modal"  ng-class="{\'multiple-select\': multiple}">' +
         '   <div class="picker-header">' +
-        '       <button class="picker-tools-button cancel-button">取消</button>' +
-        '       <h2 class="title">请选择</h2>' +
+        '       <button class="picker-tools-button cancel-button" style="display:none">取消</button>' +
+        '       <h2 class="title" style="text-align:left;padding-left: 30px;">请选择</h2>' +
         '       <button class="picker-tools-button ok-button">确定</button>' +
         '   </div>' +
         '   <div class="picker-modal-inner picker-items">' +

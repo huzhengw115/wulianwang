@@ -105,5 +105,5 @@ angular.module('Home', [])
     $ionicSlideBoxDelegate.slide(index)
   }
   // 第一次加载的时候出现问题，加载不了homes.html，解决不了之后强行加上了这行代码
-  $scope.slideChanged(0)
+  $scope.slideChanged(4)
 })

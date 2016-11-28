@@ -9893,14 +9893,17 @@ a.button {
   -moz-justify-content: center;
   justify-content: center;
   height: 2.75rem;
-  background-color: #f7f7f8; }
+  background-color: #eee; }
   .picker-modal .picker-header .picker-tools-button {
     border-color: transparent;
     background: none;
     box-shadow: none;
-    color: #0894ec; }
+    color: #fff;
+    background-color: #00a0ff;
+    margin: 8px 10px 8px;
+    border-radius: 5px; }
   .picker-modal .picker-header .title {
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
     line-height: 2.75rem;
     text-align: center;
@@ -9944,6 +9947,7 @@ a.button {
   transition-timing-function: ease-out; }
 
 .picker-item {
+  font-size: 20px;
   height: 36px;
   line-height: 36px;
   padding: 0 10px;
@@ -9964,7 +9968,7 @@ a.button {
 
 .picker-item.picker-selected {
   color: #3d4145;
-  font-size: 1.515rem;
+  font-size: 20px;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   -webkit-transform: rotate(0deg);
