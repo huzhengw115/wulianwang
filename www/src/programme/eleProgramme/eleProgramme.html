@@ -1,0 +1,19 @@
+<ion-content class="eleProgramme-content" ng-controller="EleProgrammeCtrl">
+<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+	
+	<div ng-include="'src/programme/tabSelect/tabSelect.html'"></div>
+
+	<div class="ele-list">
+		<a class="item ele-list-item intwoline item-thumbnail-right" ng-repeat="data in eleProgrammeListItem">
+			<img src="{{data.pic}}">
+			<h2 class="intwoline">{{data.title}}</h2>
+			<div>
+				<label>{{data.source}}</label>
+				<label>{{data.times}}</label>
+			</div>
+			<p>预计产生效益：1000万</p>
+		</a>
+	</div>
+
+<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+</ion-content>

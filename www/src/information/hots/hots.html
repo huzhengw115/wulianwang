@@ -1,0 +1,19 @@
+<ion-content class="hots-content" ng-controller="HotsCtrl">
+<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+	<div class="tabSelect" ng-include="'src/information/tabSelect/tabSelect.html'"></div>
+
+	<div ng-include="'src/information/optionSelect/optionSelect.html'"></div>
+
+	<div class="hots-list">
+		<a href="" class="item hots-list-items item-thumbnail-right" ng-repeat="data in hotsItem">
+			<img src="{{data.pic}}" alt="">
+			<h2 class="intwoline">{{data.title}}</h2>
+			<div class="hots-list-item">
+				<label>{{data.source}}</label>
+				<label>{{data.times}}</label>
+			</div>
+		</a>
+	</div>
+<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+</ion-content>

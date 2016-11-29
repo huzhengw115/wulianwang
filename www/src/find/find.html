@@ -1,5 +1,44 @@
-<ion-view view-title="资讯">
-  <ion-content class="">
-    
-  </ion-content>
-</ion-view>
+<div ng-controller="FindCtrl">
+	<div class="find-search item-input-inset">
+	  <div class="find-search-input item-input-wrapper">
+	    <p class="find-search-input-p" ng-click="classSelect()">{{selectItem}}<i></i></p>
+	    <input type="search" placeholder="请输入关键字" maxlength="20">
+	  </div>
+	  <button class="find-search-button">
+	    确定
+	  </button>
+	</div>
+	<div class="find-search-class" ng-show="isClassShow">
+		<p ng-click="classSelectItem({{data.id}})" ng-repeat="data in classItem">{{data.class}}</p>
+	</div>
+	<ion-content class="find-content">
+
+		<div class="find-list">
+			<div class="find-hot">
+				<div class="find-hot-title">
+					<p>热门搜索</p>
+				</div>
+				<div class="find-hot-item">
+					<label>政策</label>
+					<label>政策</label>
+					<label>政策</label>
+					<label>政策</label>
+					<label>政策</label>
+				</div>
+			</div>
+			<div class="find-history">
+				<div class="find-history-title">
+					<p>历史搜索</p>
+				</div>
+				<div class="find-history-item">
+					<a class="item"><p>历史纪录</p></a>
+					<a class="item"><p>历史纪录</p></a>
+					<a class="item"><p>历史纪录</p></a>
+					<a class="item"><p>历史纪录</p></a>
+					<a class="item"><p>历史纪录</p></a>
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+</div>

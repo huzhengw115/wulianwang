@@ -4,62 +4,42 @@
 		<a type="text" class="ion-search homeTop-find"> 搜索您感兴趣的内容</a>
 	</div>
 
-	<div class="slide-tab">
-		<input type="radio" name="radio-set" ng-checked="slideIndex == 0 ? 'checked' : ''" ng-click="activeSlide(0)" id="home_slide_0">
-		<p>首 页</p>
-		<input type="radio" name="radio-set" ng-checked="slideIndex == 1 ? 'checked' : ''" ng-click="activeSlide(1)" id="home_slide_1">
-		<p>资 讯</p>
-		<input type="radio" name="radio-set" ng-checked="slideIndex == 2 ? 'checked' : ''" ng-click="activeSlide(2)" id="home_slide_2">
-		<p>方 案</p>
-		<input type="radio" name="radio-set" ng-checked="slideIndex == 3 ? 'checked' : ''" ng-click="activeSlide(3)" id="home_slide_3">
-		<p>商 机</p>
-		<input type="radio" name="radio-set" ng-checked="slideIndex == 4 ? 'checked' : ''" ng-click="activeSlide(4)" id="home_slide_4">
-		<p>活 动</p>
-		<input type="radio" name="radio-set" ng-checked="slideIndex == 5 ? 'checked' : ''" ng-click="activeSlide(5)" id="home_slide_5">
-		<p>服 务</p>
-	</div>
+  <ion-content class="home_content">
 
-  	<ion-content class="home_content" delegate-handle＝"home_content" scroll="false" overflow-scroll="ture">
-    	
-    	<ion-slide-box delegate-handle="homeSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false" style="top: 0;bottom: 0;position: absolute !important; width:100%">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+		</ion-refresher>
 
-			<ion-slide>
-				<div ng-include="homes">
-						
+		<div class="home-url">
+			<a class="home-url-item" ng-repeat="data in homeSrc" href="#/tab/home/{{data.id}}">{{data.title}}</a>
+		</div>
+
+		<div class="home-pic">
+		  	<ion-slide-box 	on-slide-changed="slideHasChanged($Number);" 
+		  					auto-play="true" 
+		  					does-continue="true" 
+		  					slide-interval="5000" 
+		  					active-slide="true" 
+		  					delegate-handle="home-pic">
+				<ion-slide ng-repeat="item in ads" class="home-ads-pic">
+					<div class="pic-box">
+						<a ng-href = "">
+						    <img ng-src="{{ item.pic }}">
+						</a>
+					</div>
+				</ion-slide>
+			</ion-slide-box>
+		</div>
+
+		<div class="home-list">
+			<a href="" class="item home-list-items item-thumbnail-right" ng-repeat="data in homeItem">
+				<img src="{{data.titlepic}}" alt="">
+				<h2 class="intwoline">{{data.title}}</h2>
+				<div class="home-list-item">
+					<p class="home-list-item-class" ng-style="{{data.classL}}">{{data.class}}</p>
+					<p class="home-list-item-adress">{{data.adress}}</p>
+					<p class="home-list-item-time">{{data.time}}</p>
 				</div>
-			</ion-slide>
-
-			<ion-slide>
-				<div ng-include="information">
-						
-				</div>
-			</ion-slide>
-			
-			<ion-slide>
-				<div ng-include="programme">
-						
-				</div>
-			</ion-slide>
-
-			<ion-slide>
-				<div ng-include="goods">
-						
-				</div>
-			</ion-slide>
-
-			<ion-slide>
-				<div ng-include="meets">
-						
-				</div>
-			</ion-slide>
-
-			<ion-slide>
-				<div ng-include="waiter">
-						
-				</div>
-			</ion-slide>
-
-		</ion-slide-box>
-
-  	</ion-content>
+			</a>
+		</div>
+  </ion-content>
 </ion-view>

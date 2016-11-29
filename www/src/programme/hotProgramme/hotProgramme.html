@@ -1,0 +1,26 @@
+<ion-content class="hotProgramme-content" ng-controller="HotProgrammeCtrl">
+<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+	<div ng-include="'src/programme/tabSelect/tabSelect.html'"></div>
+
+
+	<div class="hot-programme">
+		<div class="hot-programme-item" ng-repeat="data in hotProgrammeItem">
+			<input type="radio" id="hot-programme-item-{{data.id}}" ng-checked="hotProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="hotProgrammeSelect({{data.id}})">
+			<label for="hot-programme-item-{{data.id}}">{{data.tab}}</label>
+		</div>
+	</div>
+
+	<div class="hot-list">
+		<a class="item hot-list-item intwoline item-thumbnail-right" ng-repeat="data in hotProgrammeListItem">
+			<img src="{{data.pic}}">
+			<h2 class="intwoline">{{data.title}}</h2>
+			<div>
+				<label>{{data.source}}</label>
+				<label>{{data.times}}</label>
+			</div>
+			<p>预计产生效益：1000万</p>
+		</a>
+	</div>
+
+<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+</ion-content>

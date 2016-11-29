@@ -1,43 +1,78 @@
 angular.module('constantService', [])
 .constant('homeViewUrl',{
-	informationView: ['src/home/slide-box/information/hots/hots.html',
-      'src/home/slide-box/information/policy/policy.html',
-      'src/home/slide-box/information/idea/idea.html',
-      'src/home/slide-box/information/special/special.html',
-      'src/home/slide-box/information/shop/shop.html'
+	informationView: ['src/information/hots/hots.html',
+      'src/information/policy/policy.html',
+      'src/information/idea/idea.html',
+      'src/information/special/special.html',
+      'src/information/shop/shop.html'
   		],
-  programmeView: ['src/home/slide-box/programme/allProgramme/allProgramme.html',
-      'src/home/slide-box/programme/newProgramme/newProgramme.html',
-      'src/home/slide-box/programme/hotProgramme/hotProgramme.html',
-      'src/home/slide-box/programme/eleProgramme/eleProgramme.html'
+  programmeView: ['src/programme/allProgramme/allProgramme.html',
+      'src/programme/newProgramme/newProgramme.html',
+      'src/programme/hotProgramme/hotProgramme.html',
+      'src/programme/eleProgramme/eleProgramme.html'
       ],
-  goodsView: ['src/home/slide-box/goods/tender/tender.html',
-      'src/home/slide-box/goods/investment/investment.html',
-      'src/home/slide-box/goods/bids/bids.html'
+  goodsView: ['src/goods/tender/tender.html',
+      'src/goods/investment/investment.html',
+      'src/goods/bids/bids.html'
       ],
-  homeTemplate: ['src/home/slide-box/homes/homes.html',
-        'src/home/slide-box/information/hots/hots.html',
-        'src/home/slide-box/programme/hotProgramme/hotProgramme.html',
-        'src/home/slide-box/goods/tender/tender.html',
-        'src/home/slide-box/meets/meets.html',
-        'src/home/slide-box/waiter/waiter.html'
+  homeTemplate: ['',
+        '',
+        '',
+        'src/meets/meets.html',
+        'src/waiter/waiter.html',
+        '',
+        '',
+        'src/find/find.html'
       ],
-  homesFile: ['src/home/slide-box/homes/homesCtrl.js', 'src/home/slide-box/homes/homes.css'],
-  informationFile: [['src/home/slide-box/information/hots/hotsCtrl.js', 'src/home/slide-box/information/hots/hots.css', 'src/home/slide-box/information/optionSelect/optionSelectCtrl.js'],
-              ['src/home/slide-box/information/policy/policyCtrl.js', 'src/home/slide-box/information/policy/policy.css'],
-              ['src/home/slide-box/information/idea/ideaCtrl.js', 'src/home/slide-box/information/idea/idea.css'],
-              ['src/home/slide-box/information/special/specialCtrl.js', 'src/home/slide-box/information/special/special.css'],
-              ['src/home/slide-box/information/shop/shopCtrl.js', 'src/home/slide-box/information/shop/shop.css']
+  homesFile: ['src/homes/homesCtrl.js', 'src/homes/homes.css'],
+  informationFile: [['src/information/hots/hotsCtrl.js', 'src/information/hots/hots.css', 'src/information/optionSelect/optionSelectCtrl.js'],
+              ['src/information/policy/policyCtrl.js', 'src/information/policy/policy.css'],
+              ['src/information/idea/ideaCtrl.js', 'src/information/idea/idea.css'],
+              ['src/information/special/specialCtrl.js', 'src/information/special/special.css'],
+              ['src/information/shop/shopCtrl.js', 'src/information/shop/shop.css']
             ],
-  programmeFile: [['src/home/slide-box/programme/allProgramme/allProgrammeCtrl.js', 'src/home/slide-box/programme/allProgramme/allProgramme.css'],
-              ['src/home/slide-box/programme/newProgramme/newProgrammeCtrl.js', 'src/home/slide-box/programme/newProgramme/newProgramme.css'],
-              ['src/home/slide-box/programme/hotProgramme/hotProgrammeCtrl.js', 'src/home/slide-box/programme/hotProgramme/hotProgramme.css'],
-              ['src/home/slide-box/programme/eleProgramme/eleProgrammeCtrl.js', 'src/home/slide-box/programme/eleProgramme/eleProgramme.css']
+  programmeFile: [['src/programme/allProgramme/allProgrammeCtrl.js', 'src/programme/allProgramme/allProgramme.css'],
+              ['src/programme/newProgramme/newProgrammeCtrl.js', 'src/programme/newProgramme/newProgramme.css'],
+              ['src/programme/hotProgramme/hotProgrammeCtrl.js', 'src/programme/hotProgramme/hotProgramme.css'],
+              ['src/programme/eleProgramme/eleProgrammeCtrl.js', 'src/programme/eleProgramme/eleProgramme.css']
             ],
-  meetsFile: ['src/home/slide-box/meets/meetsCtrl.js', 'src/home/slide-box/meets/meets.css'],
-  goodsFile: [['src/home/slide-box/goods/tender/tenderCtrl.js', 'src/home/slide-box/goods/tender/tender.css'],
-              ['src/home/slide-box/goods/investment/investmentCtrl.js', 'src/home/slide-box/goods/investment/investment.css'],
-              ['src/home/slide-box/goods/bids/bidsCtrl.js', 'src/home/slide-box/goods/bids/bids.css']
+  meetsFile: ['src/meets/meetsCtrl.js', 'src/meets/meets.css'],
+  goodsFile: [['src/goods/tender/tenderCtrl.js', 'src/goods/tender/tender.css'],
+              ['src/goods/investment/investmentCtrl.js', 'src/goods/investment/investment.css'],
+              ['src/goods/bids/bidsCtrl.js', 'src/goods/bids/bids.css']
             ],
-  waiterFile: ['src/home/slide-box/waiter/waiterCtrl.js', 'src/home/slide-box/waiter/waiter.css']
+  waiterFile: ['src/waiter/waiterCtrl.js', 'src/waiter/waiter.css'],
+  findFile: ['src/find/findCtrl.js', 'src/find/find.css']
+})
+
+.service('homeSrcService', function () {
+  var homeSrc = [{
+    'id': 0,
+    "title": "资讯"
+  },{
+    'id': 1,
+    "title": "方案"
+  },{
+    'id': 2,
+    "title": "商机"
+  },{
+    'id': 3,
+    "title": "活动"
+  },{
+    'id': 4,
+    "title": "服务"
+  },{
+    'id': 5,
+    "title": "订阅"
+  },{
+    'id': 6,
+    "title": "推荐"
+  },{
+    'id': 7,
+    "title": "搜索"
+  }]
+
+  return {
+    homeSrc: homeSrc
+  }
 })

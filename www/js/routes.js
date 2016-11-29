@@ -24,57 +24,29 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/home/homeService.js', 'src/home/slide-box/information/informationService.js', 'src/home/slide-box/programme/programmeService.js', 'src/home/slide-box/goods/goodsService.js', 'src/home/slide-box/meets/meetsService.js', 'src/home/slide-box/waiter/waiterService.js']).then(function () {
-          return $ocLazyLoad.load(['src/home/homeCtrl.js', 'src/home/home.css', 'src/home/slide-box/homes/homesCtrl.js', 'src/home/slide-box/homes/homes.css'])
+        return $ocLazyLoad.load(['src/home/homeService.js']).then(function () {
+          return $ocLazyLoad.load(['src/home/homeCtrl.js', 'src/home/home.css'])
         })
       }]
     }
   })
 
-  .state('tab.election', {
-    url: '/election',
-    views: {
-      'tab-election': {
-        templateUrl: 'src/election/election.html',
-        controller: 'ElectionCtrl'
+  .state('tab.home-detail', {
+      url: '/home/:homeId',
+      views: {
+        'tab-home': {
+          templateUrl: 'src/home/homeDetail.html',
+          controller: 'HomeDetailCtrl'
+        }
+      },
+      resolve: {
+       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+         return $ocLazyLoad.load(['src/information/informationService.js','src/programme/programmeService.js','src/goods/goodsService.js','src/meets/meetsService.js','src/waiter/waiterService.js']).then(function () {
+            return $ocLazyLoad.load('src/home/homeDetailCtrl.js')
+         })
+        }]
       }
-    },
-    resolve: {
-      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/election/electionCtrl.js'])
-      }]
-    }
-  })
-
-  .state('tab.read', {
-    url: '/read',
-    views: {
-      'tab-read': {
-        templateUrl: 'src/read/read.html',
-        controller: 'ReadCtrl'
-      }
-    },
-    resolve: {
-      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/read/readCtrl.js'])
-      }]
-    }
-  })
-
-  .state('tab.category', {
-    url: '/category',
-    views: {
-      'tab-category': {
-        templateUrl: 'src/category/category.html',
-        controller: 'CategoryCtrl'
-      }
-    },
-    resolve: {
-      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/category/categoryCtrl.js'])
-      }]
-    }
-  })
+    })
 
   .state('tab.mine', {
     url: '/mine',
