@@ -1,7 +1,8 @@
 angular.module('Find', [])
 
-.controller('FindCtrl', function ($scope) {
-	
+.controller('FindCtrl', function ($scope, $ionicScrollDelegate) {
+	//设置关键字
+	$scope.keyword = ''
 	//设置类型选择框隐藏的变量
 	$scope.isClassShow = false
 	//设置类型数组
@@ -17,4 +18,24 @@ angular.module('Find', [])
 		$scope.isClassShow = !$scope.isClassShow
 		$scope.selectItem = $scope.classItem[index].class
 	}
+	//搜索按钮
+	$scope.toSearch = function () {
+		$scope.searchData = true
+		console.log('keyword:',$scope.keyword);
+	}
+	//input内容变动时执行的函数
+	$scope.searchChange = function() {
+		if(!$scope.keyword.length) {
+			$scope.more = false
+			$scope.searchData = false
+    	$ionicScrollDelegate.scrollTop()
+		} else {
+			$scope.more = true
+		}
+  }
+  //清除input中的内容
+  $scope.clearSearch = function () {
+  	$scope.keyword = ''
+    $ionicScrollDelegate.scrollTop()
+  }
 })

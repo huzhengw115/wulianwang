@@ -2,9 +2,20 @@
 	<div class="find-search item-input-inset">
 	  <div class="find-search-input item-input-wrapper">
 	    <p class="find-search-input-p" ng-click="classSelect()">{{selectItem}}<i></i></p>
-	    <input type="search" placeholder="请输入关键字" maxlength="20">
+	    <form class="find-search-form">
+	    	<input type="search" 
+	    	placeholder="请输入关键字" 
+	    	maxlength="20" 
+	    	ng-model="keyword" 
+	    	ng-change="searchChange()">
+	    </form>
+	    <a ng-if="keyword.length"
+           on-touch="clearSearch()"
+           class="clear-search">
+          <i class="icon icon-clear placeholder-icon"></i>
+        </a>
 	  </div>
-	  <button class="find-search-button">
+	  <button class="find-search-button" ng-click="toSearch()">
 	    确定
 	  </button>
 	</div>
@@ -14,7 +25,7 @@
 	<ion-content class="find-content">
 
 		<div class="find-list">
-			<div class="find-hot">
+			<div class="find-hot" ng-if="!keyword.length">
 				<div class="find-hot-title">
 					<p>热门搜索</p>
 				</div>
@@ -26,7 +37,7 @@
 					<label>政策</label>
 				</div>
 			</div>
-			<div class="find-history">
+			<div class="find-history" ng-if="!keyword.length">
 				<div class="find-history-title">
 					<p>历史搜索</p>
 				</div>
@@ -36,6 +47,15 @@
 					<a class="item"><p>历史纪录</p></a>
 					<a class="item"><p>历史纪录</p></a>
 					<a class="item"><p>历史纪录</p></a>
+				</div>
+			</div>
+			<div class="find-result" ng-if="keyword.length && searchData">
+				<div class="find-result-item">
+					<a class="item"><p>搜索结果</p></a>
+					<a class="item"><p>搜索结果</p></a>
+					<a class="item"><p>搜索结果</p></a>
+					<a class="item"><p>搜索结果</p></a>
+					<a class="item"><p>搜索结果</p></a>
 				</div>
 			</div>
 		</div>

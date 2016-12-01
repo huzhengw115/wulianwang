@@ -35,18 +35,6 @@
 	border: 0px;
 }
 
-.ionic-picker {
-	
-	z-index: 100;
-}
-
-.ionic-picker-label {
-	display: none;
-	position: absolute;
-	top: 6px;
-	width: 33.33%
-}
-
 @media screen and (min-width: 320px){
 	.meets-list-item > img {
 		max-width: 150px !important;

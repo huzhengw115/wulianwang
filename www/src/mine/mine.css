@@ -1,0 +1,38 @@
+.mine-content {
+	background-color: #eee;
+}
+
+.mine-head-portrait {
+	background-color: #00a0ff;
+	height: 160px;
+	padding-top: 30px;
+}
+
+.mine-head-portrait-pic {
+	border-radius: 50%;
+	background-color: #fff;
+	height: 70px;
+	width: 70px;
+	margin: auto;
+}
+
+.mine-head-portrait > p {
+	text-align: center;
+	margin-top: 10px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.mine-about, .mine-govmade {
+	margin-top: 15px;
+}
+
+.mine-about > a, .mine-govmade > a {
+	font-size: 16px;
+}
+
+.mine-to {
+	float: right;
+	color: #bbb;
+}

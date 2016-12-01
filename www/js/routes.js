@@ -41,8 +41,42 @@ angular.module('starter.routes', [])
       },
       resolve: {
        loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-         return $ocLazyLoad.load(['src/information/informationService.js','src/programme/programmeService.js','src/goods/goodsService.js','src/meets/meetsService.js','src/waiter/waiterService.js']).then(function () {
+         return $ocLazyLoad.load(['src/home/homeService.js','src/information/informationService.js','src/programme/programmeService.js','src/goods/goodsService.js','src/meets/meetsService.js','src/waiter/waiterService.js']).then(function () {
             return $ocLazyLoad.load('src/home/homeDetailCtrl.js')
+         })
+        }]
+      }
+    })
+
+  .state('tab.detail-page', {
+      url: '/detail/:detailPageId',
+      views: {
+        'tab-home': {
+          templateUrl: 'src/page/detail/detailPage.html',
+          controller: 'DetailPageCtrl'
+        }
+      },
+      resolve: {
+       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+         return $ocLazyLoad.load('src/page/pageService.js').then(function () {
+            return $ocLazyLoad.load(['src/page/detail/detailPage.css','src/page/detail/detailPageCtrl.js'])
+         })
+        }]
+      }
+    })
+
+  .state('tab.programme-page', {
+      url: '/programme/:programmePageId',
+      views: {
+        'tab-home': {
+          templateUrl: 'src/page/programme/programmePage.html',
+          controller: 'ProgrammePageCtrl'
+        }
+      },
+      resolve: {
+       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+         return $ocLazyLoad.load('src/page/pageService.js').then(function () {
+            return $ocLazyLoad.load(['src/page/programme/programmePageCtrl.js','src/page/programme/programmePage.css'])
          })
         }]
       }
@@ -58,7 +92,9 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/mine/mineCtrl.js'])
+        return $ocLazyLoad.load(['src/mine/mineService.js']).then(function () {
+          return $ocLazyLoad.load(['src/mine/mine.css','src/mine/mineCtrl.js'])
+        })
       }]
     }
   })

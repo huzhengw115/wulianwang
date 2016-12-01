@@ -28,6 +28,23 @@
     display: inline-block;
 }
 
+.find-search-form {
+	width: 100%;
+}
+
+.find-search-input input {
+	width: 100%;
+}
+
+.icon-clear {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #000;
+  background-size: 15px;
+  display: block;
+}
+
 .find-search-button {
 	border: 0;
 	background-color: #00a0ff;

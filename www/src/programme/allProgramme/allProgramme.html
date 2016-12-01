@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="all-list">
-		<a class="item all-list-item intwoline item-thumbnail-right" ng-repeat="data in allProgrammeListItem">
+		<a class="item all-list-item intwoline item-thumbnail-right" ng-repeat="data in allProgrammeListItem" href="#/tab/programme/{{data.id}}">
 			<img src="{{data.pic}}">
 			<h2 class="intwoline">{{data.title}}</h2>
 			<div>

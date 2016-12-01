@@ -22,6 +22,9 @@ angular.module('Meets', [])
       console.log('111')
     }
 
-    var pickerNum = 0;
-    console.log('picker:',pickerNum)
+    $scope.selectPickerValue = function () {
+      var lalala = document.getElementsByName('first')
+      console.log(lalala);
+    }
+    $scope.selectPickerValue()
 })
