@@ -1,3 +1,7 @@
+.policy-content {
+	top: 52px;
+}
+
 @media screen and (min-width: 320px){
 	.policy-list-items > img {
 		max-width: 150px !important;

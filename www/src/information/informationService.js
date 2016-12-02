@@ -1,6 +1,6 @@
 angular.module('Information', [])
 
-.service('informationService', function($http, $q) {
+.service('informationService', function ($http, $q) {
 	var hotsThings = [{
 		"id": 0,
 		"tab": "全部"
@@ -84,28 +84,44 @@ angular.module('Information', [])
 	}, {
 		"id": 8,
 		"tab": "智能安防"
-	}];
-
+	}]
 	//热点获取
-	var getHotsLiatData = function() {
-		var hotsListData = [];
-		var deferred = $q.defer();
+	var getListData = function () {
+		var hotsListData = []
+		var deferred = $q.defer()
 
 		$http.get('json/data.json')
-		.success(function(data) {
-			hotsListData = data.datas;
-			deferred.resolve(hotsListData);
+		.success(function (data) {
+			hotsListData = data.datas
+			deferred.resolve(hotsListData)
 		})
-		.error(function(err) {
-			console.log('读取热点资讯失败');
-			deferred.reject();
+		.error(function (err) {
+			console.log('读取热点资讯失败')
+			deferred.reject()
 		})
-		return deferred.promise;
+		return deferred.promise
+	}
+	// homeItem列表数据获取
+	var getSpecialListItem = function () {
+	  var specialItem = []
+	  var deferred = $q.defer()
+	  $http.get('json/homeList.json')
+	  .success(function (data) {
+	    specialItem = data.homeList
+	    console.log('specialItem:',specialItem)
+	    deferred.resolve(specialItem)
+	  })
+	  .error(function (err) {
+	    console.log('读取首页列表数据失败')
+	    deferred.reject()
+	  })
+	  return deferred.promise
 	}
 
 	return {
 		hotsThings: hotsThings,
 		hotsDoing: hotsDoing,
-		getHotsLiatData: getHotsLiatData
+		getListData: getListData,
+		getSpecialListItem: getSpecialListItem
 	}
 })

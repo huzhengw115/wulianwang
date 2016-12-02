@@ -1,17 +1,20 @@
-<ion-content class="bids-content" ng-controller="BidsCtrl">
-	<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+<div ng-controller="BidsCtrl">
 	<div ng-include="'src/goods/tabSelect/tabSelect.html'"></div>
 
-	<div class="bids-list">
-		<a class="bids-list-item item" ng-repeat="data in bidsListItem">
-			<h2>{{data.title}}</h2>
-			<div class="bids-list-items">
-				<label>{{data.class}}</label>
-				<label>{{data.adress}}</label>
-				<label>{{data.time}}</label>
-			</div>
-		</a>
-	</div>
+	<ion-content class="bids-content">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-	<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-</ion-content>
+		<div class="bids-list">
+			<a class="bids-list-item item" ng-repeat="data in bidsListItem">
+				<h2>{{data.title}}</h2>
+				<div class="bids-list-items">
+					<label>{{data.class}}</label>
+					<label>{{data.adress}}</label>
+					<label>{{data.time}}</label>
+				</div>
+			</a>
+		</div>
+
+		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+	</ion-content>
+</div>

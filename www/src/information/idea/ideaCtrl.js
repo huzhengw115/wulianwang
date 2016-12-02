@@ -1,6 +1,6 @@
 angular.module('Idea', [])
 
-.controller('IdeaCtrl', function ($scope, homeService, informationService, LoaderService, $timeout) {
+.controller('IdeaCtrl', function ($scope, informationService, LoaderService, $timeout) {
   // 二级栏目的首选项
   $scope.slideNumber = 2
   // 上拉加载的控制
@@ -22,7 +22,7 @@ angular.module('Idea', [])
 
   // 上拉加载
   $scope.loadMore = function () {
-    homeService.getHotsLiatData().then(function (hotsListData) {
+    informationService.getListData().then(function (hotsListData) {
       Array.prototype.push.apply($scope.ideaItem, hotsListData)
       console.log('上拉:', $scope.ideaItem)
     })
@@ -33,7 +33,7 @@ angular.module('Idea', [])
   // 下拉刷新
   $scope.doRefresh = function () {
     // LoaderService.show();
-    homeService.getHotsLiatData().then(function (hotsListData) {
+    informationService.getListData().then(function (hotsListData) {
       $scope.ideaItem = hotsListData
       console.log('下拉:', $scope.ideaItem)
     })

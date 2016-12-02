@@ -1,6 +1,6 @@
 angular.module('Policy', [])
 
-.controller('PolicyCtrl', function ($scope, homeService, informationService, $timeout, LoaderService) {
+.controller('PolicyCtrl', function ($scope, informationService, $timeout, LoaderService) {
   // 二级栏目的首选项
   $scope.slideNumber = 1
   // 上拉加载的控制
@@ -22,7 +22,7 @@ angular.module('Policy', [])
 
   // 上拉加载
   $scope.loadMore = function () {
-    homeService.getHotsLiatData().then(function (hotsListData) {
+    informationService.getListData().then(function (hotsListData) {
       Array.prototype.push.apply($scope.policyItem, hotsListData)
       console.log('上拉:', $scope.policyItem)
     })
@@ -33,7 +33,7 @@ angular.module('Policy', [])
   // 下拉刷新
   $scope.doRefresh = function () {
     // LoaderService.show();
-    homeService.getHotsLiatData().then(function (hotsListData) {
+    informationService.getListData().then(function (hotsListData) {
       $scope.policyItem = hotsListData
       console.log('下拉:', $scope.policyItem)
     })

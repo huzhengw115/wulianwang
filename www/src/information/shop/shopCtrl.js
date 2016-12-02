@@ -1,6 +1,6 @@
 angular.module('Shop', [])
 
-.controller('ShopCtrl', function ($scope, homeService, LoaderService, informationService, $timeout) {
+.controller('ShopCtrl', function ($scope, LoaderService, informationService, $timeout) {
   // 二级栏目的首选项
   $scope.slideNumber = 4
   // 上拉加载的控制
@@ -22,7 +22,7 @@ angular.module('Shop', [])
 
   // 上拉加载
   $scope.loadMore = function () {
-    homeService.getHotsLiatData().then(function (hotsListData) {
+    informationService.getListData().then(function (hotsListData) {
       Array.prototype.push.apply($scope.shopItem, hotsListData)
       console.log('上拉:', $scope.shopItem)
     })
@@ -33,7 +33,7 @@ angular.module('Shop', [])
   // 下拉刷新
   $scope.doRefresh = function () {
     // LoaderService.show()
-    homeService.getHotsLiatData().then(function (hotsListData) {
+    informationService.getListData().then(function (hotsListData) {
       $scope.shopItem = hotsListData
       console.log('下拉:', $scope.shopItem)
     })

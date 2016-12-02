@@ -1,13 +1,16 @@
-<ion-content class="hots-content" ng-controller="SpecialCtrl">
-<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+<div ng-controller="SpecialCtrl">
 	<div class="tabSelect" ng-include="'src/information/tabSelect/tabSelect.html'"></div>
 
-	<div class="special">
-		<a class="item special-items" ng-repeat="data in specialItem">
-			<img src="{{data.pic}}" alt="">
-			<h2 class="intwoline">{{data.title}}</h2>
-			<p class="intwoline">{{data.subTitle}}</p>
-		</a>
-	</div>
-<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-</ion-content>
+	<ion-content class="special-content">
+		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+		<div class="special">
+			<a class="item special-items" ng-repeat="data in specialItem">
+				<img src="{{data.pic}}" alt="">
+				<h2 class="intwoline">{{data.title}}</h2>
+				<p class="intwoline">{{data.subTitle}}</p>
+			</a>
+		</div>
+		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+	</ion-content>
+</div>

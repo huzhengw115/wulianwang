@@ -12,7 +12,7 @@
 	    <a ng-if="keyword.length"
            on-touch="clearSearch()"
            class="clear-search">
-          <i class="icon icon-clear placeholder-icon"></i>
+        	<i class="icon icon-clear placeholder-icon"></i>
         </a>
 	  </div>
 	  <button class="find-search-button" ng-click="toSearch()">
@@ -30,11 +30,11 @@
 					<p>热门搜索</p>
 				</div>
 				<div class="find-hot-item">
-					<label>政策</label>
-					<label>政策</label>
-					<label>政策</label>
-					<label>政策</label>
-					<label>政策</label>
+					<a class="item" ng-click="toFind(0)">政策</a>
+					<a class="item" ng-click="toFind(1)">政策</a>
+					<a class="item" ng-click="toFind(2)">政策</a>
+					<a class="item" ng-click="toFind(3)">政策</a>
+					<a class="item" ng-click="toFind(4)">政策</a>
 				</div>
 			</div>
 			<div class="find-history" ng-if="!keyword.length">
@@ -42,11 +42,11 @@
 					<p>历史搜索</p>
 				</div>
 				<div class="find-history-item">
-					<a class="item"><p>历史纪录</p></a>
-					<a class="item"><p>历史纪录</p></a>
-					<a class="item"><p>历史纪录</p></a>
-					<a class="item"><p>历史纪录</p></a>
-					<a class="item"><p>历史纪录</p></a>
+					<a class="item" ng-click="toFind(5)"><p>历史纪录</p></a>
+					<a class="item" ng-click="toFind(6)"><p>历史纪录</p></a>
+					<a class="item" ng-click="toFind(7)"><p>历史纪录</p></a>
+					<a class="item" ng-click="toFind(8)"><p>历史纪录</p></a>
+					<a class="item" ng-click="toFind(9)"><p>历史纪录</p></a>
 				</div>
 			</div>
 			<div class="find-result" ng-if="keyword.length && searchData">

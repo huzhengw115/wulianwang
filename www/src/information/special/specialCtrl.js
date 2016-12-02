@@ -1,6 +1,6 @@
 angular.module('Special', [])
 
-.controller('SpecialCtrl', function ($scope, homeService, LoaderService, informationService, $timeout) {
+.controller('SpecialCtrl', function ($scope, LoaderService, informationService, $timeout) {
   // 二级栏目的首选项
   $scope.slideNumber = 3
   // 上拉加载的控制
@@ -22,8 +22,8 @@ angular.module('Special', [])
 
   // 上拉加载
   $scope.loadMore = function () {
-    homeService.homeListItem().then(function (homeItem) {
-      Array.prototype.push.apply($scope.specialItem, homeItem)
+    informationService.getSpecialListItem().then(function (specialItem) {
+      Array.prototype.push.apply($scope.specialItem, specialItem)
       console.log('上拉:', $scope.specialItem)
     })
       .finally(function () {
@@ -33,8 +33,8 @@ angular.module('Special', [])
   // 下拉刷新
   $scope.doRefresh = function () {
     // LoaderService.show()
-    homeService.homeListItem().then(function (homeItem) {
-      $scope.specialItem = homeItem
+    informationService.getSpecialListItem().then(function (specialItem) {
+      $scope.specialItem = specialItem
       console.log('下拉:', $scope.specialItem)
     })
       .finally(function () {

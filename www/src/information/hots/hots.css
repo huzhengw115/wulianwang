@@ -1,3 +1,7 @@
+.hots-content {
+	top: 52px;
+}
+
 @media screen and (min-width: 320px){
 	.hots-list-items > img {
 		max-width: 150px !important;

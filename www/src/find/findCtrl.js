@@ -21,7 +21,7 @@ angular.module('Find', [])
 	//搜索按钮
 	$scope.toSearch = function () {
 		$scope.searchData = true
-		console.log('keyword:',$scope.keyword);
+		console.log('$scope.keyword:', $scope.keyword)
 	}
 	//input内容变动时执行的函数
 	$scope.searchChange = function() {
@@ -33,9 +33,15 @@ angular.module('Find', [])
 			$scope.more = true
 		}
   }
-  //清除input中的内容
+  //清除按钮清除input中的内容
   $scope.clearSearch = function () {
   	$scope.keyword = ''
+  	$scope.searchData = false
     $ionicScrollDelegate.scrollTop()
+  }
+  //热门历史搜索
+  $scope.toFind = function (index) {
+  	$scope.keyword = String(index)
+  	$scope.toSearch()
   }
 })

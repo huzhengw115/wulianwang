@@ -45,43 +45,52 @@ angular.module('Home', [])
   		case 0:
   			{
   				//加载tabSelect的css
-  				$ocLazyLoad.load('src/information/tabSelect/tabSelect.css')
-  				//资讯页相应的ctrl和css
-  				var informationFile = homeViewUrl.informationFile
-  				//首先根据二级栏目的选项加载相应的ctrl和css
-  				$ocLazyLoad.load(informationFile[$scope.informationTab]).then(function () {
-  					//在加载完ctrl和css之后再加载视图
-            $scope.homeDetail = informationView[$scope.informationTab]
+  				$ocLazyLoad.load(['src/information/optionSelect/optionSelect.css','src/information/tabSelect/tabSelect.css','src/information/informationService.js']).then(function () {
+            //资讯页相应的ctrl和css
+            var informationFile = homeViewUrl.informationFile
+            //首先根据二级栏目的选项加载相应的ctrl和css
+            $ocLazyLoad.load(informationFile[$scope.informationTab]).then(function () {
+              //在加载完ctrl和css之后再加载视图
+              $scope.homeDetail = informationView[$scope.informationTab]
+            })
           })
   			}
   			break
   		case 1:
   			{
-  				var programmeFile = homeViewUrl.programmeFile
-          $ocLazyLoad.load(programmeFile[$scope.programmeTab]).then(function () {
-            $scope.homeDetail = programmeView[$scope.programmeTab]
+          $ocLazyLoad.load(['src/programme/programmeService.js','src/programme/tabSelect/tabSelect.css']).then(function () {
+            var programmeFile = homeViewUrl.programmeFile
+            $ocLazyLoad.load(programmeFile[$scope.programmeTab]).then(function () {
+              $scope.homeDetail = programmeView[$scope.programmeTab]
+            })
           })
   			}
   			break
   		case 2:
   			{
-  				var goodsFile = homeViewUrl.goodsFile
-          $ocLazyLoad.load(goodsFile[$scope.goodsTab]).then(function () {
-            $scope.homeDetail = goodsView[$scope.goodsTab]
+          $ocLazyLoad.load(['src/goods/goodsService.js','src/goods/tabSelect/tabSelect.css']).then(function () {
+            var goodsFile = homeViewUrl.goodsFile
+            $ocLazyLoad.load(goodsFile[$scope.goodsTab]).then(function () {
+              $scope.homeDetail = goodsView[$scope.goodsTab]
+            })
           })
   			}
   			break
   		case 3:
   			{
-  				$ocLazyLoad.load(homeViewUrl.meetsFile).then(function () {
-            $scope.homeDetail = homeTemplate[index]
+          $ocLazyLoad.load(['src/home/homeService.js','src/meets/meetsService.js']).then(function () {
+            $ocLazyLoad.load(homeViewUrl.meetsFile).then(function () {
+              $scope.homeDetail = homeTemplate[index]
+            })
           })
   			}
   			break
   		case 4:
   			{
-  				$ocLazyLoad.load(homeViewUrl.waiterFile).then(function () {
-            $scope.homeDetail = homeTemplate[index]
+          $ocLazyLoad.load(['src/home/homeService.js','src/waiter/waiterService.js']).then(function () {
+            $ocLazyLoad.load(homeViewUrl.waiterFile).then(function () {
+              $scope.homeDetail = homeTemplate[index]
+            })
           })
   			}
   			break

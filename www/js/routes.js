@@ -41,7 +41,7 @@ angular.module('starter.routes', [])
       },
       resolve: {
        loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-         return $ocLazyLoad.load(['src/home/homeService.js','src/information/informationService.js','src/programme/programmeService.js','src/goods/goodsService.js','src/meets/meetsService.js','src/waiter/waiterService.js']).then(function () {
+         return $ocLazyLoad.load(['src/home/homeService.js']).then(function () {
             return $ocLazyLoad.load('src/home/homeDetailCtrl.js')
          })
         }]

@@ -1,4 +1,6 @@
-
+.investment-content {
+	top: 52px;
+}
 
 @media screen and (min-width: 320px){
 	.investment-list-item > img {

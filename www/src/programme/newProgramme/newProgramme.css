@@ -1,3 +1,7 @@
+.newProgramme-content {
+	top: 52px;
+}
+
 .new-programme {
 	display: flex;
 	flex-wrap: wrap;
@@ -87,7 +91,6 @@
 }
 
 .new-list-item p {
-	position: absolute;
 	bottom: 5px;
 	color: #00a0ff;
 	font-size: 12px;
