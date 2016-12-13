@@ -1,6 +1,11 @@
+.meets-content {
+	top: 80px;
+}
+
 .meets-button {
 	background-color: #fff;
 	overflow: auto;
+	border-bottom: 2px solid #eee;
 }
 
 .meets-button > div {

@@ -1,0 +1,58 @@
+.read-content {
+	background-color: #eee;
+	top: 45px;
+}
+
+.read-search {
+	background-color: #fff;
+	margin: 15px 15px 0 15px;
+	border-radius: 20px;
+}
+
+.read-search-icon {
+	padding: 3px 10px 3px 5px;
+	font-size: 16px;
+	color: #999;
+}
+
+.read-search-form {
+	width: 100%;
+}
+
+.read-search-form > input {
+	width: 95%;
+}
+
+.read-hot-tab, .read-mine-tab, .read-search-tab {
+	padding: 20px 15px 0 15px;
+}
+
+.read-hot-tab-title, .read-mine-tab-title, .read-search-tab-title {
+	overflow: auto;
+}
+
+.read-hot-tab-title > p:first-of-type, .read-mine-tab-title > p:first-of-type, .read-search-tab-title > p:first-of-type {
+	font-size: 16px;
+	font-weight: 700;
+	color: #666;
+	float: left;
+}
+
+.read-hot-tab-title > p:last-of-type, .read-mine-tab-title > p:last-of-type, .read-search-tab-title > p:last-of-type {
+	float: right;
+	color: #00a0ff;
+}
+
+.read-hot-tab-item, .read-mine-tab-item, .read-search-tab-item {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.read-hot-tab-item > p, .read-mine-tab-item > p, .read-search-tab-item > p {
+	color: #666;
+	background-color: #fff;
+	margin: 10px;
+	padding: 5px;
+	border-radius: 5px;
+}

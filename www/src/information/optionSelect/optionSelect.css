@@ -1,3 +1,7 @@
+.option-content {
+	border-top: 3px solid #eee
+}
+
 .option-button {
 	background-color: #fff;
 	height: 30px;

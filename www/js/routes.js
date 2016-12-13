@@ -42,7 +42,7 @@ angular.module('starter.routes', [])
       resolve: {
        loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
          return $ocLazyLoad.load(['src/home/homeService.js']).then(function () {
-            return $ocLazyLoad.load('src/home/homeDetailCtrl.js')
+            return $ocLazyLoad.load(['src/home/homeDetailCtrl.js','src/home/homeDetail.css'])
          })
         }]
       }

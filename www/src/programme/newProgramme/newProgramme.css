@@ -1,5 +1,5 @@
 .newProgramme-content {
-	top: 52px;
+	top: 95px;
 }
 
 .new-programme {
@@ -7,6 +7,7 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 	background-color: #fff;
+	border-top: 2px solid #eee;
 }
 
 .new-programme-item {

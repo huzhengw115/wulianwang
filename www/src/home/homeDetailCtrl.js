@@ -96,7 +96,11 @@ angular.module('Home', [])
   			break
   		case 5:
   			{
-  				
+  				$ocLazyLoad.load('src/read/readService.js').then(function () {
+            $ocLazyLoad.load(['src/read/read.css','src/read/readCtrl.js']).then(function () {
+              $scope.homeDetail = homeTemplate[index]
+            })
+          })
   			}
   			break
   		case 6:

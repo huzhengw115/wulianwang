@@ -9,10 +9,6 @@
 		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
 		</ion-refresher>
 
-		<div class="home-url">
-			<a class="home-url-item" ng-repeat="data in homeSrc" href="#/tab/home/{{data.id}}">{{data.title}}</a>
-		</div>
-
 		<div class="home-pic">
 		  	<ion-slide-box 	on-slide-changed="slideHasChanged($Number);" 
 		  					auto-play="true" 
@@ -28,6 +24,10 @@
 					</div>
 				</ion-slide>
 			</ion-slide-box>
+		</div>
+
+		<div class="home-url">
+			<a class="home-url-item" ng-repeat="data in homeSrc" href="#/tab/home/{{data.id}}">{{data.title}}</a>
 		</div>
 
 		<div class="home-list">

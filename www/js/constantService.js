@@ -20,7 +20,7 @@ angular.module('constantService', [])
         '',
         'src/meets/meets.html',
         'src/waiter/waiter.html',
-        '',
+        'src/read/read.html',
         '',
         'src/find/find.html'
       ],

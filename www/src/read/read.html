@@ -1,0 +1,44 @@
+<ion-content ng-controller="ReadCtrl" class="read-content">
+
+	<div class="read-search item-input-wrapper">
+		<i class="ion-search read-search-icon"></i>
+		<form class="read-search-form">
+			<input type="search"
+			maxlength="20"
+			placeholder="搜索添加标签"
+			ng-model="keyTab"
+			ng-change="tabChange()">
+		</form>
+	</div>
+
+	<div class="read-search-tab" ng-if="keyTab.length">
+		<div class="read-search-tab-title">
+			<p>搜索标签</p>
+			<p>换一批</p>
+		</div>
+		<div class="read-search-tab-item">
+			<p ng-repeat="data in readSearchTab" ng-click="addSearchTab({{data.id}})">{{data.title}}</p>
+		</div>
+	</div>
+
+	<div class="read-hot-tab" ng-if="!keyTab.length">
+		<div class="read-hot-tab-title">
+			<p>推荐标签</p>
+			<p>换一批</p>
+		</div>
+		<div class="read-hot-tab-item">
+			<p ng-repeat="data in readHotTab" ng-click="addHotTab({{data.id}})">{{data.title}}</p>
+		</div>
+	</div>
+
+	<div class="read-mine-tab">
+		<div class="read-mine-tab-title">
+			<p>我的标签</p>
+			<p>删除标签</p>
+		</div>
+		<div class="read-mine-tab-item">
+			<p ng-repeat="data in readMineTab">{{data.title}}</p>
+		</div>
+	</div>
+
+</ion-content>
