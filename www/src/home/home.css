@@ -1,6 +1,7 @@
 .homeTop {
 	background-color: #00a0ff;
 	overflow: auto;
+    z-index: 10000;
 }
 
 .homeTop-title {

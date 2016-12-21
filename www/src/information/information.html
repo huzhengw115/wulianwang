@@ -1,0 +1,51 @@
+<ion-view view-title="资讯页" hide-tabs="true">
+  <div class="slide-tab">
+    <input type="radio" name="radio-set" ng-checked="slideIndex == 0 ? 'checked' : ''" ng-click="informationSlide(0)" id="information_slide_0">
+    <p>热 门</p>
+    <input type="radio" name="radio-set" ng-checked="slideIndex == 1 ? 'checked' : ''" ng-click="informationSlide(1)" id="information_slide_1">
+    <p>政 策</p>
+    <input type="radio" name="radio-set" ng-checked="slideIndex == 2 ? 'checked' : ''" ng-click="informationSlide(2)" id="information_slide_2">
+    <p>观 点</p>
+    <input type="radio" name="radio-set" ng-checked="slideIndex == 3 ? 'checked' : ''" ng-click="informationSlide(3)" id="information_slide_3">
+    <p>专 题</p>
+    <input type="radio" name="radio-set" ng-checked="slideIndex == 4 ? 'checked' : ''" ng-click="informationSlide(4)" id="information_slide_4">
+    <p>服 务</p>
+  </div>
+  <ion-content class="information_content" delegate-handle＝"news_hot_content" scroll="false" overflow-scroll="ture">
+
+    <ion-slide-box delegate-handle="newsSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false" style="top: 0;bottom: 0;position: absolute !important; width:100%">
+
+      <ion-slide>
+        <div ng-include="information">
+            
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div ng-include="policy">
+            
+        </div>
+      </ion-slide>
+      
+      <ion-slide>
+        <div ng-include="idea">
+            
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div ng-include="special">
+            
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div ng-include="shop">
+            
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+
+  </ion-content>
+</ion-view>

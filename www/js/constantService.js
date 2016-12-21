@@ -48,27 +48,35 @@ angular.module('constantService', [])
 .service('homeSrcService', function () {
   var homeSrc = [{
     'id': 0,
+    'href': 'information',
     "title": "资讯"
   },{
     'id': 1,
+    'href': 'programme',
     "title": "方案"
   },{
     'id': 2,
+    'href': 'goods',
     "title": "商机"
   },{
     'id': 3,
+    'href': 'meets',
     "title": "活动"
   },{
     'id': 4,
+    'href': 'waiter',
     "title": "服务"
   },{
     'id': 5,
+    'href': 'read',
     "title": "订阅"
   },{
     'id': 6,
+    'href': 'hot',
     "title": "推荐"
   },{
     'id': 7,
+    'href': 'find',
     "title": "搜索"
   }]
 

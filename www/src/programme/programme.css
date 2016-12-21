@@ -1,0 +1,109 @@
+.slide-tab {
+    background-color: white;
+    width: 100%;
+    height: 44px;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.slide-tab > input {
+    position: absolute;
+    width: 22%;
+    height: 44px;
+    opacity: 0;
+    z-index: 100;
+}
+
+.slide-tab > p {
+    height: 44px;
+    line-height: 44px;
+    top: 0;
+    position: absolute;
+    padding: 0 7px 0;
+    z-index: 10;
+    font-weight: 550;
+    font-size: 1em;
+    text-decoration: none;
+    text-align: center;
+    color: #aaa;
+    /* text-shadow: 1px 1px 1px rgba(151,24,64,0.2); */
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 300px){
+    #programme_slide_0, #programme_slide_0 + p {
+        left: 2%;
+    }
+
+    #programme_slide_1, #programme_slide_1 + p {
+        left: 26%;
+    }
+
+    #programme_slide_2, #programme_slide_2 + p {
+        left: 51%;
+    }
+
+    #programme_slide_3, #programme_slide_3 + p {
+        left: 76%;
+    }
+}
+
+@media screen and (min-width: 370px){
+    #programme_slide_0, #programme_slide_0 + p {
+        left: 4%;
+    }
+
+    #programme_slide_1, #programme_slide_1 + p {
+        left: 29%;
+    }
+
+    #programme_slide_2, #programme_slide_2 + p {
+        left: 54%;
+    }
+
+    #programme_slide_3, #programme_slide_3 + p {
+        left: 79%;
+    }
+}
+
+@media screen and (min-width: 760px){
+    #programme_slide_0, #programme_slide_0 + p {
+        left: 8%;
+    }
+
+    #programme_slide_1, #programme_slide_1 + p {
+        left: 33%;
+    }
+
+    #programme_slide_2, #programme_slide_2 + p {
+        left: 58%;
+    }
+
+    #programme_slide_3, #programme_slide_3 + p {
+        left: 83%;
+    }
+}
+
+.slide-tab > input:checked + p {
+    color: #00a0ff;
+}
+
+.slide-tab > input:checked + p:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #00a0ff;
+    bottom: 0px;
+    left: 0;
+    z-index: 100;
+}
+
+.programme_content {
+    top: 44px;
+}

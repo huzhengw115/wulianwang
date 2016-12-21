@@ -1,0 +1,119 @@
+.slide-tab {
+    background-color: white;
+    width: 100%;
+    height: 44px;
+    position: relative;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.slide-tab > input {
+    position: absolute;
+    width: 18%;
+    height: 44px;
+    opacity: 0;
+    z-index: 100;
+}
+
+.slide-tab > p {
+    height: 44px;
+    line-height: 44px;
+    top: 0;
+    position: absolute;
+    padding: 0 7px 0;
+    z-index: 10;
+    font-weight: 550;
+    font-size: 1em;
+    text-decoration: none;
+    text-align: center;
+    color: #aaa;
+    /* text-shadow: 1px 1px 1px rgba(151,24,64,0.2); */
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 300px){
+    #information_slide_0, #information_slide_0 + p {
+        left: 7%;
+    }
+
+    #information_slide_1, #information_slide_1 + p {
+        left: 25%;
+    }
+
+    #information_slide_2, #information_slide_2 + p {
+        left: 42%;
+    }
+
+    #information_slide_3, #information_slide_3 + p {
+        left: 59%;
+    }
+    #information_slide_4, #information_slide_4 + p {
+        left: 76%;
+    }
+}
+
+@media screen and (min-width: 370px){
+    #information_slide_0, #information_slide_0 + p {
+        left: 7%;
+    }
+
+    #information_slide_1, #information_slide_1 + p {
+        left: 26%;
+    }
+
+    #information_slide_2, #information_slide_2 + p {
+        left: 44%;
+    }
+
+    #information_slide_3, #information_slide_3 + p {
+        left: 62%;
+    }
+    #information_slide_4, #information_slide_4 + p {
+        left: 79%;
+    }
+}
+
+@media screen and (min-width: 740px){
+    #information_slide_0, #information_slide_0 + p {
+        left: 6%;
+    }
+
+    #information_slide_1, #information_slide_1 + p {
+        left: 26%;
+    }
+
+    #information_slide_2, #information_slide_2 + p {
+        left: 46%;
+    }
+
+    #information_slide_3, #information_slide_3 + p {
+        left: 66%;
+    }
+    #information_slide_4, #information_slide_4 + p {
+        left: 86%;
+    }
+}
+
+.slide-tab > input:checked + p {
+    color: #00a0ff;
+}
+
+.slide-tab > input:checked + p:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #00a0ff;
+    bottom: 0px;
+    left: 0;
+    z-index: 100;
+}
+
+.information_content {
+    top: 44px;
+    background-color: #eee;
+}
