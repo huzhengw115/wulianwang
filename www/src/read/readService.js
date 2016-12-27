@@ -35,8 +35,26 @@ angular.module('Read', [])
     return deferred.promise
   }
 
+  //我的标签的获取
+  var getMyTab = function () {
+    var myTab = []
+    var deferred = $q.defer()
+    $http.get('json/hotTab.json')
+    .success(function (data) {
+      myTab = data.my
+      //console.log(myTab)
+      deferred.resolve(myTab)
+    })
+    .error(function () {
+      console.log('获取我的标签失败')
+      deferred.reject()
+    })
+    return deferred.promise
+  }
+
   return {
     getHotTab: getHotTab,
-    getSearchTab: getSearchTab
+    getSearchTab: getSearchTab,
+    getMyTab: getMyTab
   }
 })

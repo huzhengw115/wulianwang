@@ -1,0 +1,77 @@
+<ion-view view-title="方案详情页" hide-tabs="true">
+  <ion-content class="project-content">
+    <div class="project-head">
+      <h2 class="project-head-title">{{detailData.title}}</h2>
+      <div class="project-head-list">
+        <p>{{detailData.inputtime}}</p>
+        <p>{{detailData.copyfrom}}</p>
+        <p>阅读：{{detailData.clicks}}</p>
+      </div>
+    </div>
+    <div class="project-table">
+      <div id="project-table" class="{{ projectTable === true ? 'open' : 'close' }}">
+        <ul>
+          <!-- 方案介绍 -->
+          <li class="project-table-subname"><p>{{tableTitle.desc}}</p></li>
+          <li class="project-table-content" ng-click="showTable(tableTitle.desc,detailData.desc)">{{detailData.desc}}</li>
+        </ul>
+        <ul>
+          <!-- 投入资金 -->
+          <li class="project-table-subname"><p>{{tableTitle.investment}}</p></li>
+          <li class="project-table-subcontent" ng-click="showTable(tableTitle.investment,detailData.investment)">{{detailData.investment}}</li>
+          <!-- 预期产生效益 -->
+          <li class="project-table-name"><p>{{tableTitle.benefit}}</p></li>
+          <li class="project-table-subcontent" ng-click="showTable(tableTitle.benefit,detailData.benefit)">{{detailData.benefit}}</li>
+        </ul>
+        <ul>
+          <!-- 方案优势 -->
+          <li class="project-table-subname"><p>{{tableTitle.advantage}}</p></li>
+          <li class="project-table-content" ng-click="showTable(tableTitle.advantage,detailData.advantage)">{{detailData.advantage}}</li>
+        </ul>
+        <ul>
+          <!-- 预期效果 -->
+          <li class="project-table-subname"><p>{{tableTitle.effect}}</p></li>
+          <li class="project-table-content" ng-click="showTable(tableTitle.effect,detailData.effect)">{{detailData.effect}}</li>
+        </ul>
+        <ul>
+          <!-- 应用范围 -->
+          <li class="project-table-subname"><p>{{tableTitle.range}}</p></li>
+          <li class="project-table-subcontent" ng-click="showTable(tableTitle.range,detailData.range)">{{detailData.range}}</li>
+          <!-- 方案实施难度 -->
+          <li class="project-table-name"><p>{{tableTitle.difficulty}}</p></li>
+          <li class="project-table-subcontent" ng-click="showTable(tableTitle.difficulty,detailData.difficulty)">{{detailData.difficulty}}</li>
+        </ul>
+        <ul>
+          <!-- 试用场景 -->
+          <li class="project-table-subname"><p>{{tableTitle.place}}</p></li>
+          <li class="project-table-content" ng-click="showTable(tableTitle.place,detailData.place)">{{detailData.place}}</li>
+        </ul>
+        <div class="project-table-show" ng-if=(isShow) ng-click="hideTable()">
+          <div id="project-table-show" class="{{ isTableShow === true ? 'open' : 'close' }}">
+            <h3>{{titleShow}}：</h3>
+            <p>{{tableShow}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="change-button" ng-click="toBeLong()">
+        <p class="change-button-decoration-left"></p>
+        <p class="change-button-content-left">
+          <label ng-if="openButton">展</label>
+          <label ng-if="closeButton">关</label>
+        </p>
+        <p class="change-button-decoration-right"></p>
+        <p class="change-button-content-right">
+          <label ng-if="openButton">开</label>
+          <label ng-if="closeButton">闭</label>
+        </p>
+        </div>
+    </div>
+    <main class="project-page" ng-bind-html="detailData.content"></main>
+    <div class="project-bottom">
+      <div class="project-tag">
+        <p ng-repeat="data in tags">{{data.name}}</p>
+      </div>
+      <p class="project-author">编辑：{{detailData.author}}</p>
+    </div>
+  </ion-content>
+</ion-view>

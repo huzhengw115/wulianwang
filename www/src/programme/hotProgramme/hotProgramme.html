@@ -1,6 +1,4 @@
 <div ng-controller="HotProgrammeCtrl">
-	<div ng-include="'src/programme/tabSelect/tabSelect.html'"></div>
-
 	<ion-content class="hotProgramme-content">
 		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
@@ -12,7 +10,7 @@
 		</div>
 
 		<div class="hot-list">
-			<a class="item hot-list-item intwoline item-thumbnail-right" ng-repeat="data in hotProgrammeListItem">
+			<a class="item hot-list-item intwoline item-thumbnail-right" ng-repeat="data in hotProgrammeListItem" href="#/tab/programme/{{data.id}}">
 				<img src="{{data.pic}}">
 				<h2 class="intwoline">{{data.title}}</h2>
 				<div>

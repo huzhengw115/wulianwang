@@ -6,7 +6,7 @@
 		<div ng-include="'src/information/optionSelect/optionSelect.html'"></div>
 		
 		<div class="policy-list">
-			<a href="" class="item policy-list-items item-thumbnail-right" ng-repeat="data in policyItem">
+			<a href="#/tab/information/page/{{data.id}}" class="item policy-list-items item-thumbnail-right" ng-repeat="data in policyItem">
 				<img src="{{data.pic}}" alt="">
 				<h2 class="intwoline">{{data.title}}</h2>
 				<div class="policy-list-item">

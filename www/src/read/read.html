@@ -1,44 +1,57 @@
-<ion-content ng-controller="ReadCtrl" class="read-content">
+<ion-view view-title="订阅页" hide-tabs="true">
 
-	<div class="read-search item-input-wrapper">
-		<i class="ion-search read-search-icon"></i>
-		<form class="read-search-form">
-			<input type="search"
-			maxlength="20"
-			placeholder="搜索添加标签"
-			ng-model="keyTab"
-			ng-change="tabChange()">
-		</form>
-	</div>
+  <div class="read-search item-input-inset">
+    <div class="read-search-input item-input-wrapper">
+      <i class="ion-search read-search-icon"></i>
+      <form class="read-search-form">
+        <input  type="search"
+                  placeholder="搜索添加标签"
+                  maxlength="20"
+                  ng-model="keyTab"
+                  ng-change="tabChange()">
+      </form>
+      <a  ng-if="keyTab.length"
+            on-touch="clearSearch()"
+            class="clear-search">
+        <i class="icon icon-clear placeholder-icon"></i>
+      </a>
+    </div>
+    <button class="read-search-button" ng-click="toSearch()">
+      确定
+    </button>
+  </div>
 
-	<div class="read-search-tab" ng-if="keyTab.length">
-		<div class="read-search-tab-title">
-			<p>搜索标签</p>
-			<p>换一批</p>
-		</div>
-		<div class="read-search-tab-item">
-			<p ng-repeat="data in readSearchTab" ng-click="addSearchTab({{data.id}})">{{data.title}}</p>
-		</div>
-	</div>
+  <ion-content class="read-content">
 
-	<div class="read-hot-tab" ng-if="!keyTab.length">
-		<div class="read-hot-tab-title">
-			<p>推荐标签</p>
-			<p>换一批</p>
-		</div>
-		<div class="read-hot-tab-item">
-			<p ng-repeat="data in readHotTab" ng-click="addHotTab({{data.id}})">{{data.title}}</p>
-		</div>
-	</div>
+    <div class="read-search-tab" ng-if="keyTab.length && showSearch">
+      <div class="read-search-tab-title">
+        <p>搜索标签</p>
+        <p ng-click="updataSearchTab()"><i id="updata-search" class="ion-loop {{ isSearchUpdata ? 'updata-search' : '' }}"></i>换一批</p>
+      </div>
+      <div class="read-search-tab-item">
+        <p ng-repeat="data in readSearchTab" ng-click="addTab(data,1)" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.title}}</p>
+      </div>
+    </div>
 
-	<div class="read-mine-tab">
-		<div class="read-mine-tab-title">
-			<p>我的标签</p>
-			<p>删除标签</p>
-		</div>
-		<div class="read-mine-tab-item">
-			<p ng-repeat="data in readMineTab">{{data.title}}</p>
-		</div>
-	</div>
+    <div class="read-hot-tab" ng-if="!keyTab.length">
+      <div class="read-hot-tab-title">
+        <p>推荐标签</p>
+        <p ng-click="updateHotTab()"><i id="updata-hot" class="ion-loop {{ isHotUpdata ? 'updata-hot' : '' }}"></i>换一批</p>
+      </div>
+      <div class="read-hot-tab-item">
+        <p ng-repeat="data in readHotTab" ng-click="addTab(data,0)" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.title}}</p>
+      </div>
+    </div>
 
-</ion-content>
+    <div class="read-mine-tab">
+      <div class="read-mine-tab-title">
+        <p>我的标签</p>
+        <p ng-click=removeTab()>删除标签</p>
+      </div>
+      <div class="read-mine-tab-item">
+        <p ng-repeat="data in readMyTab" ng-click=selectTab(data) class="{{selectClass == data.id ? 'select-tab': ''}}">{{data.title}}</p>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

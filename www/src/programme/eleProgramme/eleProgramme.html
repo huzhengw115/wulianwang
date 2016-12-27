@@ -1,11 +1,9 @@
 <div ng-controller="EleProgrammeCtrl">
-	<div ng-include="'src/programme/tabSelect/tabSelect.html'"></div>
-
 	<ion-content class="eleProgramme-content">
 		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 		
 		<div class="ele-list">
-			<a class="item ele-list-item intwoline item-thumbnail-right" ng-repeat="data in eleProgrammeListItem">
+			<a class="item ele-list-item intwoline item-thumbnail-right" ng-repeat="data in eleProgrammeListItem" href="#/tab/programme/{{data.id}}">
 				<img src="{{data.pic}}">
 				<h2 class="intwoline">{{data.title}}</h2>
 				<div>

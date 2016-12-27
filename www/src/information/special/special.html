@@ -4,7 +4,7 @@
 		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
 		<div class="special">
-			<a class="item special-items" ng-repeat="data in specialItem">
+			<a href="#/tab/information/special/{{data.id}}" class="item special-items" ng-repeat="data in specialItem">
 				<img src="{{data.pic}}" alt="">
 				<h2 class="intwoline">{{data.title}}</h2>
 				<p class="intwoline">{{data.subTitle}}</p>

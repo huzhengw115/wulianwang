@@ -1,0 +1,91 @@
+.page-content {
+	background-color: #eee;
+	padding: 0;
+}
+
+.page-head {
+	padding: 15px 15px 10px 15px;
+	background-color: #fff;
+}
+
+.page-head-title {
+	font-size: 24px;
+	font-weight: 700;
+	padding-bottom: 10px;
+}
+
+.page-head-list {
+	overflow: auto;
+}
+
+.page-head-list > p {
+	float: left;
+	margin-right: 15px;
+	font-size: 14px;
+	color: #666;
+}
+
+.page-head-list > p:last-of-type {
+	float: right;
+	margin: 0;
+}
+
+.page-head-pic {
+	width: 100%;
+	height: auto;
+}
+
+.page-page {
+	background-color: #fff;
+	font-size: 18px;
+	line-height: 1.7;
+	padding: 15px;
+	padding-top: 0;
+}
+
+.page-page img {
+	width: 100%;
+	height: auto;
+}
+
+.page-bottom {
+	background-color: #fff;
+	overflow: auto;
+	padding: 0 15px;
+}
+
+.page-tag {
+	overflow: auto;
+	float: left;
+}
+
+.page-tag > p{
+	float: left;
+	border: 1px solid #ddd;
+	background-color: #eee;
+	padding: 3px 10px;
+	border-radius: 10px;
+	margin-right: 5px;
+	font-size: 12px;
+	color: #666;
+}
+
+.page-author {
+	float: right;
+	font-size: 14px;
+	color: #666;
+	padding-top: 5px;
+}
+
+.page-footer {
+	margin-top: 8px;
+	background-color: #fff;
+}
+
+.special-content {
+	background-color: #eee;
+}
+
+.special-page img {
+	width: 100%;
+}

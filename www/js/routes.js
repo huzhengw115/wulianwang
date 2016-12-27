@@ -2,6 +2,7 @@ angular.module('starter.routes', [])
 
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom')
+  $ionicConfigProvider.tabs.style("standard");
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -49,6 +50,40 @@ angular.module('starter.routes', [])
     }
   })
 
+  .state('tab.information-page', {
+    url: '/information/page/:pageId',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/information/detail/page.html',
+        controller: 'PageCtrl'
+      }
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load('src/information/detail/detailService.js').then(function () {
+          return $ocLazyLoad.load(['src/information/detail/detailCtrl.js','src/information/detail/detail.css'])
+        })
+      }]
+    }
+  })
+
+  .state('tab.information-special', {
+    url: '/information/special/:specialId',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/information/detail/special.html',
+        controller: 'SpecialPageCtrl'
+      }
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load('src/information/detail/detailService.js').then(function () {
+          return $ocLazyLoad.load(['src/information/detail/detailCtrl.js','src/information/detail/detail.css'])
+        })
+      }]
+    }
+  })
+
   .state('tab.programme', {
     url: '/programme',
     views: {
@@ -61,6 +96,23 @@ angular.module('starter.routes', [])
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
         return $ocLazyLoad.load(['src/programme/programmeService.js']).then(function () {
           return $ocLazyLoad.load(['src/programme/programmeCtrl.js', 'src/programme/programme.css'])
+        })
+      }]
+    }
+  })
+
+  .state('tab.programmeDetail', {
+    url: '/programme/:programmeId',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/programme/detail/detail.html',
+        controller: 'ProgrammeDetailCtrl'
+      }
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/programme/programmeService.js']).then(function () {
+          return $ocLazyLoad.load(['src/programme/detail/detailCtrl.js', 'src/programme/detail/detail.css'])
         })
       }]
     }
@@ -134,6 +186,23 @@ angular.module('starter.routes', [])
     }
   })
 
+  .state('tab.hot', {
+    url: '/hot',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/hot/hot.html',
+        controller: 'HotCtrl'
+      }
+    },
+    resolve: {
+      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/hot/hotService.js']).then(function () {
+          return $ocLazyLoad.load(['src/hot/hot.css','src/hot/hotCtrl.js'])
+        })
+      }]
+    }
+  })
+
   .state('tab.find', {
     url: '/find',
     views: {
@@ -169,38 +238,21 @@ angular.module('starter.routes', [])
     })
 
   .state('tab.detail-page', {
-      url: '/detail/:detailPageId',
-      views: {
-        'tab-home': {
-          templateUrl: 'src/page/detail/detailPage.html',
-          controller: 'DetailPageCtrl'
-        }
-      },
-      resolve: {
-       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-         return $ocLazyLoad.load('src/page/pageService.js').then(function () {
-            return $ocLazyLoad.load(['src/page/detail/detailPage.css','src/page/detail/detailPageCtrl.js'])
-         })
-        }]
+    url: '/detail/:detailPageId',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/page/detail/detailPage.html',
+        controller: 'DetailPageCtrl'
       }
-    })
-
-  .state('tab.programme-page', {
-      url: '/programme/:programmePageId',
-      views: {
-        'tab-home': {
-          templateUrl: 'src/page/programme/programmePage.html',
-          controller: 'ProgrammePageCtrl'
-        }
-      },
-      resolve: {
-       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-         return $ocLazyLoad.load('src/page/pageService.js').then(function () {
-            return $ocLazyLoad.load(['src/page/programme/programmePageCtrl.js','src/page/programme/programmePage.css'])
-         })
-        }]
-      }
-    })
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load('src/page/pageService.js').then(function () {
+          return $ocLazyLoad.load(['src/page/detail/detailPage.css','src/page/detail/detailPageCtrl.js'])
+        })
+      }]
+    }
+  })
 
   .state('tab.mine', {
     url: '/mine',

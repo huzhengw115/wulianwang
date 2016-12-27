@@ -2,6 +2,17 @@
 	"information":[{
 		"id": 0,
 		"adress": "天津泰达",
+		"times": "2016年12月21日",
+		"tags": [{
+			"id": "0",
+			"name": "标签"
+		},{
+			"id": "1",
+			"name": "标签"
+		}],
+		"author": "Linb",
+		"picture": "img/special.jpg",
+		"clicks": "90",
 		"time": "2小时前",
 		"class": "资讯",
 		"pic": "img/datatitle/img113.jpg",

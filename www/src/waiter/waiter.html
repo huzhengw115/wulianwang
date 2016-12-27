@@ -1,16 +1,18 @@
-<ion-content ng-controller="WaiterCtrl" class="waiter-content">
-	<div>
-		<h2 class="waiter-ask-title">咨询服务</h2>
-		<div class="waiter-ask-list">
-			<a class="waiter-ask-list-item item" ng-repeat="data in AskListItem">
-				<img src="{{data.pic}}">
-				<h2 class="intwoline">{{data.title}}</h2>
-			</a>
+<ion-view view-title="服务业" hide-tabs="true">
+	<ion-content class="waiter-content">
+		<div>
+			<h2 class="waiter-ask-title">咨询服务</h2>
+			<div class="waiter-ask-list">
+				<a class="waiter-ask-list-item item" ng-repeat="data in AskListItem">
+					<img src="{{data.pic}}">
+					<h2 class="intwoline">{{data.title}}</h2>
+				</a>
+			</div>
+			<h2 class="waiter-ads-title">广告服务</h2>
+			<div class="waiter-ads-list">
+				<a class="waiter-ads-list-item item">
+				</a>
+			</div>
 		</div>
-		<h2 class="waiter-ads-title">广告服务</h2>
-		<div class="waiter-ads-list">
-			<a class="waiter-ads-list-item item">
-			</a>
-		</div>
-	</div>
-</ion-content>
+	</ion-content>
+</ion-view>

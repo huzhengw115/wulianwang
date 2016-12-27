@@ -5,7 +5,7 @@
 		<div ng-include="'src/information/optionSelect/optionSelect.html'"></div>
 
 		<div class="shop-list">
-			<a href="" class="item shop-list-items item-thumbnail-right" ng-repeat="data in shopItem">
+			<a href="#/tab/information/page/{{data.id}}" class="item shop-list-items item-thumbnail-right" ng-repeat="data in shopItem">
 				<img src="{{data.pic}}" alt="">
 				<h2 class="intwoline">{{data.title}}</h2>
 				<div class="shop-list-item">
