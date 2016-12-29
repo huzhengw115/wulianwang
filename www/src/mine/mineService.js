@@ -1,5 +1,5 @@
 angular.module('Mine', [])
 
-.service('MineService', function () {
+.service('mineService', function () {
 
 })

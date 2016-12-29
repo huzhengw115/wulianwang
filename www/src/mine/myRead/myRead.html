@@ -1,0 +1,37 @@
+<ion-view view-title="我的订阅" hide-tabs="true">
+  <div class="myRead-head" id="my-read-head">
+    <ion-scroll direction="x" id="read-tab">
+      <div class="myRead-slide-tab" ng-repeat="data in myTab" ng-click="activeSlide($index)" id="tab-default-{{$index}}" ng-class="slectIndex==$index ? 'tab-select' : '' ">
+        {{data.title}}
+      </div>
+    </ion-scroll>
+  </div>
+
+  <ion-content class="myRead-content" scroll="false" overflow-scroll="ture">
+    <ion-slide-box on-slide-changed="slideChanged(index)" active-slide="slideIndex" does-continue="false" show-pager="false" style="position: absolute; top: 0;bottom: 0; width:100%;">
+      <ion-slide ng-repeat="data in myTab">
+        <ion-content style="min-height: 300px;background-color: #f00; width: 100%;">
+        
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+          <div>啦啦啦啦拉拉啦啦啦啦</div>
+        
+        </ion-content>
+        <!-- {{data.title}} -->
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

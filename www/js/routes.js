@@ -271,6 +271,40 @@ angular.module('starter.routes', [])
     }
   })
 
+  .state('tab.myRead', {
+    url: '/myRead',
+    views: {
+      'tab-mine': {
+        templateUrl: 'src/mine/myRead/myRead.html',
+        controller: 'MyReadCtrl'
+      }
+    },
+    resolve: {
+      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/mine/myRead/myReadService.js']).then(function () {
+          return $ocLazyLoad.load(['src/mine/myRead/myRead.css','src/mine/myRead/myReadCtrl.js'])
+        })
+      }]
+    }
+  })
+
+  .state('tab.myTab', {
+    url: '/myTab',
+    views: {
+      'tab-mine': {
+        templateUrl: 'src/mine/myTab/myTab.html',
+        controller: 'MyTabCtrl'
+      }
+    },
+    resolve: {
+      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/mine/myTab/myTabService.js']).then(function () {
+          return $ocLazyLoad.load(['src/mine/myTab/myTab.css','src/mine/myTab/myTabCtrl.js'])
+        })
+      }]
+    }
+  })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home')
 })

@@ -1,0 +1,27 @@
+.myRead-head {
+	overflow: hidden;  
+    white-space: nowrap;
+}
+
+.myRead-slide-tab {
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.tab-select {
+	background-color: #00a0ff;
+}
+
+.scroll-bar-h {
+	display: none;
+}
+
+.myRead-content {
+	background-color: #eee;
+	top: 40px;
+}
+
+.myRead-view {
+	background-color: #fff;
+}
