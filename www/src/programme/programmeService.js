@@ -37,10 +37,10 @@ angular.module('Programme', [])
     "tab": "其他"
   }]
 
-  //表格标题数据
+  // 表格标题数据
   var tableTitle = [{"desc":"方案介绍","investment":"投入资金","advantage":"方案优势","effect":"预期效果","benefit":"预期产生效益","range":"应用范围","difficulty":"实施难度程度","place":"适用场景"}]
 
-  //获取列表数据
+  // 获取列表数据
   var getProgrammeListItem = function () {
     var programmeListItem = []
     var deferred = $q.defer()
@@ -49,7 +49,7 @@ angular.module('Programme', [])
     .success(function (data) {
       programmeListItem = data.datas
       deferred.resolve(programmeListItem)
-      //console.log(programmeListItem)
+      // console.log(programmeListItem)
     })
     .error(function (err) {
       console.log('读取数据失败')
@@ -58,9 +58,9 @@ angular.module('Programme', [])
     return deferred.promise
   }
 
-  //获取方案详情页面的数据
+  // 获取方案详情页面的数据
   var getDetailData = function () {
-  	var detailData = [];
+    var detailData = [];
     var deferred = $q.defer();
 
     $http.get('json/project.json')
@@ -75,10 +75,28 @@ angular.module('Programme', [])
     return deferred.promise
   }
 
+  // 热门推荐的数据
+  var getProjectHotData = function () {
+    var projectHotData = [];
+    var deferred = $q.defer();
+
+    $http.get('json/pageHot.json')
+    .success(function (data) {
+      projectHotData = data.data
+      deferred.resolve(projectHotData)
+    })
+    .error(function (err) {
+      console.log('读取数据失败')
+      deferred.reject()
+    })
+    return deferred.promise
+  }
+
   return {
     programmeItem: programmeItem,
     getProgrammeListItem: getProgrammeListItem,
     getDetailData: getDetailData,
-    tableTitle: tableTitle
+    tableTitle: tableTitle,
+    getProjectHotData: getProjectHotData
   }
 })

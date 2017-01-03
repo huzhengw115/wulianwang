@@ -6,6 +6,14 @@ angular.module('Hots', [])
   // 上拉加载的控制
   $scope.More = false
 
+  
+  // ..
+  $scope.hotsClassSelect = false
+  $scope.hotsSelect = function () {
+    //..
+    $scope.hotsClassSelect = !$scope.hotsClassSelect
+  }
+
   $scope.selectOpened = false
   // 二级栏目的选择
   $scope.selectView = function (tabNumber) {

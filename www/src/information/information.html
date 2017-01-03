@@ -1,16 +1,22 @@
 <ion-view view-title="资讯页" hide-tabs="true">
-  <div class="slide-tab">
-    <input type="radio" name="radio-set" ng-checked="slideIndex == 0 ? 'checked' : ''" ng-click="informationSlide(0)" id="information_slide_0">
-    <p>热 门</p>
-    <input type="radio" name="radio-set" ng-checked="slideIndex == 1 ? 'checked' : ''" ng-click="informationSlide(1)" id="information_slide_1">
-    <p>政 策</p>
-    <input type="radio" name="radio-set" ng-checked="slideIndex == 2 ? 'checked' : ''" ng-click="informationSlide(2)" id="information_slide_2">
-    <p>观 点</p>
-    <input type="radio" name="radio-set" ng-checked="slideIndex == 3 ? 'checked' : ''" ng-click="informationSlide(3)" id="information_slide_3">
-    <p>专 题</p>
-    <input type="radio" name="radio-set" ng-checked="slideIndex == 4 ? 'checked' : ''" ng-click="informationSlide(4)" id="information_slide_4">
-    <p>服 务</p>
+  <div class="information-head">
+    <p class="information-slide-tab" ng-click="informationSlide(0)" id="information-slide-0" ng-class="slectIndex==0 ? 'information-tab-select' : '' ">
+      热 门
+    </p>
+    <p class="information-slide-tab" ng-click="informationSlide(1)" id="information-slide-1" ng-class="slectIndex==1 ? 'information-tab-select' : '' ">
+      政 策
+    </p>
+    <p class="information-slide-tab" ng-click="informationSlide(2)" id="information-slide-2" ng-class="slectIndex==2 ? 'information-tab-select' : '' ">
+      观 点
+    </p>
+    <p class="information-slide-tab" ng-click="informationSlide(3)" id="information-slide-3" ng-class="slectIndex==3 ? 'information-tab-select' : '' ">
+      专 题
+    </p>
+    <p class="information-slide-tab" ng-click="informationSlide(4)" id="information-slide-4" ng-class="slectIndex==4 ? 'information-tab-select' : '' ">
+      原 创
+    </p>
   </div>
+
   <ion-content class="information_content" delegate-handle＝"news_hot_content" scroll="false" overflow-scroll="ture">
 
     <ion-slide-box delegate-handle="newsSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false" style="top: 0;bottom: 0;position: absolute !important; width:100%">

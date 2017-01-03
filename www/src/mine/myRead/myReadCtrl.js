@@ -4,10 +4,9 @@ angular.module('MyRead', [])
   // 获取订阅的标签
   myReadService.getMyTab().then(function (data) {
     $scope.myTab = data
+    $ionicSlideBoxDelegate.update()
     console.log('myTab:', $scope.myTab)
   })
-
-  $scope.slectIndex = 0
 
   // 点击时候触发
   $scope.activeSlide = function (index) {//点击时候触发
@@ -38,4 +37,7 @@ angular.module('MyRead', [])
     }
   }
 
+
+  //$scope.slectIndex = 0
+  $scope.activeSlide(0)
 })

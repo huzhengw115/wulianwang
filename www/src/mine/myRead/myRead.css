@@ -1,6 +1,7 @@
 .myRead-head {
 	overflow: hidden;  
     white-space: nowrap;
+    border-bottom: 3px solid #eee;
 }
 
 .myRead-slide-tab {
@@ -13,15 +14,24 @@
 	background-color: #00a0ff;
 }
 
-.scroll-bar-h {
+#my-read-head .scroll-bar-h {
 	display: none;
 }
 
 .myRead-content {
 	background-color: #eee;
 	top: 40px;
+	border-top: 3px solid #eee;
 }
 
-.myRead-view {
-	background-color: #fff;
+.myRead-slide-box {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.myRead-slide-view {
+	min-height: 300px;
+	width: 100%;
 }

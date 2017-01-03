@@ -1,24 +1,29 @@
-.information-head {
+.contact-head {
     overflow: auto;
     padding: 0 10px;
 }
 
-.information-slide-tab {
+.contact-slide-tab {
     float: left;
-    width: 20%;
+    width: 33.33%;
     text-align: center;
     height: 44px;
     font-weight: 700;
     color: #999;
     line-height: 44px;
+    font-size: 16px;
 }
 
-.information-tab-select {
+.contact-tab-select {
     color: #00a0ff;
     border-bottom: 4px solid #00a0ff;
 }
 
-.information_content {
+.contact-content {
     top: 44px;
-    background-color: #eee;
+    background-color: #fff;
+    border-top: 4px solid #eee;
+    padding: 15px;
+    width: 100%;
+    font-size: 16px;
 }

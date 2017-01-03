@@ -1,5 +1,5 @@
 <ion-view view-title="资讯页" hide-tabs="true">
-  <div class="slide-tab">
+  <!-- <div class="slide-tab">
     <input type="radio" name="radio-set" ng-checked="slideIndex == 0 ? 'checked' : ''" ng-click="programmeSlide(0)" id="programme_slide_0">
     <p>所有方案</p>
     <input type="radio" name="radio-set" ng-checked="slideIndex == 1 ? 'checked' : ''" ng-click="programmeSlide(1)" id="programme_slide_1">
@@ -8,7 +8,23 @@
     <p>热门方案</p>
     <input type="radio" name="radio-set" ng-checked="slideIndex == 3 ? 'checked' : ''" ng-click="programmeSlide(3)" id="programme_slide_3">
     <p>推荐方案</p>
+  </div> -->
+  <div class="programme-head">
+    <p class="programme-slide-tab" ng-click="programmeSlide(0)" id="programme-slide-0" ng-class="slectIndex==0 ? 'programme-tab-select' : '' ">
+      所有方案
+    </p>
+    <p class="programme-slide-tab" ng-click="programmeSlide(1)" id="programme-slide-1" ng-class="slectIndex==1 ? 'programme-tab-select' : '' ">
+      最新方案
+    </p>
+    <p class="programme-slide-tab" ng-click="programmeSlide(2)" id="programme-slide-2" ng-class="slectIndex==2 ? 'programme-tab-select' : '' ">
+      热门方案
+    </p>
+    <p class="programme-slide-tab" ng-click="programmeSlide(3)" id="programme-slide-3" ng-class="slectIndex==3 ? 'programme-tab-select' : '' ">
+      推荐方案
+    </p>
   </div>
+
+
   <ion-content class="programme_content" delegate-handle＝"news_hot_content" scroll="false" overflow-scroll="ture">
 
     <ion-slide-box delegate-handle="newsSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false" style="top: 0;bottom: 0;position: absolute !important; width:100%">

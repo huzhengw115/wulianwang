@@ -1,3 +1,7 @@
 angular.module('Hot', [])
 
-.controller('HotCtrl', function ($scope) {})
+.controller('HotCtrl', function ($scope) {
+
+
+
+})

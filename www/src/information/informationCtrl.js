@@ -13,6 +13,8 @@ angular.module('Information', [])
 
   //滑动下面的滑块，响应上面的tabs切换
   $scope.slideChanged = function (index) {
+    // 选中上面的标题
+    $scope.slectIndex = index
     $ocLazyLoad.load(informationFile[index]).then( function() {
       //根据不同的模板名字加载不同的视图
       switch (index) {
@@ -49,7 +51,7 @@ angular.module('Information', [])
   }
 
   //点击上面的tabs切换，响应下面的滑块滑动
-  $scope.informationSlide = function (index) {  
+  $scope.informationSlide = function (index) {
     $ionicSlideBoxDelegate.slide(index)
     console.log(index)
   }

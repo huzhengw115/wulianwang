@@ -73,5 +73,20 @@
       </div>
       <p class="project-author">编辑：{{detailData.author}}</p>
     </div>
+    <div class="project-hot">
+      <div class="project-hot-title">
+        <p>热门推荐</p>
+      </div>
+      <div class="project-hot-list">
+        <a class="project-hot-item item item-thumbnail-right" ng-repeat="data in projectHotData">
+          <img src="{{data.img}}" alt="">
+          <h2 class="intwoline">{{data.title}}</h2>
+          <div class="project-hot-item-subtitle">
+            <p>{{data.address}}</p>
+            <p>{{data.time}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

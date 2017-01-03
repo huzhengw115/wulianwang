@@ -68,16 +68,8 @@ angular.module('constantService', [])
     "title": "服务"
   },{
     'id': 5,
-    'href': 'read',
-    "title": "订阅"
-  },{
-    'id': 6,
-    'href': 'hot',
-    "title": "推荐"
-  },{
-    'id': 7,
-    'href': 'find',
-    "title": "搜索"
+    'href': 'more',
+    "title": "更多"
   }]
 
   return {

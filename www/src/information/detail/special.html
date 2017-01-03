@@ -3,5 +3,20 @@
     <div class="special-page">
       <img src="{{specialData.picture}}"> 
     </div>
+    <div class="page-hot">
+      <div class="page-hot-title">
+        <p>热门推荐</p>
+      </div>
+      <div class="page-hot-list">
+        <a class="page-hot-item item item-thumbnail-right" ng-repeat="data in pageHotData">
+          <img src="{{data.img}}" alt="">
+          <h2 class="intwoline">{{data.title}}</h2>
+          <div class="page-hot-item-subtitle">
+            <p>{{data.address}}</p>
+            <p>{{data.time}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

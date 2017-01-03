@@ -18,7 +18,25 @@ angular.module('Detail', [])
     return deferred.promise
   }
 
+  // 页面下方热门推荐的数据获取
+  var getPageHotData = function () {
+    var pageHotData = []
+    var deferred = $q.defer()
+
+    $http.get('json/pageHot.json')
+    .success(function (data) {
+      pageHotData = data.data
+      deferred.resolve(pageHotData)
+    })
+    .error(function (err) {
+      console.log('读取详情页面数据失败:',err)
+      deferred.reject()
+    })
+    return deferred.promise
+  }
+
   return {
-    getPageData: getPageData
+    getPageData: getPageData,
+    getPageHotData: getPageHotData
   }
 })

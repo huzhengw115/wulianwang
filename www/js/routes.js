@@ -169,39 +169,22 @@ angular.module('starter.routes', [])
     }
   })
 
-  .state('tab.read', {
-    url: '/read',
-    views: {
-      'tab-home': {
-        templateUrl: 'src/read/read.html',
-        controller: 'ReadCtrl'
-      }
-    },
-    resolve: {
-      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/read/readService.js']).then(function () {
-          return $ocLazyLoad.load(['src/read/readCtrl.js', 'src/read/read.css'])
-        })
-      }]
-    }
-  })
-
-  .state('tab.hot', {
-    url: '/hot',
-    views: {
-      'tab-home': {
-        templateUrl: 'src/hot/hot.html',
-        controller: 'HotCtrl'
-      }
-    },
-    resolve: {
-      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/hot/hotService.js']).then(function () {
-          return $ocLazyLoad.load(['src/hot/hot.css','src/hot/hotCtrl.js'])
-        })
-      }]
-    }
-  })
+  // .state('tab.read', {
+  //   url: '/read',
+  //   views: {
+  //     'tab-home': {
+  //       templateUrl: 'src/read/read.html',
+  //       controller: 'ReadCtrl'
+  //     }
+  //   },
+  //   resolve: {
+  //     loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+  //       return $ocLazyLoad.load(['src/read/readService.js']).then(function () {
+  //         return $ocLazyLoad.load(['src/read/readCtrl.js', 'src/read/read.css'])
+  //       })
+  //     }]
+  //   }
+  // })
 
   .state('tab.find', {
     url: '/find',
@@ -220,35 +203,35 @@ angular.module('starter.routes', [])
     }
   })
 
-  .state('tab.home-detail', {
-      url: '/home/:homeId',
-      views: {
-        'tab-home': {
-          templateUrl: 'src/home/homeDetail.html',
-          controller: 'HomeDetailCtrl'
-        }
-      },
-      resolve: {
-       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-         return $ocLazyLoad.load(['src/home/homeService.js']).then(function () {
-            return $ocLazyLoad.load(['src/home/homeDetailCtrl.js','src/home/homeDetail.css'])
-         })
-        }]
-      }
-    })
+  // .state('tab.hot', {
+  //   url: '/hot',
+  //   views: {
+  //     'tab-hot': {
+  //       templateUrl: 'src/hot/hot.html',
+  //       controller: 'HotCtrl'
+  //     }
+  //   },
+  //   resolve: {
+  //     loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+  //       return $ocLazyLoad.load(['src/hot/hotService.js']).then(function () {
+  //         return $ocLazyLoad.load(['src/hot/hotCtrl.js', 'src/hot/hot.css'])
+  //       })
+  //     }]
+  //   }
+  // })
 
-  .state('tab.detail-page', {
-    url: '/detail/:detailPageId',
+  .state('tab.read', {
+    url: '/read',
     views: {
-      'tab-home': {
-        templateUrl: 'src/page/detail/detailPage.html',
-        controller: 'DetailPageCtrl'
+      'tab-read': {
+        templateUrl: 'src/read/read.html',
+        controller: 'ReadCtrl'
       }
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load('src/page/pageService.js').then(function () {
-          return $ocLazyLoad.load(['src/page/detail/detailPage.css','src/page/detail/detailPageCtrl.js'])
+        return $ocLazyLoad.load(['src/read/readService.js']).then(function () {
+          return $ocLazyLoad.load(['src/read/readCtrl.js', 'src/read/read.css'])
         })
       }]
     }
@@ -301,6 +284,35 @@ angular.module('starter.routes', [])
         return $ocLazyLoad.load(['src/mine/myTab/myTabService.js']).then(function () {
           return $ocLazyLoad.load(['src/mine/myTab/myTab.css','src/mine/myTab/myTabCtrl.js'])
         })
+      }]
+    }
+  })
+
+  .state('tab.about', {
+    url: '/about',
+    views: {
+      'tab-mine': {
+        templateUrl: 'src/mine/about/about.html'
+      }
+    },
+    resolve: {
+      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/mine/about/about.css'])
+      }]
+    }
+  })
+
+  .state('tab.contact', {
+    url: '/contact',
+    views: {
+      'tab-mine': {
+        templateUrl: 'src/mine/contact/contact.html',
+        controller: 'ContactCtrl'
+      }
+    },
+    resolve: {
+      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/mine/contact/contact.css','src/mine/contact/contactCtrl.js'])
       }]
     }
   })

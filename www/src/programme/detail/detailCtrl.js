@@ -29,6 +29,11 @@ angular.module('Programme', [])
     })
   }
 
+  // 热门推荐数据获取
+  programmeService.getProjectHotData().then(function (projectHotData) {
+    $scope.projectHotData = projectHotData
+  })
+
   //点击表格时放大表格中的内容
   $scope.showTable = function (title,data) {
     console.log(data)

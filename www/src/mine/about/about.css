@@ -1,0 +1,9 @@
+.about-content {
+	padding: 15px;
+}
+
+.about-content p {
+	text-indent: 2em;
+	font-size: 18px;
+	line-height: 1.5;
+}

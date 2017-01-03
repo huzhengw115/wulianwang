@@ -10,6 +10,11 @@ angular.module('Detail', [])
     $scope.tags = pageData.tags
     console.log('$scope.pageData:', $scope.pageData)
   })
+  // 热门推荐的数据获取
+  detailService.getPageHotData().then(function (pageHotData) {
+    $scope.pageHotData = pageHotData
+    console.log('$scope.pageHotData:', $scope.pageHotData)
+  })
 })
 
 .controller('SpecialPageCtrl', function ($scope, detailService, $stateParams) {
@@ -20,5 +25,10 @@ angular.module('Detail', [])
   detailService.getPageData().then(function (pageData) {
     $scope.specialData = pageData
     console.log('$scope.specialData:', $scope.specialData)
+  })
+  // 热门推荐的数据获取
+  detailService.getPageHotData().then(function (pageHotData) {
+    $scope.pageHotData = pageHotData
+    console.log('$scope.pageHotData:', $scope.pageHotData)
   })
 })

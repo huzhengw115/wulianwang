@@ -14,6 +14,7 @@ angular.module('Programme', [])
 
   //滑动下面的滑块，响应上面的tabs切换
   $scope.slideChanged = function (index) {
+    $scope.slectIndex = index
     $ocLazyLoad.load(programmeFile[index]).then( function() {
       //根据不同的模板名字加载不同的视图
       switch (index) {

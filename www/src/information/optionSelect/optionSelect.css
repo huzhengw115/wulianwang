@@ -1,5 +1,6 @@
 .option-content {
-	border-top: 3px solid #eee
+	border-top: 3px solid #eee;
+	z-index: 10;
 }
 
 .option-button {
@@ -14,15 +15,25 @@
 	margin: 0;
 }
 
-.option-tab {
+#option-tab {
+	position: absolute;
+	background-color: #fff;
+	padding: 5px 5px 0;
+	z-index: 100;
+	overflow: auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding-top: 5px;
 }
 
-.option-tab-item {
+.option-show {
+	transition: all linear 0.3s;
+	height: 191px;
+}
 
+.option-hide {
+	transition: all linear 0.3s;
+  	height: 0px;
 }
 
 .option-tab-item > input {
@@ -36,6 +47,7 @@
 	width: 85px;
 	text-align: center;
 	margin: 5px;
+	padding: 3px 0;
 }
 
 .option-tab-item > input:checked + label {
@@ -57,24 +69,4 @@
 
 #triangle.open {
 	transform: rotate(-90deg);
-}
-
-.option-tab-content {
-	height: 115px;
-}
-
-#option-tab {
-	background-color: #fff;
-	padding: 0 5px;
-	height: 115px;
-}
-
-#option-tab.option-show {
-	transition: all linear 0.3s;
-  	height: 115px;
-}
-
-#option-tab.option-hide {
-	transition: all linear 0.3s;
-  	height: 0px;
 }

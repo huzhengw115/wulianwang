@@ -3,10 +3,26 @@
 	background-color: #eee;
 }
 
-.waiter-ask-title, .waiter-ads-title {
+.waiter-ask-title, .waiter-ads-title, .waiter-meet-title {
+	overflow: auto;
+}
+
+.waiter-ask-title > h2, .waiter-ads-title > h2, .waiter-meet-title > h2 {
 	font-size: 20px;
 	padding: 5px 0 0 10px;
 	margin-top: 0;
+	float: left;
+}
+
+.waiter-ask-title > a, .waiter-ads-title > a {
+	float: right;
+	margin: 5px 10px 0 0;
+	background-color: #fff;
+	font-size: 16px;
+	padding: 3px 12px;
+	border-radius: 7px;
+	border: 1px solid #ccc;
+	color: #000;
 }
 
 .waiter-ask-list {
@@ -21,6 +37,7 @@
 @media screen and (min-width: 320px){
 	.waiter-ask-list-item {
 		height: 145px;
+		margin: 0;
 	}
 	.waiter-ask-list-item > img {
 		width: 100%;
@@ -31,6 +48,7 @@
 @media screen and (min-width: 360px){
 	.waiter-ask-list-item {
 		height: 150px;
+		margin: 0;
 	}
 	.waiter-ask-list-item > img {
 		width: 100%;
@@ -41,6 +59,7 @@
 @media screen and (min-width: 400px){
 	.waiter-ask-list-item {
 		height: 170px;
+		margin: 0;
 	}
 	.waiter-ask-list-item > img {
 		width: 100%;
@@ -50,4 +69,122 @@
 
 .waiter-ask-list-item > h2 {
 	white-space: normal;
+}
+
+.waiter-ads-list {
+	overflow: auto;
+	background-color: #fff;
+	padding: 10px;
+}
+
+.waiter-ads-subtitle {
+	background-color: #eee;
+}
+
+.waiter-ads-list li {
+	padding: 3px;
+	text-align: center;
+	padding: 5px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.waiter-ads-channel {
+	float: left;
+	border: 1px solid #ddd;
+	width: 21.42%;
+}
+
+.waiter-ads-position {
+	float: left;
+	border: 1px solid #ddd;
+	border-left: 0;
+	width: 11.9%;
+}
+
+.waiter-ads-price {
+	float: left;
+	border: 1px solid #ddd;
+	border-left: 0;
+	width: 22.82%;
+}
+
+.waiter-ads-size {
+	float: left;
+	border: 1px solid #ddd;
+	border-left: 0;
+	width: 22.3%;
+}
+
+.waiter-ads-file {
+	float: left;
+	border: 1px solid #ddd;
+	border-left: 0;
+	width: 21.3%;
+}
+
+.waiter-meet-list {
+	overflow: auto;
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+
+.waiter-meet-item {
+	float: left;
+	width: 50%;
+	margin: 0;
+	border: 0;
+}
+
+.waiter-meet-item:last-of-type {
+	border-left: 1px solid #ddd;
+}
+
+.waiter-meet-item img {
+	margin-left: 25%;
+	margin-bottom: 20px;
+	width: 50%;
+	border-radius: 50%;
+}
+
+.waiter-meet-item h2 {
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.waiter-meet-item p {
+	white-space: normal;
+}
+
+.waiter-customer-title > h2 {
+	font-size: 20px;
+	padding: 5px 0 0 10px;
+	margin-top: 0;
+}
+
+.waiter-customer-list {
+	overflow: auto;
+	background-color: #fff;
+}
+
+.waiter-customer-list ul {
+	width: 50%;
+	float: left;
+	overflow: auto;
+}
+
+.waiter-customer-subtitle {
+	margin: 10px 0 10px 2px;
+}
+
+.waiter-customer-list li {
+	float: left;
+	width: 100%;
+	padding-left: 8px;
+}
+
+.waiter-customer-list img {
+	width: 20px;
+	float: left;
+	margin-top: 2px;
 }

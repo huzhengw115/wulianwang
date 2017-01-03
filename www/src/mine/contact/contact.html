@@ -1,0 +1,57 @@
+<ion-view view-title="联系我们" hide-tabs="true">
+  <div class="contact-head">
+    <p class="contact-slide-tab" ng-click="contactSlide(0)" id="contact-slide-0" ng-class="slectIndex==0 ? 'contact-tab-select' : '' ">
+      广州公司
+    </p>
+    <p class="contact-slide-tab" ng-click="contactSlide(1)" id="contact-slide-1" ng-class="slectIndex==1 ? 'contact-tab-select' : '' ">
+      北京总部
+    </p>
+    <p class="contact-slide-tab" ng-click="contactSlide(2)" id="contact-slide-2" ng-class="slectIndex==2 ? 'contact-tab-select' : '' ">
+      佛山公司
+    </p>
+  </div>
+
+  <ion-content class="contact-content" scroll="false" overflow-scroll="ture">
+
+    <ion-slide-box delegate-handle="newsSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false">
+
+      <ion-slide>
+        <div>
+          <p>电话：（020）37958159</p>
+          <p>传真：（020）37958161</p>
+          <p>地址：广州市越秀区小北路185-189号广州鹏源发展大厦1704-1705室</p>
+          <p>E-mail ：igovmade@126.com</p>
+          <p>网　址 ： www.im2m.com.cn</p>
+          <p>客服QQ ：1572795827</p>
+          <p>物联网交流QQ群 ：217378059</p>
+        </div>
+      </ion-slide>
+        
+      <ion-slide>
+        <div>
+          <p>电话：（0757）82915007</p>
+          <p>传真：（0757）82915082</p>
+          <p>地址：佛山市禅城区季华五路18号经华大厦13层</p>
+          <p>E-mail ：igovmade@126.com</p>
+          <p>网　址 ： www.im2m.com.cn</p>
+          <p>客服QQ ：1572795827</p>
+          <p>物联网交流QQ群 ：217378059</p>
+        </div>
+      </ion-slide>
+      
+      <ion-slide>
+        <div>
+          <p>电话：（010）82617379 （010）68882870</p>
+          <p>传真：（010）82615610</p>
+          <p>地址：北京市石景山区阜石路165号今鼎时代广场（当代商城）C座405-407</p>
+          <p>E-mail ：govmade@govmade.cn</p>
+          <p>网　址 ： www.im2m.com.cn</p>
+          <p>客服QQ ：1572795827</p>
+          <p>物联网交流QQ群 ：217378059</p>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+
+  </ion-content>
+</ion-view>

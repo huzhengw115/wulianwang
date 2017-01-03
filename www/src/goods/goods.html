@@ -1,12 +1,16 @@
 <ion-view view-title="资讯页" hide-tabs="true">
-  <div class="slide-tab">
-    <input type="radio" name="radio-set" ng-checked="slideIndex == 0 ? 'checked' : ''" ng-click="goodsSlide(0)" id="goods_slide_0">
-    <p>招标信息</p>
-    <input type="radio" name="radio-set" ng-checked="slideIndex == 1 ? 'checked' : ''" ng-click="goodsSlide(1)" id="goods_slide_1">
-    <p>投融资服务</p>
-    <input type="radio" name="radio-set" ng-checked="slideIndex == 2 ? 'checked' : ''" ng-click="goodsSlide(2)" id="goods_slide_2">
-    <p>中标公告</p>
+  <div class="goods-head">
+    <div class="goods-slide-tab" ng-click="goodsSlide(0)" id="goods-slide-0" ng-class="slectIndex==0 ? 'goods-tab-select' : '' ">
+      <p>招标信息</p>
+    </div>
+    <div class="goods-slide-tab" ng-click="goodsSlide(1)" id="goods-slide-1" ng-class="slectIndex==1 ? 'goods-tab-select' : '' ">
+     <p>投融资服务</p>
+    </div>
+    <div class="goods-slide-tab" ng-click="goodsSlide(2)" id="goods-slide-2" ng-class="slectIndex==2 ? 'goods-tab-select' : '' ">
+      <p>中标公告</p>
+    </div>
   </div>
+
   <ion-content class="goods_content" delegate-handle＝"news_hot_content" scroll="false" overflow-scroll="ture">
 
     <ion-slide-box delegate-handle="newsSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false" style="top: 0;bottom: 0;position: absolute !important; width:100%">
