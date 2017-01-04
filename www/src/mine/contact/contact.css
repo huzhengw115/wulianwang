@@ -27,3 +27,8 @@
     width: 100%;
     font-size: 16px;
 }
+
+.contact-content img {
+    width: 28px;
+    margin: 0 10px -8px 0;
+}

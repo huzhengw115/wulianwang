@@ -49,27 +49,33 @@ angular.module('constantService', [])
   var homeSrc = [{
     'id': 0,
     'href': 'information',
-    "title": "资讯"
+    "title": "资讯",
+    "img": "img/home/news.jpg"
   },{
     'id': 1,
     'href': 'programme',
-    "title": "方案"
+    "title": "方案",
+    "img": "img/home/programme.jpg"
   },{
     'id': 2,
     'href': 'goods',
-    "title": "商机"
+    "title": "商机",
+    "img": "img/home/goods.jpg"
   },{
     'id': 3,
     'href': 'meets',
-    "title": "活动"
+    "title": "活动",
+    "img": "img/home/meets.jpg"
   },{
     'id': 4,
     'href': 'waiter',
-    "title": "服务"
+    "title": "服务",
+    "img": "img/home/waiter.jpg"
   },{
     'id': 5,
     'href': 'more',
-    "title": "更多"
+    "title": "更多",
+    "img": "img/home/more.jpg"
   }]
 
   return {

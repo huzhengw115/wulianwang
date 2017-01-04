@@ -3,7 +3,6 @@
     <p ng-click="optionTabShow()">筛选<i id="triangle" class="{{ selectOpened === true ? 'open' : 'close' }}"></i></p>
   </div>
   <div ng-class="isShow ? 'ng-hide' : '' ">
-    <!-- <div id="{{isOptionShow ? 'option-show' : 'option-hide'}}"> -->
     <div id ="option-tab" ng-class="isOptionShow === true ? 'option-show' : 'option-hide' ">
       <div class="option-tab-item" ng-repeat="data in optionThings">
         <input type="radio" id="option-tab-item-{{data.id}}" ng-checked="optionThingsIndex == {{data.id}} ? 'checked' : '' " ng-click="optionThingsSelect({{data.id}})">

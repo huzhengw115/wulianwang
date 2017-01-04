@@ -78,7 +78,7 @@
         <p>热门推荐</p>
       </div>
       <div class="project-hot-list">
-        <a class="project-hot-item item item-thumbnail-right" ng-repeat="data in projectHotData">
+        <a class="project-hot-item item item-thumbnail-right" ng-repeat="data in projectHotData" href="#/tab/programme/{{data.id}}">
           <img src="{{data.img}}" alt="">
           <h2 class="intwoline">{{data.title}}</h2>
           <div class="project-hot-item-subtitle">

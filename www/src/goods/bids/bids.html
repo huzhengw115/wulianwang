@@ -1,11 +1,10 @@
 <div ng-controller="BidsCtrl">
-	<div ng-include="'src/goods/tabSelect/tabSelect.html'"></div>
 
 	<ion-content class="bids-content">
 		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
 		<div class="bids-list">
-			<a class="bids-list-item item" ng-repeat="data in bidsListItem">
+			<a class="bids-list-item item" ng-repeat="data in bidsListItem" href="#/tab/goods/{{data.id}}">
 				<h2>{{data.title}}</h2>
 				<div class="bids-list-items">
 					<label>{{data.class}}</label>

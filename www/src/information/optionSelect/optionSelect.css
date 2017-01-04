@@ -1,5 +1,6 @@
 .option-content {
 	border-top: 3px solid #eee;
+	position: relative;
 	z-index: 10;
 }
 

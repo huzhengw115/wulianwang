@@ -1,6 +1,8 @@
 .homeTop {
 	background-color: #00a0ff;
+    position: relative;
 	overflow: auto;
+    z-index: 1000000;
 }
 
 .homeTop-title {
@@ -33,16 +35,27 @@
 }
 
 .home-url {
-    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;
+    padding: 10px;
 }
 
 .home-url-item {
-    display: block;
-    float: left;
-    text-align: center;
-    background-color: #fff;
-    padding: 10px;
     width: 33.33%;
+    display: block;
+    text-align: center;
+    width: 33.33%;
+    text-decoration: none;
+    color: #000;
+}
+
+.home-url-item-img {
+    width: 100%;
+}
+
+.home-url img {
+    width: 60px;
 }
 
 .home-pic {
@@ -54,7 +67,11 @@
 
 .home-ads-pic img{
     width: 100%;
-    max-height: 160px !important;
+    max-height: 180px !important;
+}
+
+.home-list {
+    margin-top: 8px;
 }
 
 @media screen and (min-width: 320px){

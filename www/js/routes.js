@@ -135,6 +135,23 @@ angular.module('starter.routes', [])
     }
   })
 
+  .state('tab.goodsDetail', {
+    url: '/goods/:goodsId',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/goods/detail/detail.html',
+        controller: 'GoodsDetailCtrl'
+      }
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/goods/goodsService.js']).then(function () {
+          return $ocLazyLoad.load(['src/goods/detail/detailCtrl.js', 'src/goods/detail/detail.css'])
+        })
+      }]
+    }
+  })
+
   .state('tab.meets', {
     url: '/meets',
     views: {
@@ -147,6 +164,23 @@ angular.module('starter.routes', [])
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
         return $ocLazyLoad.load(['src/meets/meetsService.js']).then(function () {
           return $ocLazyLoad.load(['src/meets/meetsCtrl.js', 'src/meets/meets.css'])
+        })
+      }]
+    }
+  })
+
+  .state('tab.meetsDetail', {
+    url: '/meets/:meetsId',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/meets/detail/detail.html',
+        controller: 'MeetsDetailCtrl'
+      }
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/meets/meetsService.js']).then(function () {
+          return $ocLazyLoad.load(['src/meets/detail/detailCtrl.js', 'src/meets/detail/detail.css'])
         })
       }]
     }

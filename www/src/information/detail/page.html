@@ -21,7 +21,7 @@
         <p>热门推荐</p>
       </div>
       <div class="page-hot-list">
-        <a class="page-hot-item item item-thumbnail-right" ng-repeat="data in pageHotData">
+        <a class="page-hot-item item item-thumbnail-right" ng-repeat="data in pageHotData" href="#/tab/information/page/{{data.id}}">
           <img src="{{data.img}}" alt="">
           <h2 class="intwoline">{{data.title}}</h2>
           <div class="page-hot-item-subtitle">

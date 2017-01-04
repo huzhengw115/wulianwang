@@ -9,7 +9,7 @@ angular.module('MyRead', [])
   })
 
   // 点击时候触发
-  $scope.activeSlide = function (index) {//点击时候触发
+  $scope.activeSlide = function (index) {// 点击时候触发
     $scope.slectIndex = index
     $ionicSlideBoxDelegate.slide(index)
   }
@@ -35,9 +35,12 @@ angular.module('MyRead', [])
     } else {
       $ionicScrollDelegate.scrollTo(scrollLeft - screenWidth / 2 + tabWidth / 2, 0, true)
     }
+
+    // 获取列表数据
+    
   }
 
 
-  //$scope.slectIndex = 0
+  // $scope.slectIndex = 0
   $scope.activeSlide(0)
 })

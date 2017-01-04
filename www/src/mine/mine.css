@@ -36,3 +36,8 @@
 	float: right;
 	color: #bbb;
 }
+
+.mine-content img {
+	width: 29px;
+	margin: 0 10px -9px 0;
+}

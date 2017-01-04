@@ -1,19 +1,18 @@
 <div ng-controller="TenderCtrl">
-	<div ng-include="'src/goods/tabSelect/tabSelect.html'"></div>
 
-	<ion-content class="tender-content">
-		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+  <ion-content class="tender-content">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-		<div class="tender-list">
-			<a class="item tender-list-item" ng-repeat="data in tenderListItem">
-				<h2>{{data.title}}</h2>
-				<div class="tender-list-items">
-					<label class="tender-list-items-class">{{data.class}}</label>
-					<label class="tender-list-items-time">{{data.time}}</label>
-				</div>
-			</a>
-		</div>
+    <div class="tender-list">
+      <a class="item tender-list-item" ng-repeat="data in tenderListItem" href="#/tab/goods/{{data.id}}">
+        <h2>{{data.title}}</h2>
+        <div class="tender-list-items">
+          <label class="tender-list-items-class">{{data.class}}</label>
+          <label class="tender-list-items-time">{{data.time}}</label>
+        </div>
+      </a>
+    </div>
 
-		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-	</ion-content>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
 </div>
