@@ -16,6 +16,13 @@ angular.module('MyRead', [])
 
   // 滑动时候触发
   $scope.slideChanged = function (index) {
+
+    // 首先是获取到所有的订阅标签，然后根据标签去进行搜索
+    // 搜索的时候共三个页面：资讯、方案、商机，分成三次进行搜索
+    // 页面首次加载的时候只能加载第一张页面的内容，也就是只能根据第一个标签进行搜索，后面的几张页面不能进行操作
+    // 
+
+    // 控制上面的tab变化
     $scope.slectIndex = index
     // console.log(index)
     // 获取屏幕的宽度

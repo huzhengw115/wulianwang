@@ -1,20 +1,20 @@
 <div ng-controller="PolicyCtrl">
 
-	<div ng-include="'src/information/optionSelect/optionSelect.html'"></div>
+  <div ng-include="'src/information/optionSelect/optionSelect.html'"></div>
 
-	<ion-content class="policy-content">
-		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
-		
-		<div class="policy-list">
-			<a href="#/tab/information/page/{{data.id}}" class="item policy-list-items item-thumbnail-right" ng-repeat="data in policyItem">
-				<img src="{{data.pic}}" alt="">
-				<h2 class="intwoline">{{data.title}}</h2>
-				<div class="policy-list-item">
-					<label>{{data.source}}</label>
-					<label>{{data.times}}</label>
-				</div>
-			</a>
-		</div>
-		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-	</ion-content>
+  <ion-content class="policy-content">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+    
+    <div class="policy-list">
+      <a href="#/tab/information/page/{{data.id}}" class="item policy-list-items item-thumbnail-right" ng-repeat="data in policyItem">
+        <img src="{{data.thumb[0]}}" alt="">
+        <h2 class="intwoline">{{data.title}}</h2>
+        <div class="policy-list-item">
+          <label>{{data.copyfrom}}</label>
+          <label>{{data.inputtime}}</label>
+        </div>
+      </a>
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
 </div>

@@ -1,6 +1,6 @@
 angular.module('Home', [])
 
-.service('homeService', function ($http, $q) {
+.service('homeService', function ($http, $q, Restangular) {
   // 首页轮播图的获取
   var homeTitlePic = function () {
     var homeTitle = []
@@ -19,7 +19,9 @@ angular.module('Home', [])
   }
 
   // homeItem列表数据获取
+  // 已废弃
   var homeListItem = function () {
+
     var homeItem = []
     var deferred = $q.defer()
 
@@ -37,6 +39,7 @@ angular.module('Home', [])
   }
 
   // 热点获取
+  // 废弃
   var getHotsLiatData = function () {
     var hotsListData = []
     var deferred = $q.defer()

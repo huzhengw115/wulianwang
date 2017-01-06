@@ -32,12 +32,12 @@
 
     <div class="home-list">
       <a href="#/tab/information/page/{{data.id}}" class="item home-list-items item-thumbnail-right" ng-repeat="data in homeItem">
-        <img src="{{data.titlepic}}" alt="">
+        <img src="{{data.thumb[0]}}" alt="">
         <h2 class="intwoline">{{data.title}}</h2>
         <div class="home-list-item">
-          <p class="home-list-item-class" ng-style="{{data.classL}}">{{data.class}}</p>
-          <p class="home-list-item-adress">{{data.adress}}</p>
-          <p class="home-list-item-time">{{data.time}}</p>
+          <p class="home-list-item-class" ng-style="{{data.classL}}">类型</p>
+          <p class="home-list-item-adress">{{data.copyfrom}}</p>
+          <p class="home-list-item-time">{{data.updatetime}}</p>
         </div>
       </a>
     </div>

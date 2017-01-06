@@ -37,7 +37,7 @@
   	height: 0px;
 }
 
-.option-tab-item > input {
+/*.option-tab-item > input {
 	display: none;
 }
 
@@ -53,6 +53,21 @@
 
 .option-tab-item > input:checked + label {
 	background-color: #00a0ff;
+    color: #fff;
+}*/
+
+.option-tab-item {
+    border: 1px solid #ddd;
+	border-radius: 5px;
+	display: inline-table;
+	width: 85px;
+	text-align: center;
+	margin: 5px;
+	padding: 3px 0;
+}
+
+.option-tab-select {
+    background-color: #00a0ff;
     color: #fff;
 }
 

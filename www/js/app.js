@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.routes', 'oc.lazyLoad', 'ionicPicker', 'constantService'])
+angular.module('starter', ['ionic', 'starter.services', 'starter.routes', 'oc.lazyLoad', 'ionicPicker', 'constantService', 'restangular', 'getDataService'])
 
 .run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
@@ -36,4 +36,16 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.routes', 'oc.la
             })
         }
     }
+})
+
+.config(function (RestangularProvider) {
+  RestangularProvider.setBaseUrl('http://www.im2m.com.cn/api')
+  // http://www.im2m.com.cn/api/news/news_list/keyword/%E8%8B%B9%E6%9E%9C
+  // RestangularProvider.setRequestSuffix('.json');
+  RestangularProvider.setDefaultHttpFields({cache: true})
+
+  RestangularProvider.setJsonp = true
+  RestangularProvider.setDefaultRequestParams('jsonp', {callback: 'JSON_CALLBACK'})
+
+  // RestangularProvider.requestParams.get = {callback: 'JSON_CALLBACK'};
 })

@@ -6,27 +6,29 @@
         <input  type="search" 
                 placeholder="请输入关键字" 
                 maxlength="20" 
-                ng-model="keyword" 
+                ng-model="keyWord" 
                 ng-change="searchChange()">
       </form>
-      <a ng-if="keyword.length"
+      <a ng-if="keyWord.length"
            on-touch="clearSearch()"
            class="clear-search">
-          <i class="icon icon-clear placeholder-icon"></i>
+          <img src="img/button/clear.png" class="icon-clear">
         </a>
     </div>
-    <button class="find-search-button" ng-click="toSearch()">
+    <button class="find-search-button" ng-click="toSearch(keyWord)">
       确定
     </button>
   </div>
   
+  <!-- 搜索的类型选择 -->
   <div class="find-search-class" ng-show="isClassShow">
     <p ng-click="classSelectItem({{data.id}})" ng-repeat="data in classItem">{{data.class}}</p>
   </div>
   <ion-content class="find-content">
 
     <div class="find-list">
-      <div class="find-hot" ng-if="!keyword.length">
+
+      <div class="find-hot" ng-if="!keyWord.length">
         <div class="find-hot-title">
           <p>热门搜索</p>
         </div>
@@ -38,7 +40,8 @@
           <a class="item" ng-click="toFind(4)">政策</a>
         </div>
       </div>
-      <div class="find-history" ng-if="!keyword.length">
+
+      <div class="find-history" ng-if="!keyWord.length">
         <div class="find-history-title">
           <p>历史搜索</p>
         </div>
@@ -50,16 +53,58 @@
           <a class="item" ng-click="toFind(9)"><p>历史纪录</p></a>
         </div>
       </div>
-      <div class="find-result" ng-if="keyword.length && searchData">
+
+      <div class="find-result" ng-if="keyWord.length && searchData">
         <div class="find-result-item">
-          <a class="item"><p>搜索结果</p></a>
-          <a class="item"><p>搜索结果</p></a>
-          <a class="item"><p>搜索结果</p></a>
-          <a class="item"><p>搜索结果</p></a>
-          <a class="item"><p>搜索结果</p></a>
+
+          <!-- 资讯 -->
+          <a class="item findResultClass item-thumbnail-right" ng-repeat="data in findData" ng-if=" classIndex == 0 ? true : false " href="#/tab/information/page/{{data.id}}">
+            <img src="{{data.thumb[0]}}" alt="">
+            <h2 class="intwoline">{{data.title}}</h2>
+            <div class="information-list-item">
+              <label>{{data.copyfrom}}</label>
+              <label>{{data.updatetime}}</label>
+            </div>
+          </a>
+
+          <!-- 方案 -->
+          <a class="item findResultClass item-thumbnail-right" ng-repeat="data in findData" ng-if=" classIndex == 1 ? true : false " href="#/tab/programme/{{data.id}}">
+            <img src="{{data.thumb[0]}}">
+            <h2 class="intwoline">{{data.title}}</h2>
+            <div class="programme-list-item">
+              <label>{{data.copyfrom}}</label>
+              <label>{{data.updatetime}}</label>
+            </div>
+            <p class="programme-list-money">预计产生效益：1000万</p>
+          </a>
+
+          <!-- 商机 -->
+          <a class="item goods-list-item" ng-repeat="data in findData" ng-if=" classIndex == 2 ? true : false ">
+            <h2>{{data.title}}</h2>
+            <div class="goods-list-items">
+              <label>{{data.copyfrom}}</label>
+              <label>{{data.copyfrom}}</label>
+              <label>{{data.updatetime}}</label>
+            </div>
+          </a>
+
+          <!-- 活动 -->
+          <a class="item findResultClass item-thumbnail-right" ng-repeat="data in findData" ng-if=" classIndex == 3 ? true : false ">
+            <img src="{{data.thumb[0]}}">
+            <h2 class="intwoline">{{data.title}}</h2>
+            <p>{{data.copyfrom}}</p>
+            <p>{{data.updatetime}}</p>
+            <div class="meets-list-items">
+              <label>关键字</label>
+              <label>关键字</label>
+            </div>
+          </a>
         </div>
       </div>
+
     </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
 
   </ion-content>
 </ion-view>

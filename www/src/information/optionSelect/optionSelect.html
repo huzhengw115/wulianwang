@@ -4,10 +4,9 @@
   </div>
   <div ng-class="isShow ? 'ng-hide' : '' ">
     <div id ="option-tab" ng-class="isOptionShow === true ? 'option-show' : 'option-hide' ">
-      <div class="option-tab-item" ng-repeat="data in optionThings">
-        <input type="radio" id="option-tab-item-{{data.id}}" ng-checked="optionThingsIndex == {{data.id}} ? 'checked' : '' " ng-click="optionThingsSelect({{data.id}})">
-        <label for="option-tab-item-{{data.id}}">{{data.tab}}</label>
-      </div>
+      <p class="option-tab-item" ng-click="optionThingsSelect(data)" id="option-tab-item-{{data.id}}" ng-class="optionThingsIndex == {{data.id}} ? 'option-tab-select' : '' " ng-repeat="data in optionThings">
+        {{data.tab}}
+      </p>
     </div>    
   </div>
 </div>

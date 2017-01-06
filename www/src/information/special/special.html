@@ -5,9 +5,9 @@
 
 		<div class="special">
 			<a href="#/tab/information/special/{{data.id}}" class="item special-items" ng-repeat="data in specialItem">
-				<img src="{{data.pic}}" alt="">
+				<img src="{{data.thumb[0]}}" alt="">
 				<h2 class="intwoline">{{data.title}}</h2>
-				<p class="intwoline">{{data.subTitle}}</p>
+				<p class="intwoline">{{data.desc}}</p>
 			</a>
 		</div>
 		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>

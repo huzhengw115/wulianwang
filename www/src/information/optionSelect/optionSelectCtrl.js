@@ -1,6 +1,10 @@
 angular.module('optionSelect', [])
 
 .controller('optionSelectCtrl', function ($scope, informationService, $timeout) {
+  // 获取到父级控制器传递过来的视图编号
+  $scope.$on('to-child', function (event, data) {
+    console.log('childCtrl:', data)
+  })
   // 取筛选项中的标签
   $scope.optionThings = informationService.hotsThings
   // 阻止筛选框闪烁
@@ -21,13 +25,18 @@ angular.module('optionSelect', [])
     
   }
   // 物联网标签的选择
-  $scope.optionThingsSelect = function (tabThingsNum) {
+  $scope.optionThingsSelect = function (data) {
     // 选中标签
-    $scope.optionThingsIndex = tabThingsNum
-    console.log(tabThingsNum)
+    $scope.optionThingsIndex = data.id
+    console.log('选中的标签', data.tab)
+    // 向父级控制器（热门、政策、观点、原创）反馈选中的标签
+    $scope.$emit('to-parent', data.tab)
+    // 选中标签之后将选择框收回去
+    $scope.optionTabShow()
   }
 
   // 物联网选项为第一项
-  $scope.optionThingsSelect(0)
+  // $scope.optionThingsSelect(0)
+  $scope.optionThingsIndex = 0
 
 })

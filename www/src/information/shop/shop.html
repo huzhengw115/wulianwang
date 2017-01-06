@@ -7,11 +7,11 @@
 
 		<div class="shop-list">
 			<a href="#/tab/information/page/{{data.id}}" class="item shop-list-items item-thumbnail-right" ng-repeat="data in shopItem">
-				<img src="{{data.pic}}" alt="">
+				<img src="{{data.thumb[0]}}" alt="">
 				<h2 class="intwoline">{{data.title}}</h2>
 				<div class="shop-list-item">
-					<label>{{data.source}}</label>
-					<label>{{data.times}}</label>
+					<label>{{data.copyfrom}}</label>
+					<label>{{data.inputtime}}</label>
 				</div>
 			</a>
 		</div>

@@ -1,6 +1,6 @@
 angular.module('Information', [])
 
-.service('informationService', function ($http, $q) {
+.service('informationService', function ($http, $q, Restangular) {
   var hotsThings = [{
     "id": 0,
     "tab": "全部"
@@ -72,43 +72,9 @@ angular.module('Information', [])
     "id": 4,
     "title": "服务"
   }]
-  //热点获取
-  var getListData = function () {
-    var hotsListData = []
-    var deferred = $q.defer()
-
-    $http.get('json/data.json')
-    .success(function (data) {
-      hotsListData = data.datas
-      deferred.resolve(hotsListData)
-    })
-    .error(function (err) {
-      console.log('读取热点资讯失败')
-      deferred.reject()
-    })
-    return deferred.promise
-  }
-  // homeItem列表数据获取
-  var getSpecialListItem = function () {
-    var specialItem = []
-    var deferred = $q.defer()
-    $http.get('json/homeList.json')
-    .success(function (data) {
-      specialItem = data.homeList
-      console.log('specialItem:',specialItem)
-      deferred.resolve(specialItem)
-    })
-    .error(function (err) {
-      console.log('读取首页列表数据失败')
-      deferred.reject()
-    })
-    return deferred.promise
-  }
 
   return {
     hotsThings: hotsThings,
-    informationTitle: informationTitle,
-    getListData: getListData,
-    getSpecialListItem: getSpecialListItem
+    informationTitle: informationTitle
   }
 })
