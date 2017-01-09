@@ -203,22 +203,53 @@ angular.module('starter.routes', [])
     }
   })
 
-  // .state('tab.read', {
-  //   url: '/read',
-  //   views: {
-  //     'tab-home': {
-  //       templateUrl: 'src/read/read.html',
-  //       controller: 'ReadCtrl'
-  //     }
-  //   },
-  //   resolve: {
-  //     loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-  //       return $ocLazyLoad.load(['src/read/readService.js']).then(function () {
-  //         return $ocLazyLoad.load(['src/read/readCtrl.js', 'src/read/read.css'])
-  //       })
-  //     }]
-  //   }
-  // })
+  .state('tab.consult', {
+    url: '/consult',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/waiter/consult/consult.html'
+      }
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load('src/waiter/consult/consult.css')
+      }]
+    }
+  })
+
+  .state('tab.apply', {
+    url: '/apply',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/waiter/apply/apply.html',
+        controller: 'ApplyCtrl'
+      }
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load('js/getDataService.js').then(function () {
+          return $ocLazyLoad.load(['src/waiter/apply/apply.css', 'src/waiter/apply/applyCtrl.js'])
+        })
+      }]
+    }
+  })
+
+  .state('tab.applyDetail', {
+    url: '/applyDetail',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/waiter/apply/detail.html',
+        controller: 'ApplyDetailCtrl'
+      }
+    },
+    resolve: {
+      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load('js/getDataService.js').then(function () {
+          return $ocLazyLoad.load(['src/waiter/apply/detail.css', 'src/waiter/apply/detailCtrl.js'])
+        })
+      }]
+    }
+  })
 
   .state('tab.find', {
     url: '/find',
@@ -236,23 +267,6 @@ angular.module('starter.routes', [])
       }]
     }
   })
-
-  // .state('tab.hot', {
-  //   url: '/hot',
-  //   views: {
-  //     'tab-hot': {
-  //       templateUrl: 'src/hot/hot.html',
-  //       controller: 'HotCtrl'
-  //     }
-  //   },
-  //   resolve: {
-  //     loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-  //       return $ocLazyLoad.load(['src/hot/hotService.js']).then(function () {
-  //         return $ocLazyLoad.load(['src/hot/hotCtrl.js', 'src/hot/hot.css'])
-  //       })
-  //     }]
-  //   }
-  // })
 
   .state('tab.read', {
     url: '/read',

@@ -16,3 +16,27 @@ img {
 	width: 100%;
 	height: auto;
 }
+
+.detail-footer {
+	margin-top: 8px;
+	background-color: #fff;
+}
+
+.footer-logo {
+	padding: 15px;
+}
+
+.footer-logo h2 {
+	font-size: 16px;
+	color: #666;
+}
+
+.footer-logo p {
+	font-size: 16px;
+	line-height: 1.5;
+	color: #666;
+}
+
+.footer-logo img {
+	width: 100%;
+}

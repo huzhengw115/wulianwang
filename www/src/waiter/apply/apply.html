@@ -1,0 +1,15 @@
+<ion-view view-title="申报服务" hide-tabs="true">
+  <ion-content class="apply-content">
+
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+    <a class="item apply-item" href="#/tab/applyDetail" ng-repeat="data in applyData">
+      <h2>{{data.title}}</h2>
+      <p>{{data.copyfrom}}</p>
+      <p>{{data.inputtime}}</p>
+    </a>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

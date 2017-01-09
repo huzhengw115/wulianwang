@@ -1,0 +1,57 @@
+.consult-content {
+	background-color: #eee;
+}
+
+.consult-head {
+	background-color: #fff;
+}
+
+.consult-title {
+	background-color: #eee;
+	padding: 10px 15px;
+	font-size: 22px;
+	margin-bottom: 0;
+}
+
+.consult-text{
+	padding: 10px 15px;
+	overflow: auto;
+}
+
+.consult-subtitle {
+	overflow: auto;
+}
+
+.consult-subtitle h2 {
+	font-size: 20px;
+	background-color: #00a0ff;
+	color: #fff;
+	float: left;
+	padding: 10px 20px;
+	border-radius: 20px;
+}
+
+.consult-text p {
+	line-height: 1.5;
+	font-size: 18px;
+}
+
+.consult-person {
+	width: 50%;
+	float: left;
+	padding: 0 10px;
+	margin-top: 10px;
+}
+
+.consult-img {
+	margin: auto;
+	width : 100px;
+}
+
+.consult-person h2 {
+	text-align: center;
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+

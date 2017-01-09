@@ -3,8 +3,8 @@ angular.module('Waiter', [])
 
     var getAskListItem = function() {
     	waiterService.getAskListItem().then( function(AskListItem) {
-    		$scope.AskListItem = AskListItem;
+    		$scope.AskListItem = AskListItem
     	})
     }
-    getAskListItem();
-});
+    getAskListItem()
+})

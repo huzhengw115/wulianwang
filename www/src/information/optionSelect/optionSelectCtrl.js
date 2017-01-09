@@ -31,6 +31,8 @@ angular.module('optionSelect', [])
     console.log('选中的标签', data.tab)
     // 向父级控制器（热门、政策、观点、原创）反馈选中的标签
     $scope.$emit('to-parent', data.tab)
+    // 将选中的标签显示到页面上面
+    $scope.tabSelect = data.tab
     // 选中标签之后将选择框收回去
     $scope.optionTabShow()
   }

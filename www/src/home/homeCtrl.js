@@ -1,6 +1,7 @@
 angular.module('Home', [])
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, homeService, $http, $ocLazyLoad, homeSrcService, getDataService) {
+
   // 获取轮播图片
   var homeTitlePic = function () {
     homeService.homeTitlePic().then(function (homeTitle) {

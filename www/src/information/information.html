@@ -1,20 +1,20 @@
 <ion-view view-title="资讯" hide-tabs="true">
   <div class="information-head">
-    <p class="information-slide-tab" ng-click="informationSlide(0)" id="information-slide-0" ng-class="slectIndex==0 ? 'information-tab-select' : '' ">
-      热 门
-    </p>
-    <p class="information-slide-tab" ng-click="informationSlide(1)" id="information-slide-1" ng-class="slectIndex==1 ? 'information-tab-select' : '' ">
-      政 策
-    </p>
-    <p class="information-slide-tab" ng-click="informationSlide(2)" id="information-slide-2" ng-class="slectIndex==2 ? 'information-tab-select' : '' ">
-      观 点
-    </p>
-    <p class="information-slide-tab" ng-click="informationSlide(3)" id="information-slide-3" ng-class="slectIndex==3 ? 'information-tab-select' : '' ">
-      专 题
-    </p>
-    <p class="information-slide-tab" ng-click="informationSlide(4)" id="information-slide-4" ng-class="slectIndex==4 ? 'information-tab-select' : '' ">
-      原 创
-    </p>
+    <div class="information-slide-tab" ng-click="informationSlide(0)" id="information-slide-0">
+      <p class="information-slide-p" ng-class="slectIndex==0 ? 'information-tab-select' : '' ">热 门</p>
+    </div>
+    <div class="information-slide-tab" ng-click="informationSlide(1)" id="information-slide-1">
+      <p class="information-slide-p" ng-class="slectIndex==1 ? 'information-tab-select' : '' ">政 策</p>
+    </div>
+    <div class="information-slide-tab" ng-click="informationSlide(2)" id="information-slide-2">
+      <p class="information-slide-p" ng-class="slectIndex==2 ? 'information-tab-select' : '' ">观 点</p>
+    </div>
+    <div class="information-slide-tab" ng-click="informationSlide(3)" id="information-slide-3">
+      <p class="information-slide-p" ng-class="slectIndex==3 ? 'information-tab-select' : '' ">专 题</p>
+    </div>
+    <div class="information-slide-tab" ng-click="informationSlide(4)" id="information-slide-4">
+      <p class="information-slide-p" ng-class="slectIndex==4 ? 'information-tab-select' : '' ">原 创</p>
+    </div>
   </div>
 
   <ion-content class="information_content" delegate-handle＝"news_hot_content" scroll="false" overflow-scroll="ture">

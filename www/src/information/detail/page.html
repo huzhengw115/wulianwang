@@ -1,5 +1,6 @@
 <ion-view view-title="方案详情页" hide-tabs="true">
   <ion-content class="page-content">
+
   	<div class="page-head">
   		<h2 class="page-head-title">{{pageData.title}}</h2>
   		<div class="page-head-list">
@@ -9,16 +10,21 @@
   		</div>
       <img src="{{pageData.pic}}" class="page-head-pic">
   	</div>
+
   	<main class="page-page" ng-bind-html="pageData.inform"></main>
+
   	<div class="page-bottom">
       <div class="page-tag">
         <p ng-repeat="data in tags">{{data.name}}</p>
       </div>
   		<p class="page-author">编辑：{{pageData.author}}</p>
   	</div>
+
+    <div class="detail-footer" ng-include="'src/information/detail/footer.html'"></div>
+
     <div class="page-hot">
       <div class="page-hot-title">
-        <p>热门推荐</p>
+        <p>相关阅读</p>
       </div>
       <div class="page-hot-list">
         <a class="page-hot-item item item-thumbnail-right" ng-repeat="data in pageHotData" href="#/tab/information/page/{{data.id}}">
@@ -31,5 +37,6 @@
         </a>
       </div>
     </div>
+
   </ion-content>
 </ion-view>

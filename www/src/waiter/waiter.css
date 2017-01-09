@@ -3,72 +3,21 @@
 	background-color: #eee;
 }
 
-.waiter-ask-title, .waiter-ads-title, .waiter-meet-title {
+.waiter-ask-title, .waiter-ads-title, .waiter-meet-title, .waiter-request-title {
 	overflow: auto;
 }
 
-.waiter-ask-title > h2, .waiter-ads-title > h2, .waiter-meet-title > h2 {
+.waiter-ask-title > h2, .waiter-ads-title > h2, .waiter-meet-title > h2, .waiter-request-title > h2 {
 	font-size: 20px;
 	padding: 5px 0 0 10px;
 	margin-top: 0;
 	float: left;
 }
 
-.waiter-ask-title > a, .waiter-ads-title > a {
-	float: right;
-	margin: 5px 10px 0 0;
-	background-color: #fff;
-	font-size: 16px;
-	padding: 3px 12px;
-	border-radius: 7px;
-	border: 1px solid #ccc;
-	color: #000;
-}
-
-.waiter-ask-list {
-	overflow: auto;
-}
-
-.waiter-ask-list-item {
-	width: 50%;
+.waiter-ads-title > p, .waiter-request-title > p {
+	margin-top: 8px;
+	color: #f00;
 	float: left;
-}
-
-@media screen and (min-width: 320px){
-	.waiter-ask-list-item {
-		height: 145px;
-		margin: 0;
-	}
-	.waiter-ask-list-item > img {
-		width: 100%;
-		height: 75px;
-	}
-}
-
-@media screen and (min-width: 360px){
-	.waiter-ask-list-item {
-		height: 150px;
-		margin: 0;
-	}
-	.waiter-ask-list-item > img {
-		width: 100%;
-		height: 80px;
-	}
-}
-
-@media screen and (min-width: 400px){
-	.waiter-ask-list-item {
-		height: 170px;
-		margin: 0;
-	}
-	.waiter-ask-list-item > img {
-		width: 100%;
-		height: 100px;
-	}
-}
-
-.waiter-ask-list-item > h2 {
-	white-space: normal;
 }
 
 .waiter-ads-list {
@@ -154,6 +103,31 @@
 
 .waiter-meet-item p {
 	white-space: normal;
+}
+
+.waiter-request-title a {
+	float: right;
+	width: 56px;
+	margin: 6px 12px 0;
+	font-size: 18px;
+	padding: 3px 10px;
+	background-color: #fff;
+	border-radius: 5px;
+	color: #666;
+	text-decoration: none;
+}
+
+.waiter-request-list a {
+	overflow: auto;
+}
+
+.waiter-request-list h2 {
+	width: 65%;
+	float: left;
+}
+
+.waiter-request-list p {
+	float: right;
 }
 
 .waiter-customer-title > h2 {

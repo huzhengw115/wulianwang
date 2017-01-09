@@ -1,5 +1,6 @@
 <ion-view view-title="方案详情页" hide-tabs="true">
   <ion-content class="project-content">
+
     <div class="project-head">
       <h2 class="project-head-title">{{detailData.title}}</h2>
       <div class="project-head-list">
@@ -8,6 +9,7 @@
         <p>阅读：{{detailData.clicks}}</p>
       </div>
     </div>
+
     <div class="project-table">
       <div id="project-table" class="{{ projectTable === true ? 'open' : 'close' }}">
         <ul>
@@ -53,6 +55,7 @@
           </div>
         </div>
       </div>
+
       <div class="change-button" ng-click="toBeLong()">
         <p class="change-button-decoration-left"></p>
         <p class="change-button-content-left">
@@ -66,13 +69,18 @@
         </p>
         </div>
     </div>
+
     <main class="project-page" ng-bind-html="detailData.content"></main>
+
     <div class="project-bottom">
       <div class="project-tag">
         <p ng-repeat="data in tags">{{data.name}}</p>
       </div>
       <p class="project-author">编辑：{{detailData.author}}</p>
     </div>
+
+    <div class="detail-footer" ng-include="'src/information/detail/footer.html'"></div>
+
     <div class="project-hot">
       <div class="project-hot-title">
         <p>热门推荐</p>
@@ -88,5 +96,6 @@
         </a>
       </div>
     </div>
+
   </ion-content>
 </ion-view>

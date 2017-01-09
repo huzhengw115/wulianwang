@@ -2,7 +2,7 @@
 
   <div ng-include="'src/information/optionSelect/optionSelect.html'"></div>
 
-  <ion-content class="hots-content">
+  <ion-content class="hots-content" delegate-handle="HotsSrcoll">
     <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
     <div class="hots-list">

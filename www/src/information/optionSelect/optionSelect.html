@@ -1,6 +1,6 @@
 <div ng-controller="optionSelectCtrl" class="option-content">
   <div class="option-button">
-    <p ng-click="optionTabShow()">筛选<i id="triangle" class="{{ selectOpened === true ? 'open' : 'close' }}"></i></p>
+    <p ng-click="optionTabShow()">筛选：{{tabSelect}}<i id="triangle" class="{{ selectOpened === true ? 'open' : 'close' }}"></i></p>
   </div>
   <div ng-class="isShow ? 'ng-hide' : '' ">
     <div id ="option-tab" ng-class="isOptionShow === true ? 'option-show' : 'option-hide' ">

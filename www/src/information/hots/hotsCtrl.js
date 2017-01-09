@@ -1,6 +1,6 @@
 angular.module('Hots', [])
 
-.controller('HotsCtrl', function ($scope, informationService, LoaderService, getDataService) {
+.controller('HotsCtrl', function ($scope, informationService, LoaderService, getDataService, $ionicScrollDelegate) {
   // 二级栏目的首选项
   $scope.slideNumber = 0
   // 上拉加载的控制
@@ -9,6 +9,8 @@ angular.module('Hots', [])
   var params = {keyword: '', id: 0}
   // 接收子级控制器（筛选项）反馈的数据
   $scope.$on('to-parent', function (event, data) {
+    // 将页面回到顶端
+    $ionicScrollDelegate.$getByHandle('HotsSrcoll').scrollTop()
     console.log('反馈的标签：', data)
     // 首先接收到反馈回来的数据，将数据放入params中
     params = {keyword: data, id: 0}
@@ -47,7 +49,7 @@ angular.module('Hots', [])
 
   // 下拉刷新
   $scope.doRefresh = function () {
-    // LoaderService.show();
+    // LoaderService.show()
     getDataService.getNewsListItem(params).then(function (data) {
       $scope.hotsItem = data
       console.log('下拉:', $scope.hotsItem)
