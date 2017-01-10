@@ -30,15 +30,6 @@
   padding: 2px 1px 1px 8px !important;
 }
 
-.icon-clear {
-  content: "";
-  width: 15px;
-  height: 15px;
-  background-color: #000;
-  background-size: 15px;
-  display: block;
-}
-
 .read-search-button {
   border: 0;
   background-color: #00a0ff;

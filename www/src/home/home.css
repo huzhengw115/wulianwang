@@ -2,7 +2,7 @@
 	background-color: #00a0ff;
     position: relative;
 	overflow: auto;
-    z-index: 1000000;
+    z-index: 100;
 }
 
 .homeTop-title {

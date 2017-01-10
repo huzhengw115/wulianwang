@@ -1,6 +1,6 @@
 <ion-view view-title="活动" hide-tabs="true">
 
-  <div class="meets-button">
+  <!-- <div class="meets-button">
     <div class="meets-button-work">
       <ionic-picker   label=""
                       view-value-property="name"
@@ -25,7 +25,7 @@
                       ng-model="param.selectData">
       </ionic-picker>
     </div>    
-  </div>
+  </div> -->
 
   <ion-content class="meets-content">
 
@@ -33,11 +33,13 @@
     </ion-refresher>
 
     <div class="meets-list">
-      <a class="meets-list-item item item-thumbnail-right" ng-repeat="data in meetsListItem" href="#/tab/meets/{{data.id}}">
+      <a class="meets-list-item item" ng-repeat="data in meetsListItem" href="#/tab/meets/{{data.id}}">
         <img src="{{data.pic}}">
         <h2 class="intwoline">{{data.title}}</h2>
-        <p>{{data.adress}}</p>
-        <p>{{data.time}}</p>
+        <div class="meets-list-subtitle">
+          <label>{{data.adress}}</label>
+          <label>{{data.time}}</label>
+        </div>
         <div class="meets-list-items">
           <label>{{data.shop}}</label>
           <label>{{data.shop}}</label>

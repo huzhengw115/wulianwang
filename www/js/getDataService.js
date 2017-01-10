@@ -2,12 +2,24 @@ angular.module('getDataService', [])
 
 .service('getDataService', function ($http, $q, Restangular) {
 
-  // http://www.im2m.com.cn/api/news/news_list/keyword/%E8%8B%B9%E6%9E%9C
-  // getDataService.getNewsListItem().then(function (homeItem) {
-  //   $scope.homeItem = homeItem
-  // })
+  // 资讯 http://www.im2m.com.cn/api/news/news_list/keyword/%E8%8B%B9%E6%9E%9C
+
   // 首页、资讯页热门列表数据获取
-  function getNewsListItem (params) {
+  function getNewsListItem (params, index) {
+    switch(index)
+    {
+    case 0:
+      console.log('现在是零')
+      break
+    case 1:
+      console.log('现在是一')
+      break
+    case 2:
+      console.log('现在是二')
+      break
+    default:
+      console.log('现在是妖妖灵')
+    }
     return _getData('news/news_list/keyword', params)
   }
 

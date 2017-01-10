@@ -1,5 +1,42 @@
 <ion-view view-title="商机详情页" hide-tabs="true">
-  <ion-content>
-    <p>商机详情页面到现在页不知道怎么做</p>
+  <ion-content class="goodsDetail-content">
+    
+    <div class="goodsDetail-head">
+      <h2 class="goodsDetail-head-title">{{goodsDetailData.title}}</h2>
+      <div class="goodsDetail-head-list">
+        <p>{{goodsDetailData.times}}</p>
+        <p>{{goodsDetailData.adress}}</p>
+        <p>阅读：{{goodsDetailData.clicks}}</p>
+      </div>
+      <img src="{{goodsDetailData.pic}}" class="goodsDetail-head-pic">
+    </div>
+
+    <main class="goodsDetail-goodsDetail" ng-bind-html="goodsDetailData.inform"></main>
+
+    <div class="goodsDetail-bottom">
+      <div class="goodsDetail-tag">
+        <p ng-repeat="data in tags">{{data.name}}</p>
+      </div>
+      <p class="goodsDetail-author">编辑：{{goodsDetailData.author}}</p>
+    </div>
+
+    <div class="detail-footer" ng-include="'src/information/detail/footer.html'"></div>
+
+    <div class="goodsDetail-hot">
+      <div class="goodsDetail-hot-title">
+        <p>相关阅读</p>
+      </div>
+      <div class="goodsDetail-hot-list">
+        <a class="goodsDetail-hot-item item item-thumbnail-right" ng-repeat="data in goodsDetailHotData" href="#/tab/information/goodsDetail/{{data.id}}">
+          <img src="{{data.img}}" alt="">
+          <h2 class="intwoline">{{data.title}}</h2>
+          <div class="goodsDetail-hot-item-subtitle">
+            <p>{{data.address}}</p>
+            <p>{{data.time}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>

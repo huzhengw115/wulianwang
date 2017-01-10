@@ -7,13 +7,62 @@
     </ion-scroll>
   </div>
 
-  <ion-content class="myRead-content" scroll="false" overflow-scroll="ture">
-    <ion-slide-box on-slide-changed="slideChanged(index)" active-slide="slideIndex" does-continue="false" show-pager="false" class="myRead-slide-box">
+  <div class="myRead-find">
+    <div class="myRead-find-class">
+      <p class="myRead-find-class-0" ng-class="classIndex == 0 ? 'myRead-find-class-select' : '' " ng-click="myReadFindclass(0)">资讯</p>
+      <p class="myRead-find-class-1" ng-class="classIndex == 1 ? 'myRead-find-class-select' : '' " ng-click="myReadFindclass(1)">方案</p>
+      <p class="myRead-find-class-2" ng-class="classIndex == 2 ? 'myRead-find-class-select' : '' " ng-click="myReadFindclass(2)">商机</p>
+    </div>
+  </div>
+
+  <ion-content class="myRead-content" scroll="false" overflow-scroll="true">
+    <ion-slide-box  on-slide-changed="slideChanged(index)" 
+                    auto-play="false" 
+                    does-continue="false" 
+                    active-slide="true" 
+                    show-pager="false" 
+                    class="myRead-slide-box">
+
       <ion-slide ng-repeat="data in myTab">
         <ion-content class="myRead-slide-view">
-          <a class="item"></a>
+          <div>
+          <!-- 资讯 -->
+          <a class="item findResultClass item-thumbnail-right" ng-repeat="data in findData" ng-if=" classIndex == 0 ? true : false " href="#/tab/information/page/{{data.id}}">
+            <img src="{{data.thumb[0]}}" alt="">
+            <h2 class="intwoline">{{data.title}}</h2>
+            <div class="information-list-item">
+              <label>{{data.copyfrom}}</label>
+              <label>{{data.updatetime}}</label>
+            </div>
+          </a>
+
+          <!-- 方案 -->
+          <a class="item findResultClass item-thumbnail-right" ng-repeat="data in findData" ng-if=" classIndex == 1 ? true : false " href="#/tab/programme/{{data.id}}">
+            <img src="{{data.thumb[0]}}">
+            <h2 class="intwoline">{{data.title}}</h2>
+            <div class="programme-list-item">
+              <label>{{data.copyfrom}}</label>
+              <label>{{data.updatetime}}</label>
+            </div>
+            <p class="programme-list-money">预计产生效益：1000万</p>
+          </a>
+
+          <!-- 商机 -->
+          <a class="item goods-list-item" ng-repeat="data in findData" ng-if=" classIndex == 2 ? true : false ">
+            <h2>{{data.title}}</h2>
+            <div class="goods-list-items">
+              <label>{{data.copyfrom}}</label>
+              <label>{{data.copyfrom}}</label>
+              <label>{{data.updatetime}}</label>
+            </div>
+          </a>
+          </div>
+
+          <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+
         </ion-content>
       </ion-slide>
+
     </ion-slide-box>
   </ion-content>
 </ion-view>

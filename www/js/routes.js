@@ -251,6 +251,15 @@ angular.module('starter.routes', [])
     }
   })
 
+  .state('tab.more', {
+    url: '/more',
+    views: {
+      'tab-home': {
+        templateUrl: 'src/home/more.html'
+      }
+    }
+  })
+
   .state('tab.find', {
     url: '/find',
     views: {
