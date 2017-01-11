@@ -3,7 +3,6 @@ angular.module('constantService', [])
 	informationView: ['src/information/hots/hots.html',
       'src/information/policy/policy.html',
       'src/information/idea/idea.html',
-      'src/information/special/special.html',
       'src/information/shop/shop.html'
   		],
   programmeView: ['src/programme/allProgramme/allProgramme.html',
@@ -25,10 +24,9 @@ angular.module('constantService', [])
         'src/find/find.html'
       ],
   homesFile: ['src/homes/homesCtrl.js', 'src/homes/homes.css'],
-  informationFile: [['src/information/hots/hotsCtrl.js', 'src/information/hots/hots.css', 'src/information/optionSelect/optionSelectCtrl.js'],
+  informationFile: [['src/information/hots/hotsCtrl.js', 'src/information/hots/hots.css'],
               ['src/information/policy/policyCtrl.js', 'src/information/policy/policy.css'],
               ['src/information/idea/ideaCtrl.js', 'src/information/idea/idea.css'],
-              ['src/information/special/specialCtrl.js', 'src/information/special/special.css'],
               ['src/information/shop/shopCtrl.js', 'src/information/shop/shop.css']
             ],
   programmeFile: [['src/programme/allProgramme/allProgrammeCtrl.js', 'src/programme/allProgramme/allProgramme.css'],

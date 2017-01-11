@@ -46,3 +46,21 @@ img {
 .footer-logo img {
 	width: 100%;
 }
+
+.goTop {
+	position: fixed;
+	bottom: 100px;
+	right: 30px;
+	background-color: #00a0ff;
+	z-index: 100;
+	opacity: .5;
+	width: 55px;
+	height: 55px;
+	border-radius: 15px;
+}
+
+.goTopImg {
+	font-size: 50px;
+	margin-left: 8px;
+	color: #bbb;
+}

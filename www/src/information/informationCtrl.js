@@ -15,8 +15,6 @@ angular.module('Information', [])
   $scope.slideChanged = function (index) {
     // 选中上面的标题
     $scope.slectIndex = index
-    // 向子级控制器（筛选控制器）传递正在操作的视图编号
-    $scope.$broadcast('to-child', index)
     $ocLazyLoad.load(informationFile[index]).then( function() {
       // 根据不同的模板名字加载不同的视图
       switch (index) {
@@ -37,11 +35,6 @@ angular.module('Information', [])
           break
         case 3:
           {
-            $scope.special = informationView[index]
-          }
-          break
-        case 4:
-          {
             $scope.shop = informationView[index]
           }
           break
@@ -56,6 +49,17 @@ angular.module('Information', [])
   $scope.informationSlide = function (index) {
     $ionicSlideBoxDelegate.slide(index)
     console.log(index)
+  }
+
+  // 点击叉叉清空搜索框
+  $scope.clearSearch = function () {
+    $scope.keyWord = ''
+  }
+
+  // 根据关键字进行搜索
+  $scope.toSearch = function (data) {
+    // 向子级控制器传递搜索的关键字
+    $scope.$broadcast('to-child', data)
   }
 
   // 定义初始值为0

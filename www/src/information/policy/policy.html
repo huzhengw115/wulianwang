@@ -1,8 +1,8 @@
 <div ng-controller="PolicyCtrl">
 
-  <div ng-include="'src/information/optionSelect/optionSelect.html'"></div>
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTop > 1000 ? true : false "><i class="ion-arrow-up-a goTopImg"></i></div>
 
-  <ion-content class="policy-content">
+  <ion-content class="policy-content" on-scroll="toTopScroll()">
     <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
     
     <div class="policy-list">

@@ -5,18 +5,19 @@ angular.module('Hots', [])
   $scope.slideNumber = 0
   // 上拉加载的控制
   $scope.More = false
-  // 设置请求传输的数据
-  var params = {keyword: '', id: 0}
-  // 接收子级控制器（筛选项）反馈的数据
-  $scope.$on('to-parent', function (event, data) {
-    // 将页面回到顶端
-    $ionicScrollDelegate.$getByHandle('HotsSrcoll').scrollTop()
-    console.log('反馈的标签：', data)
-    // 首先接收到反馈回来的数据，将数据放入params中
-    params = {keyword: data, id: 0}
-    // 然后进行下拉刷新操作，将列表数据集刷新
-    $scope.doRefresh()
-  })
+  // 设置请求传输的数据,栏目分别对应热门：67,政策：68,观点：69,原创：71
+  var params = {keyword: '', id: 0, catid: 67}
+
+  // 回到页面的顶端
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.scrollTop(true)
+  }
+
+  // 在ion-content计算页面滚动的距离
+  $scope.toTopScroll = function(data){
+    $scope.isGoTop = $ionicScrollDelegate.getScrollPosition().top
+    $scope.$apply()
+  }
 
   $scope.selectOpened = false
   // 二级栏目的选择
@@ -25,6 +26,12 @@ angular.module('Hots', [])
     $scope.slideNumber = tabNumber
     $scope.$emit('to-parent', tabNumber)
   }
+
+  // 获取到父级控制器传递过来的关键字
+  $scope.$on('to-child', function (event, data) {
+    console.log('childCtrl:', data)
+    $scope.doRefresh(data)
+  })
 
   // 上拉加载
   $scope.loadMore = function () {
@@ -48,9 +55,10 @@ angular.module('Hots', [])
   }
 
   // 下拉刷新
-  $scope.doRefresh = function () {
+  $scope.doRefresh = function (data) {
+    params.keyword = data
     // LoaderService.show()
-    getDataService.getNewsListItem(params).then(function (data) {
+    getDataService.getNewsItem(params).then(function (data) {
       $scope.hotsItem = data
       console.log('下拉:', $scope.hotsItem)
     })

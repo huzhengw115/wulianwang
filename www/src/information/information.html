@@ -10,14 +10,31 @@
       <p class="information-slide-p" ng-class="slectIndex==2 ? 'information-tab-select' : '' ">观 点</p>
     </div>
     <div class="information-slide-tab" ng-click="informationSlide(3)" id="information-slide-3">
-      <p class="information-slide-p" ng-class="slectIndex==3 ? 'information-tab-select' : '' ">专 题</p>
-    </div>
-    <div class="information-slide-tab" ng-click="informationSlide(4)" id="information-slide-4">
-      <p class="information-slide-p" ng-class="slectIndex==4 ? 'information-tab-select' : '' ">原 创</p>
+      <p class="information-slide-p" ng-class="slectIndex==3 ? 'information-tab-select' : '' ">原 创</p>
     </div>
   </div>
 
-  <ion-content class="information_content" delegate-handle＝"news_hot_content" scroll="false" overflow-scroll="ture">
+  <div class="information-find item-input-inset">
+    <div class="information-find-input item-input-wrapper">
+      <form class="information-find-form">
+        <input  type="search" 
+                placeholder="请输入关键字" 
+                maxlength="20" 
+                ng-model="keyWord" 
+                ng-change="searchChange()">
+      </form>
+      <a  ng-if="keyWord.length"
+          on-touch="clearSearch()"
+          class="clear-search">
+        <img src="img/button/clear.png" class="icon-clear">
+      </a>
+    </div>
+    <button class="information-find-button" ng-click="toSearch(keyWord)">
+      确定
+    </button>
+  </div>
+
+  <ion-content class="information_content" delegate-handle="news_hot_content" scroll="false" overflow-scroll="ture">
 
     <ion-slide-box delegate-handle="newsSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false" style="top: 0;bottom: 0;position: absolute !important; width:100%">
 
@@ -35,12 +52,6 @@
       
       <ion-slide>
         <div ng-include="idea">
-            
-        </div>
-      </ion-slide>
-
-      <ion-slide>
-        <div ng-include="special">
             
         </div>
       </ion-slide>

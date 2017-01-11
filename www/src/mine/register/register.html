@@ -1,0 +1,27 @@
+<ion-view view-title="注册" hide-tabs="true">
+  <ion-content class="register-content">
+    
+    <div class="register-input">
+      <div class="register-name">
+        <img src="img/mine/head.jpg">
+        <input type="text" placeholder="请输入手机号码">
+      </div>
+
+      <div class="register-telp item-input-wrapper">
+        <form class="register-telp-form">
+          <img src="img/mine/key.jpg">
+          <input type="text" placeholder="请输入手机验证码" maxlength="10">
+        </form>
+        <button class="register-telp-button" ng-click="getTelp()">{{codeTime}}</button>
+      </div>
+
+      <div class="register-word">
+        <img src="img/mine/word.jpg">
+        <input type="password" placeholder="请输入密码">
+      </div>
+    </div>
+
+    <p class="register-button">确定</p>
+    
+  </ion-content>
+</ion-view>

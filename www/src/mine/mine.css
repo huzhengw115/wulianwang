@@ -16,6 +16,11 @@
 	margin: auto;
 }
 
+.mine-head-portrait-pic img {
+	width: 70px;
+	border-radius: 50%;
+}
+
 .mine-head-portrait > p {
 	text-align: center;
 	margin-top: 10px;
@@ -37,7 +42,7 @@
 	color: #bbb;
 }
 
-.mine-content img {
+.mine-about img, .mine-govmade img {
 	width: 29px;
 	margin: 0 10px -9px 0;
 }

@@ -4,7 +4,7 @@ angular.module('getDataService', [])
 
   // 资讯 http://www.im2m.com.cn/api/news/news_list/keyword/%E8%8B%B9%E6%9E%9C
 
-  // 首页、资讯页热门列表数据获取
+  // 进行搜索操作时列表数据获取，index代表取得是什么值
   function getNewsListItem (params, index) {
     switch(index)
     {
@@ -20,6 +20,10 @@ angular.module('getDataService', [])
     default:
       console.log('现在是妖妖灵')
     }
+    return _getData('news/news_list/keyword', params)
+  }
+
+  function getNewsItem (params) {
     return _getData('news/news_list/keyword', params)
   }
 
@@ -39,6 +43,7 @@ angular.module('getDataService', [])
   }
 
   return {
-    getNewsListItem: getNewsListItem
+    getNewsListItem: getNewsListItem,
+    getNewsItem: getNewsItem
   }
 })

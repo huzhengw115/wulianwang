@@ -43,8 +43,8 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/information/informationService.js', 'src/information/optionSelect/optionSelect.css']).then(function () {
-          return $ocLazyLoad.load(['src/information/informationCtrl.js', 'src/information/information.css', 'src/information/optionSelect/optionSelectCtrl.js'])
+        return $ocLazyLoad.load(['src/information/informationService.js']).then(function () {
+          return $ocLazyLoad.load(['src/information/informationCtrl.js', 'src/information/information.css'])
         })
       }]
     }
@@ -370,6 +370,38 @@ angular.module('starter.routes', [])
     resolve: {
       loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
         return $ocLazyLoad.load(['src/mine/contact/contact.css','src/mine/contact/contactCtrl.js'])
+      }]
+    }
+  })
+
+  .state('tab.signIn', {
+    url: '/signIn',
+    views: {
+      'tab-mine': {
+        templateUrl: 'src/mine/signIn/signIn.html',
+        controller: 'SignInCtrl'
+      }
+    },
+    resolve: {
+      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load('src/mine/signIn/signInService.js').then(function () {
+          return $ocLazyLoad.load(['src/mine/signIn/signIn.css','src/mine/signIn/signInCtrl.js'])
+        })
+      }]
+    }
+  })
+
+  .state('tab.register', {
+    url: '/register',
+    views: {
+      'tab-mine': {
+        templateUrl: 'src/mine/register/register.html',
+        controller: 'RegisterCtrl'
+      }
+    },
+    resolve: {
+      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+        return $ocLazyLoad.load(['src/mine/register/register.css','src/mine/register/registerCtrl.js'])
       }]
     }
   })

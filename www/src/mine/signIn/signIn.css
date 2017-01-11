@@ -1,0 +1,49 @@
+.signIn-content {
+	background-color: #eee;
+}
+
+.signIn-input {
+	margin-top: 50px;
+}
+
+.signIn-name, .signIn-password {
+	overflow: auto;
+	border-radius: 5px;
+	margin: 20px 15px 10px;
+	background-color: #fff;
+}
+
+.signIn-name img, .signIn-password img {
+	width: 25px;
+	float: left;
+	margin-top: 3px;
+}
+
+.signIn-name input, .signIn-password input {
+	border-radius: 0 5px 5px 0;
+	width: 90%;
+}
+
+.signIn-button {
+	background-color: #00a0ff;
+	margin: auto;
+	width: 150px;
+	height: 30px;
+	text-align: center;
+	padding-top: 4px;
+	font-size: 18px;
+	color: #fff;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+.signIn-register {
+	width: 150px;
+	margin: auto;
+	margin-top: 20px;
+	color: #999;
+}
+
+.signIn-register-a {
+	text-decoration: none;
+}

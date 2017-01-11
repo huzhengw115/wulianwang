@@ -1,20 +1,23 @@
 angular.module('Idea', [])
 
-.controller('IdeaCtrl', function ($scope, informationService, LoaderService, getDataService) {
+.controller('IdeaCtrl', function ($scope, informationService, LoaderService, getDataService, $ionicScrollDelegate) {
   // 二级栏目的首选项
   $scope.slideNumber = 3
   // 上拉加载的控制
   $scope.More = false
   // 设置请求传输的数据
   var params = {keyword: '', id: 0}
-  // 接收子级控制器（筛选项）反馈的数据
-  $scope.$on('to-parent', function (event, data) {
-    console.log('反馈的标签：', data)
-    // 首先接收到反馈回来的数据，将数据放入params中
-    params = {keyword: data, id: 0}
-    // 然后进行下拉刷新操作，将列表数据集刷新
-    $scope.doRefresh()
-  })
+
+  // 回到页面的顶端
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.scrollTop(true)
+  }
+
+  // 在ion-content计算页面滚动的距离
+  $scope.toTopScroll = function(data){
+    $scope.isGoTop = $ionicScrollDelegate.getScrollPosition().top
+    $scope.$apply()
+  }
 
   $scope.selectOpened = false
   // 二级栏目的选择
@@ -23,6 +26,12 @@ angular.module('Idea', [])
     $scope.slideNumber = tabNumber
     $scope.$emit('to-parent', tabNumber)
   }
+
+  // 获取到父级控制器传递过来的关键字
+  $scope.$on('to-child', function (event, data) {
+    console.log('childCtrl:', data)
+    $scope.doRefresh(data)
+  })
 
   // 上拉加载
   $scope.loadMore = function () {
@@ -46,7 +55,8 @@ angular.module('Idea', [])
   }
 
   // 下拉刷新
-  $scope.doRefresh = function () {
+  $scope.doRefresh = function (data) {
+    params.keyword = data
     // LoaderService.show();
     getDataService.getNewsListItem(params).then(function (data) {
       $scope.ideaItem = data

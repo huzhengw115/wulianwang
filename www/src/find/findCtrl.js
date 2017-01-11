@@ -10,6 +10,8 @@ angular.module('Find', [])
   $scope.isClassShow = false
   // 页面加载初始上拉加载为空
   $scope.More = false
+  // 设置开始的时候搜索框为空
+  $scope.keyWord = ''
   // 设置类型数组
   $scope.classItem = [{'id': 0,'class': '资讯'},{'id': 1,'class': '方案'},{'id': 2,'class': '商机'},{'id': 3,'class': '活动'}]
   // 设置页面最开始时的类型
@@ -32,14 +34,18 @@ angular.module('Find', [])
   $scope.toSearch = function (data) {
     $scope.searchData = true
 
-    params.keyWord = data
-    getDataService.getNewsListItem(params).then(function (data) {
-      $scope.findData = data
-      console.log('搜索到的结果：', $scope.findData)
-    })
-    .finally(function () {
-      $scope.More = true
-    })
+    // 首先要判断input框中是否存在值，不存在数据就不进行搜索
+    if($scope.keyWord != '') {
+      console.log(data)
+      params.keyWord = data
+      getDataService.getNewsListItem(params).then(function (data) {
+        $scope.findData = data
+        console.log('搜索到的结果：', $scope.findData)
+      })
+      .finally(function () {
+        $scope.More = true
+      })
+    }
   }
 
   // 上拉加载
