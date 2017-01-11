@@ -5,8 +5,7 @@ angular.module('constantService', [])
       'src/information/idea/idea.html',
       'src/information/shop/shop.html'
   		],
-  programmeView: ['src/programme/allProgramme/allProgramme.html',
-      'src/programme/newProgramme/newProgramme.html',
+  programmeView: ['src/programme/newProgramme/newProgramme.html',
       'src/programme/hotProgramme/hotProgramme.html',
       'src/programme/eleProgramme/eleProgramme.html'
       ],
@@ -29,8 +28,7 @@ angular.module('constantService', [])
               ['src/information/idea/ideaCtrl.js', 'src/information/idea/idea.css'],
               ['src/information/shop/shopCtrl.js', 'src/information/shop/shop.css']
             ],
-  programmeFile: [['src/programme/allProgramme/allProgrammeCtrl.js', 'src/programme/allProgramme/allProgramme.css'],
-              ['src/programme/newProgramme/newProgrammeCtrl.js', 'src/programme/newProgramme/newProgramme.css'],
+  programmeFile: [['src/programme/newProgramme/newProgrammeCtrl.js', 'src/programme/newProgramme/newProgramme.css'],
               ['src/programme/hotProgramme/hotProgrammeCtrl.js', 'src/programme/hotProgramme/hotProgramme.css'],
               ['src/programme/eleProgramme/eleProgrammeCtrl.js', 'src/programme/eleProgramme/eleProgramme.css']
             ],

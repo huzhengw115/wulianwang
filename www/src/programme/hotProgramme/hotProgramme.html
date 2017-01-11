@@ -3,21 +3,21 @@
 		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
 		<div class="hot-programme">
-			<div class="hot-programme-item" ng-repeat="data in hotProgrammeItem">
+			<div class="hot-programme-item" ng-repeat="data in hotProgrammeTab">
 				<input type="radio" id="hot-programme-item-{{data.id}}" ng-checked="hotProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="hotProgrammeSelect({{data.id}})">
 				<label for="hot-programme-item-{{data.id}}">{{data.tab}}</label>
 			</div>
 		</div>
 
 		<div class="hot-list">
-			<a class="item hot-list-item intwoline item-thumbnail-right" ng-repeat="data in hotProgrammeListItem" href="#/tab/programme/{{data.id}}">
-				<img src="{{data.pic}}">
+			<a class="item hot-list-item intwoline item-thumbnail-right" ng-repeat="data in hotProgrammeItem" href="#/tab/programme/{{data.id}}">
+				<img src="{{data.thumb[0]}}">
 				<h2 class="intwoline">{{data.title}}</h2>
 				<div>
-					<label>{{data.source}}</label>
-					<label>{{data.times}}</label>
+					<label>{{data.copyform}}</label>
+					<label>{{data.inputtime}}</label>
 				</div>
-				<p>预计产生效益：1000万</p>
+				<p>预计产生效益：{{data.benefit}} 万</p>
 			</a>
 		</div>
 

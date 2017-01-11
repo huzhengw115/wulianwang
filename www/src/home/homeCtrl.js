@@ -14,7 +14,7 @@ angular.module('Home', [])
 
   // 列表资讯的获取
   var homeListItem = function () {
-    getDataService.getNewsListItem().then(function (homeItem) {
+    getDataService.getNewsItem().then(function (homeItem) {
       $scope.homeItem = homeItem
       // console.log('length: ',$scope.homeItem.length)
     })

@@ -6,7 +6,7 @@ angular.module('Shop', [])
   // 上拉加载的控制
   $scope.More = false
   // 设置请求传输的数据
-  var params = {keyword: '', id: 0}
+  var params = {keyword: '', id: 0, catid: 71}
 
   // 回到页面的顶端
   $scope.scrollTop = function() {
@@ -42,7 +42,7 @@ angular.module('Shop', [])
     params.id = $scope.shopItem[dataLength].id
     console.log('params.id:', params.id)
     // 将id值传进去作为下次请求的开始值
-    getDataService.getNewsListItem(params).then(function (data) {
+    getDataService.getNewsItem(params).then(function (data) {
       if(data.length < 15) {
         $scope.More = false
       }
@@ -58,7 +58,7 @@ angular.module('Shop', [])
   $scope.doRefresh = function (data) {
     params.keyword = data
     // LoaderService.show();
-    getDataService.getNewsListItem(params).then(function (data) {
+    getDataService.getNewsItem(params).then(function (data) {
       $scope.shopItem = data
       console.log('下拉:', $scope.shopItem)
     })

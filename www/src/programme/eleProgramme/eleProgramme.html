@@ -3,14 +3,14 @@
 		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 		
 		<div class="ele-list">
-			<a class="item ele-list-item intwoline item-thumbnail-right" ng-repeat="data in eleProgrammeListItem" href="#/tab/programme/{{data.id}}">
-				<img src="{{data.pic}}">
+			<a class="item ele-list-item intwoline item-thumbnail-right" ng-repeat="data in eleProgrammeItem" href="#/tab/programme/{{data.id}}">
+				<img src="{{data.thumb[0]}}">
 				<h2 class="intwoline">{{data.title}}</h2>
 				<div>
-					<label>{{data.source}}</label>
-					<label>{{data.times}}</label>
+					<label>{{data.copyform}}</label>
+					<label>{{data.inputtime}}</label>
 				</div>
-				<p>预计产生效益：1000万</p>
+				<p>预计产生效益：{{data.benefit}} 万</p>
 			</a>
 		</div>
 

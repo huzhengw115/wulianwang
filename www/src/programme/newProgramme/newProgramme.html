@@ -1,26 +1,26 @@
 <div ng-controller="NewProgrammeCtrl">
-	<ion-content class="newProgramme-content">
-		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+  <ion-content class="newProgramme-content">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-		<div class="new-programme">
-			<div class="new-programme-item" ng-repeat="data in newProgrammeItem">
-				<input type="radio" id="new-programme-item-{{data.id}}" ng-checked="newProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="newProgrammeSelect({{data.id}})">
-				<label for="new-programme-item-{{data.id}}">{{data.tab}}</label>
-			</div>
-		</div>
+    <div class="new-programme">
+      <div class="new-programme-item" ng-repeat="data in newProgrammeTab">
+        <input type="radio" id="new-programme-item-{{data.id}}" ng-checked="newProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="newProgrammeSelect({{data.id}})">
+        <label for="new-programme-item-{{data.id}}">{{data.tab}}</label>
+      </div>
+    </div>
 
-		<div class="new-list">
-			<a class="item new-list-item intwoline item-thumbnail-right" ng-repeat="data in newProgrammeListItem" href="#/tab/programme/{{data.id}}">
-				<img src="{{data.pic}}">
-				<h2 class="intwoline">{{data.title}}</h2>
-				<div>
-					<label>{{data.source}}</label>
-					<label>{{data.times}}</label>
-				</div>
-				<p>预计产生效益：1000万</p>
-			</a>
-		</div>
+    <div class="new-list">
+      <a class="item new-list-item intwoline item-thumbnail-right" ng-repeat="data in newProgrammeItem" href="#/tab/programme/{{data.id}}">
+        <img src="{{data.thumb[0]}}">
+        <h2 class="intwoline">{{data.title}}</h2>
+        <div>
+          <label>{{data.copyform}}</label>
+          <label>{{data.inputtime}}</label>
+        </div>
+        <p>预计产生效益：{{data.benefit}} 万</p>
+      </a>
+    </div>
 
-		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-	</ion-content>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
 </div>

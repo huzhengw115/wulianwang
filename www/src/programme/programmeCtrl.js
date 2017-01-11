@@ -20,20 +20,15 @@ angular.module('Programme', [])
       switch (index) {
         case 0:
           {
-            $scope.all = programmeView[index]
+            $scope.new = programmeView[index]
           }
           break
         case 1:
           {
-            $scope.new = programmeView[index]
-          }
-          break
-        case 2:
-          {
             $scope.hot = programmeView[index]
           }
           break
-        case 3:
+        case 2:
           {
             $scope.ele = programmeView[index]
           }

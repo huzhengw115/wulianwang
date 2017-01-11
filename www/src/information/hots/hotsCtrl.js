@@ -42,7 +42,7 @@ angular.module('Hots', [])
     params.id = $scope.hotsItem[dataLength].id
     console.log('params.id:', params.id)
     // 将id值传进去作为下次请求的开始值
-    getDataService.getNewsListItem(params).then(function (data) {
+    getDataService.getNewsItem(params).then(function (data) {
       if(data.length < 15) {
         $scope.More = false
       }

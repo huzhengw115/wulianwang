@@ -2,8 +2,8 @@ angular.module('getDataService', [])
 
 .service('getDataService', function ($http, $q, Restangular) {
 
-  // 资讯 http://www.im2m.com.cn/api/news/news_list/keyword/%E8%8B%B9%E6%9E%9C
-
+  // 资讯 http://www.im2m.com.cn/api/news/get_list/keyword/%E8%8B%B9%E6%9E%9C
+  // 方案 /api/solutions/get_list
   // 进行搜索操作时列表数据获取，index代表取得是什么值
   function getNewsListItem (params, index) {
     switch(index)
@@ -20,11 +20,15 @@ angular.module('getDataService', [])
     default:
       console.log('现在是妖妖灵')
     }
-    return _getData('news/news_list/keyword', params)
+    return _getData('news/get_list/keyword', params)
   }
 
   function getNewsItem (params) {
-    return _getData('news/news_list/keyword', params)
+    return _getData('news/get_list/keyword', params)
+  }
+
+  function getProgrammeItem (params) {
+    return _getData('solutions/get_list/keyword', params)
   }
 
   function _getData (url, params) {
@@ -44,6 +48,7 @@ angular.module('getDataService', [])
 
   return {
     getNewsListItem: getNewsListItem,
-    getNewsItem: getNewsItem
+    getNewsItem: getNewsItem,
+    getProgrammeItem: getProgrammeItem
   }
 })
