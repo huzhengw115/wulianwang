@@ -1,18 +1,16 @@
 <div ng-controller="HotsCtrl">
 
-  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTop > 1000 ? true : false "><i class="ion-arrow-up-a goTopImg"></i></div>
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopHots && displayGoTopHots"><i class="ion-arrow-up-a goTopImg"></i></div>
 
-  <ion-content class="hots-content" delegate-handle="HotsSrcoll" on-scroll="toTopScroll()">
+  <ion-content class="hots-content" delegate-handle="HotsSrcoll" on-scroll="hotsToTopScroll()">
     <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
     <div class="hots-list">
       <a href="#/tab/information/page/{{data.id}}" class="item hots-list-items item-thumbnail-right" ng-repeat="data in hotsItem">
         <img src="{{data.thumb[0]}}" alt="">
         <h2 class="intwoline">{{data.title}}</h2>
-        <div class="hots-list-item">
-          <label>{{data.copyfrom}}</label>
-          <label>{{data.inputtime}}</label>
-        </div>
+        <p>{{data.copyfrom}}</p>
+        <p>{{data.inputtime}}</p>
       </a>
     </div>
     <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>

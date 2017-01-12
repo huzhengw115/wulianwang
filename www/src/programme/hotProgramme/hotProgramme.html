@@ -1,26 +1,42 @@
 <div ng-controller="HotProgrammeCtrl">
-	<ion-content class="hotProgramme-content">
-		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-		<div class="hot-programme">
-			<div class="hot-programme-item" ng-repeat="data in hotProgrammeTab">
-				<input type="radio" id="hot-programme-item-{{data.id}}" ng-checked="hotProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="hotProgrammeSelect({{data.id}})">
-				<label for="hot-programme-item-{{data.id}}">{{data.tab}}</label>
-			</div>
-		</div>
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopHotp"><i class="ion-arrow-up-a goTopImg"></i></div>
+  <div class="goFind" ng-click="goFindHotp()" ng-if="!isGoFindHotp"><i class="ion-search goFindImg"></i></div>
+  <div class="hotp-find hotp-find-checked" ng-if="isGoFindInputHot">
+    <input type="text" class="hotp-input" placeholder="请输入关键字进行查找" ng-model="hotpKeyWord">
+    <p class="hotp-yes" ng-click="hotpYes(hotpKeyWord)">确定</p>
+    <p class="hotp-no" ng-click="hotpNo()">取消</p>
+  </div>
 
-		<div class="hot-list">
-			<a class="item hot-list-item intwoline item-thumbnail-right" ng-repeat="data in hotProgrammeItem" href="#/tab/programme/{{data.id}}">
-				<img src="{{data.thumb[0]}}">
-				<h2 class="intwoline">{{data.title}}</h2>
-				<div>
-					<label>{{data.copyform}}</label>
-					<label>{{data.inputtime}}</label>
-				</div>
-				<p>预计产生效益：{{data.benefit}} 万</p>
-			</a>
-		</div>
+  <ion-content class="hotProgramme-content" delegate-handle="HotpSrcoll" on-scroll="hotpToTopScroll()">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-	</ion-content>
+    <div class="hot-programme">
+
+      <div class="hot-programme-item">
+        <input type="radio" id="hot-programme-item-0" ng-checked="hotProgrammeIndex == 0 ? 'checked' : ''" ng-click="hotProgrammeSelect('', 0)">
+        <label for="hot-programme-item-0">全部</label>
+      </div>
+
+      <div class="hot-programme-item" ng-repeat="data in hotProgrammeTab">
+        <input type="radio" id="hot-programme-item-{{data.id}}" ng-checked="hotProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="hotProgrammeSelect('{{data.tab}}', {{data.id}})">
+        <label for="hot-programme-item-{{data.id}}">{{data.tab}}</label>
+      </div>
+
+    </div>
+
+    <div class="hot-list">
+      <a class="item hot-list-item intwoline item-thumbnail-right" ng-repeat="data in hotProgrammeItem" href="#/tab/programme/{{data.id}}">
+        <img src="{{data.thumb[0]}}">
+        <h2 class="intwoline">{{data.title}}</h2>
+        <div>
+          <label>{{data.copyfrom}}</label>
+          <label>{{data.inputtime}}</label>
+        </div>
+        <p>预计产生效益：{{data.benefit}} 万</p>
+      </a>
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
 </div>

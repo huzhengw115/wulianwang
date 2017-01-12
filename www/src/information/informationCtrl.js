@@ -62,6 +62,11 @@ angular.module('Information', [])
     $scope.$broadcast('to-child', data)
   }
 
+  // 向子级传递fix定位的按钮显示与否，0不显示，1显示
+  $scope.displayButton = function (number) {
+    $scope.$broadcast('display', number)
+  }
+
   // 定义初始值为0
   $scope.slideChanged(0)
 

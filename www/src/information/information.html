@@ -21,7 +21,9 @@
                 placeholder="请输入关键字" 
                 maxlength="20" 
                 ng-model="keyWord" 
-                ng-change="searchChange()">
+                ng-change="searchChange()" 
+                ng-focus="displayButton(0)" 
+                ng-blur="displayButton(1)">
       </form>
       <a  ng-if="keyWord.length"
           on-touch="clearSearch()"

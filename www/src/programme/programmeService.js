@@ -3,9 +3,6 @@ angular.module('Programme', [])
 .service('programmeService', function ($http, $q) {
 
   var programmeItem = [{
-    "id": 0,
-    "tab": "智能电网"
-  }, {
     "id": 1,
     "tab": "智能交通"
   }, {

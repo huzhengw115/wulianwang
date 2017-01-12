@@ -133,15 +133,8 @@
     margin-top: 10px;
 }
 
-.home-list-item-class {
-    float: left;
-    padding: 0px 6px;
-    border-radius: 30px;
-    font-size: 12px !important;
-}
-
 .home-list-item-adress, .home-list-item-time {
     float: left;
-    margin-left: 15px;
+    margin-right: 15px;
     font-size: 12px !important;
 }

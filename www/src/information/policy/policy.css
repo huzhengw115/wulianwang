@@ -5,8 +5,8 @@
 	.policy-list-items > img {
 		max-width: 150px !important;
 		width: 95px !important;
-		max-height: 60px !important;
-		margin-top: 10px;
+		max-height: 70px !important;
+		margin-top: 15px;
 	}
 	.policy-list-items > h2 {
 		margin-right: 15px;
@@ -51,14 +51,4 @@
 		margin-right: 80px;
 		white-space: normal;
 	}
-}
-
-.policy-list-item {
-	position: absolute;
-	bottom: 10px;
-}
-
-.policy-list-item > label {
-	font-size: 12px;
-	color: #bbb;
 }

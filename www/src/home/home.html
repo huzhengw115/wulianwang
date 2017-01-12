@@ -19,7 +19,7 @@
         <ion-slide ng-repeat="item in ads" class="home-ads-pic">
           <div class="pic-box">
             <a ng-href = "">
-                <img ng-src="{{ item.pic }}">
+                <img ng-src="{{item.pic}}">
             </a>
           </div>
         </ion-slide>
@@ -35,7 +35,6 @@
         <img src="{{data.thumb[0]}}" alt="">
         <h2 class="intwoline">{{data.title}}</h2>
         <div class="home-list-item">
-          <p class="home-list-item-class" ng-style="{{data.classL}}">类型</p>
           <p class="home-list-item-adress">{{data.copyfrom}}</p>
           <p class="home-list-item-time">{{data.updatetime}}</p>
         </div>

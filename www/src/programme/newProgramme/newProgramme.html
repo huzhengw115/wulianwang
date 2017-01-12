@@ -1,12 +1,28 @@
 <div ng-controller="NewProgrammeCtrl">
-  <ion-content class="newProgramme-content">
+
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopNewsp"><i class="ion-arrow-up-a goTopImg"></i></div>
+  <div class="goFind" ng-click="goFindNewsp()" ng-if="!isGoFindNewsp"><i class="ion-search goFindImg"></i></div>
+  <div class="newsp-find newsp-find-checked" ng-if="isGoFindInputNews">
+    <input type="text" class="newsp-input" placeholder="请输入关键字进行查找" ng-model="newspKeyWord">
+    <p class="newsp-yes" ng-click="newspYes(newspKeyWord)">确定</p>
+    <p class="newsp-no" ng-click="newspNo()">取消</p>
+  </div>
+
+  <ion-content class="newProgramme-content" delegate-handle="NewspSrcoll" on-scroll="newspToTopScroll()">
     <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
     <div class="new-programme">
+
+      <div class="new-programme-item">
+        <input type="radio" id="new-programme-item-0" ng-checked="newProgrammeIndex == 0 ? 'checked' : ''" ng-click="newProgrammeSelect('', 0)">
+        <label for="new-programme-item-0">全部</label>
+      </div>
+
       <div class="new-programme-item" ng-repeat="data in newProgrammeTab">
-        <input type="radio" id="new-programme-item-{{data.id}}" ng-checked="newProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="newProgrammeSelect({{data.id}})">
+        <input type="radio" id="new-programme-item-{{data.id}}" ng-checked="newProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="newProgrammeSelect('{{data.tab}}', {{data.id}})">
         <label for="new-programme-item-{{data.id}}">{{data.tab}}</label>
       </div>
+
     </div>
 
     <div class="new-list">
@@ -14,7 +30,7 @@
         <img src="{{data.thumb[0]}}">
         <h2 class="intwoline">{{data.title}}</h2>
         <div>
-          <label>{{data.copyform}}</label>
+          <label>{{data.copyfrom}}</label>
           <label>{{data.inputtime}}</label>
         </div>
         <p>预计产生效益：{{data.benefit}} 万</p>

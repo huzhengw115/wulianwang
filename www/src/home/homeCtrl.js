@@ -2,21 +2,24 @@ angular.module('Home', [])
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, homeService, $http, $ocLazyLoad, homeSrcService, getDataService) {
 
+  // params定义
+  var params = {dateformat: 1}
+
   // 获取轮播图片
   var homeTitlePic = function () {
-    homeService.homeTitlePic().then(function (homeTitle) {
+    homeService.homeTitlePic().then(function (data) {
       $scope.ads = []
       $ionicSlideBoxDelegate.$getByHandle('home-pic').update()
-      $scope.ads = homeTitle
+      $scope.ads = data
       // console.log($scope.ads)
     })
   }
 
   // 列表资讯的获取
   var homeListItem = function () {
-    getDataService.getNewsItem().then(function (homeItem) {
+    getDataService.getNewsItem(params).then(function (homeItem) {
       $scope.homeItem = homeItem
-      // console.log('length: ',$scope.homeItem.length)
+      console.log('$scope.homeItem: ', $scope.homeItem)
     })
   }
 

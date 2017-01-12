@@ -1,32 +1,5 @@
 <ion-view view-title="活动" hide-tabs="true">
 
-  <!-- <div class="meets-button">
-    <div class="meets-button-work">
-      <ionic-picker   label=""
-                      view-value-property="name"
-                      required="true"
-                      picker-data="meetWork"
-                      ng-model="param.selectData">
-       </ionic-picker>
-    </div>
-    <div class="meets-button-city">
-      <ionic-picker   label=""
-                      view-value-property="name"
-                      required="true"
-                      picker-data="meetCity"
-                      ng-model="param.selectData">
-       </ionic-picker>
-    </div>
-    <div class="meets-button-time">
-      <ionic-picker   label=""
-                      view-value-property="name"
-                      required="true"
-                      picker-data="meetTime"
-                      ng-model="param.selectData">
-      </ionic-picker>
-    </div>    
-  </div> -->
-
   <ion-content class="meets-content">
 
     <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
@@ -34,12 +7,10 @@
 
     <div class="meets-list">
       <a class="meets-list-item item" ng-repeat="data in meetsListItem" href="#/tab/meets/{{data.id}}">
-        <img src="{{data.pic}}">
+        <img src="{{data.thumbforbc}}">
         <h2 class="intwoline">{{data.title}}</h2>
-        <div class="meets-list-subtitle">
-          <label>{{data.adress}}</label>
-          <label>{{data.time}}</label>
-        </div>
+        <p>{{data.site}}</p>
+        <p>{{data.start_time}}</p>
         <div class="meets-list-items">
           <label>{{data.shop}}</label>
           <label>{{data.shop}}</label>

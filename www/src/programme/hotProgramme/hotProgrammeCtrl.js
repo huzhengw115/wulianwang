@@ -1,19 +1,51 @@
 angular.module('HotProgramme', [])
-.controller('HotProgrammeCtrl', function($scope, programmeService, getDataService) {
+.controller('HotProgrammeCtrl', function($scope, $ionicScrollDelegate, programmeService, getDataService) {
   
   // 定义筛选项的初始值
   $scope.hotProgrammeIndex = 0
   $scope.More = false
   // 定义params
-  var params = {keyword: '', id: 0, catid: 1}
+  var params = {keyword: '', id: 0, dateformat: 1}
+
+  // 回到页面的顶端
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.$getByHandle('HotpSrcoll').scrollTop(true)
+  }
+
+  // 点击搜索的按钮隐藏按钮，弹出input框
+  $scope.goFindHotp = function () {
+    $scope.isGoFindHotp = true
+    $scope.isGoFindInputHot = true
+  }
+
+  // yes 
+  $scope.hotpYes = function (data) {
+    $scope.isGoFindHotp = false
+    $scope.isGoFindInputHot = false
+    console.log(data)
+    params.keyword = data
+    $scope.doRefresh()
+  }
+
+  // no
+  $scope.hotpNo = function () {
+    $scope.isGoFindHotp = false
+    $scope.isGoFindInputHot = false
+  }
+
+  // 在ion-content计算页面滚动的距离
+  $scope.hotpToTopScroll = function(){
+    $scope.isGoTopHotp = $ionicScrollDelegate.$getByHandle('HotpSrcoll').getScrollPosition().top>1000?true:false
+    $scope.$apply()
+  }
 
   // 筛选项的点击事件
-  $scope.hotProgrammeSelect = function(index) {
-    $scope.hotProgrammeIndex = index
-    // 选中的标签
-    params.keyword = $scope.hotProgrammeTab[index].tab
+  $scope.hotProgrammeSelect = function(data, index) {
+   $scope.hotProgrammeIndex = index
+    params.id = 0
+    params.keyword = data
     $scope.doRefresh()
-    console.log('选中的标签：', $scope.hotProgrammeTab[index].tab)
+    console.log('选中的标签：', data)
   }
 
   // 上拉加载

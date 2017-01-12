@@ -3,7 +3,7 @@ angular.module('EleProgramme', [])
   
   $scope.More = false
   // 定义params
-  var params = {keyword: '', id: 0, catid: 2}
+  var params = {keyword: '', id: 0, catid: 2, dateformat: 1}
 
   // 上拉加载
   $scope.loadMore = function () {

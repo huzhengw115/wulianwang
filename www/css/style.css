@@ -49,18 +49,36 @@ img {
 
 .goTop {
 	position: fixed;
-	bottom: 100px;
+	bottom: 110px;
 	right: 30px;
-	background-color: #00a0ff;
+	background-color: #333;
 	z-index: 100;
 	opacity: .5;
-	width: 55px;
-	height: 55px;
+	width: 40px;
+	height: 40px;
 	border-radius: 15px;
 }
 
 .goTopImg {
-	font-size: 50px;
-	margin-left: 8px;
+	font-size: 40px;
+	margin-left: 5px;
+	color: #bbb;
+}
+
+.goFind {
+	position: fixed;
+	bottom: 50px;
+	right: 30px;
+	background-color: #333;
+	z-index: 100;
+	opacity: .5;
+	width: 40px;
+	height: 40px;
+	border-radius: 15px;
+}
+
+.goFindImg {
+	font-size: 40px;
+	margin-left: 5px;
 	color: #bbb;
 }

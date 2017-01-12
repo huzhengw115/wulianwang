@@ -1,36 +1,40 @@
 angular.module('Idea', [])
 
 .controller('IdeaCtrl', function ($scope, informationService, LoaderService, getDataService, $ionicScrollDelegate) {
-  // 二级栏目的首选项
-  $scope.slideNumber = 3
+
   // 上拉加载的控制
   $scope.More = false
+  // 首先定义按钮不显示
+  $scope.displayGoTopIdea = true
+  $scope.isGoTopIdea = false
   // 设置请求传输的数据
-  var params = {keyword: '', id: 0, catid: 69}
+  var params = {keyword: '', id: 0, catid: 69, dateformat: 1}
 
   // 回到页面的顶端
   $scope.scrollTop = function() {
-    $ionicScrollDelegate.scrollTop(true)
+    $ionicScrollDelegate.$getByHandle('ideaSrcoll').scrollTop(true)
   }
 
   // 在ion-content计算页面滚动的距离
-  $scope.toTopScroll = function(data){
-    $scope.isGoTop = $ionicScrollDelegate.getScrollPosition().top
+  $scope.ideaToTopScroll = function(data){
+    $scope.isGoTopIdea = $ionicScrollDelegate.$getByHandle('ideaSrcoll').getScrollPosition().top>1000?true:false
     $scope.$apply()
-  }
-
-  $scope.selectOpened = false
-  // 二级栏目的选择
-  $scope.selectView = function (tabNumber) {
-    // console.log('tabNumber:',tabNumber)
-    $scope.slideNumber = tabNumber
-    $scope.$emit('to-parent', tabNumber)
   }
 
   // 获取到父级控制器传递过来的关键字
   $scope.$on('to-child', function (event, data) {
     console.log('childCtrl:', data)
     $scope.doRefresh(data)
+  })
+
+  // 从父级获取input框的焦点事件，对回到顶端按钮的隐藏
+  $scope.$on('display', function (event, number) {
+    console.log('display:', number)
+    if (number == 0) {
+      $scope.displayGoTopIdea = false
+    } else {
+      $scope.displayGoTopIdea = true
+    }
   })
 
   // 上拉加载

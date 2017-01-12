@@ -1,20 +1,18 @@
 <div ng-controller="IdeaCtrl">
 
-	<div class="goTop" ng-click="scrollTop()" ng-if="isGoTop > 1000 ? true : false "><i class="ion-arrow-up-a goTopImg"></i></div>
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopIdea && displayGoTopIdea"><i class="ion-arrow-up-a goTopImg"></i></div>
 
-	<ion-content class="idea-content" on-scroll="toTopScroll()">
-		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+  <ion-content class="idea-content" delegate-handle="ideaSrcoll" on-scroll="ideaToTopScroll()">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-		<div class="idea-list">
-			<a href="#/tab/information/page/{{data.id}}" class="item idea-list-items item-thumbnail-right" ng-repeat="data in ideaItem">
-				<img src="{{data.thumb[0]}}" alt="">
-				<h2 class="intwoline">{{data.title}}</h2>
-				<div class="idea-list-item">
-					<label>{{data.copyfrom}}</label>
-					<label>{{data.inputtime}}</label>
-				</div>
-			</a>
-		</div>
-		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-	</ion-content>
+    <div class="idea-list">
+      <a href="#/tab/information/page/{{data.id}}" class="item idea-list-items item-thumbnail-right" ng-repeat="data in ideaItem">
+        <img src="{{data.thumb[0]}}" alt="">
+        <h2 class="intwoline">{{data.title}}</h2>
+        <p>{{data.copyfrom}}</p>
+        <p>{{data.inputtime}}</p>
+      </a>
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
 </div>
