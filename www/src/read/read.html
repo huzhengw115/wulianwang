@@ -16,7 +16,7 @@
         <img src="img/button/clear.png" class="icon-clear">
       </a>
     </div>
-    <button class="read-search-button" ng-click="toSearch()">
+    <button class="read-search-button" ng-click="toSearch(keyTab)">
       确定
     </button>
   </div>
@@ -29,7 +29,7 @@
         <p ng-click="updataSearchTab()"><i id="updata-search" class="ion-loop {{ isSearchUpdata ? 'updata-search' : '' }}"></i>换一批</p>
       </div>
       <div class="read-search-tab-item">
-        <p ng-repeat="data in readSearchTab" ng-click="addTab(data,1)" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.title}}</p>
+        <p ng-repeat="data in readSearchTab" ng-click="addTab(data,1)" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.name}}</p>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
         <p ng-click="updateHotTab()"><i id="updata-hot" class="ion-loop {{ isHotUpdata ? 'updata-hot' : '' }}"></i>换一批</p>
       </div>
       <div class="read-hot-tab-item">
-        <p ng-repeat="data in readHotTab" ng-click="addTab(data,0)" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.title}}</p>
+        <p ng-repeat="data in readHotTab" ng-click="addTab(data,0)" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.name}}</p>
       </div>
     </div>
 

@@ -71,6 +71,7 @@ angular.module('HotProgramme', [])
 
   // 下拉刷新
   $scope.doRefresh = function () {
+    params.id = 0
     getDataService.getProgrammeItem(params).then( function(data) {
       $scope.hotProgrammeItem = data
       console.log('下拉:', $scope.hotProgrammeItem)

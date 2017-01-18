@@ -25,6 +25,7 @@ angular.module('Hots', [])
   $scope.$on('to-child', function (event, data) {
     console.log('childCtrl:', data)
     $scope.doRefresh(data)
+    $scope.scrollTop()
   })
 
   // 从父级获取input框的焦点事件，对回到顶端按钮的隐藏
@@ -61,8 +62,11 @@ angular.module('Hots', [])
   // 下拉刷新
   $scope.doRefresh = function (data) {
     params.keyword = data
+    params.id = 0
     // LoaderService.show()
+    console.log(params)
     getDataService.getNewsItem(params).then(function (data) {
+      console.log('实际上取到的数据：', data)
       $scope.hotsItem = data
       console.log('下拉:', $scope.hotsItem)
     })

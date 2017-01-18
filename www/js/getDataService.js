@@ -3,8 +3,10 @@ angular.module('getDataService', [])
 .service('getDataService', function ($http, $q, Restangular) {
 
   // 资讯 http://www.im2m.com.cn/api/news/get_list/keyword/%E8%8B%B9%E6%9E%9C
-  // 方案 /api/solutions/get_list
-  // 首页的轮播图片 /api/index/index
+  // 方案 solutions/get_list
+  // 详情 news/detail/id/
+  // 首页的轮播图片 index/index
+  // 标签的数据 tags/get_list
 
   // 进行搜索操作时列表数据获取，index代表取得是什么值
   function getNewsListItem (params, index) {
@@ -12,22 +14,24 @@ angular.module('getDataService', [])
     {
     case 0:
       console.log('现在是零')
+      return _getData('news/get_list/keyword', params)
       break
     case 1:
       console.log('现在是一')
+      return _getData('solutions/get_list/keyword', params)
       break
     case 2:
       console.log('现在是二')
+      return _getData('business/get_list/keyword', params)
+      break
+    case 3:
+      console.log('现在是三')
+      return getMeetsData(params)
       break
     default:
       console.log('现在是妖妖灵')
     }
-    return _getData('news/get_list/keyword', params)
-  }
-
-  // 首页轮播图片
-  function getPicItem (params) {
-    return _getData('index/index', params)
+    return console.log('妖妖灵')
   }
 
   // 资讯
@@ -35,11 +39,43 @@ angular.module('getDataService', [])
     return _getData('news/get_list/keyword', params)
   }
 
+  // 资讯的详情页面
+  function getNewsDetail (id) {
+    var url = 'news/detail/id/'
+    url += id
+    return _getDatail(url)
+  }
+
   // 方案
   function getProgrammeItem (params) {
     return _getData('solutions/get_list/keyword', params)
   }
 
+  // 方案的详情页面
+  function getProgrammeDetail (id) {
+    var url = 'solutions/detail/id/'
+    url += id
+    return _getDatail(url)
+  }
+
+  // 商机
+  function getGoodsItem (params) {
+    return _getData('business/get_list/keyword', params)
+  }
+
+  // 商机的详情页面
+  function getGoodsDetail (id) {
+    var url = 'business/detail/id/'
+    url += id
+    return _getDatail(url)
+  }
+
+  // 标签
+  function getTabItem (params) {
+    return _getDatail('tags/get_list', params)
+  }
+
+  // 各个数据的获取
   function _getData (url, params) {
     var deferred = $q.defer()
 
@@ -55,8 +91,46 @@ angular.module('getDataService', [])
     return deferred.promise
   }
 
+  // 各个详情页面的数据获取
+  // 本来可以和上面的和在一起的，但是因为搜索中存在活动这项，data.list必须在getData中实现
+  function _getDatail (url, params) {
+    var deferred = $q.defer()
+
+    Restangular.setJsonp(true)
+    Restangular.one(url).get(params).then(function (data) {
+      getData = data
+      // console.log('请求到的数据: ', getData)
+      deferred.resolve(getData)
+    }, function (err) {
+      deferred.reject(err)
+    })
+
+    return deferred.promise
+  }
+
+  // 首页轮播图片
+  function getPicItem (params) {
+    var deferred = $q.defer()
+
+    Restangular.setJsonp(true)
+    Restangular.one('index/index').get(params).then(function (data) {
+      getData = data
+      // console.log('请求到的数据: ', getData)
+      deferred.resolve(getData)
+    }, function (err) {
+      deferred.reject(err)
+      console.log('err:', err)
+    })
+
+    return deferred.promise
+  
+  }
+
+  // 活动列表的获取
   function getMeetsData (params) {
-    var url = 'http://www.51banhui.com/api/meet/meet_hot'
+    var meetsData = []
+    console.log(params)
+    var url = 'http://www.51banhui.com/api/meet/meet_list'
     var deferred = $q.defer()
     // var url = SERVICE_API_URL + '?callback=JSON_CALLBACK';
     if (params) {
@@ -70,13 +144,15 @@ angular.module('getDataService', [])
     $http.jsonp(url, {params: params}).success(function (data) {
       if (data && 'errcode' in data) {
         if (data.errcode == 0) {
-          deferred.resolve(data)
+          meetsData = data.list
+          deferred.resolve(meetsData)
         } else {
-          deferred.reject(data)
+          deferred.reject(meetsData)
         }
       } else {
-        console.log('success: ', data)
-        deferred.resolve(data)
+        meetsData = data.list
+        console.log('success: ', meetsData)
+        deferred.resolve(meetsData)
       }
     }).error(function (data, status, header, config) {
       console.log('err:', data)
@@ -90,6 +166,11 @@ angular.module('getDataService', [])
     getNewsItem: getNewsItem,
     getProgrammeItem: getProgrammeItem,
     getPicItem: getPicItem,
-    getMeetsData: getMeetsData
+    getMeetsData: getMeetsData,
+    getGoodsItem: getGoodsItem,
+    getNewsDetail: getNewsDetail,
+    getTabItem: getTabItem,
+    getProgrammeDetail: getProgrammeDetail,
+    getGoodsDetail: getGoodsDetail
   }
 })

@@ -7,16 +7,17 @@
 
     <div class="meets-list">
       <a class="meets-list-item item" ng-repeat="data in meetsListItem" href="#/tab/meets/{{data.id}}">
-        <img src="{{data.thumbforbc}}">
+        <img src="{{data.thumbforapi}}">
         <h2 class="intwoline">{{data.title}}</h2>
         <p>{{data.site}}</p>
         <p>{{data.start_time}}</p>
         <div class="meets-list-items">
-          <label>{{data.shop}}</label>
-          <label>{{data.shop}}</label>
+          <label ng-repeat="tab in data.subClass">{{tab.title}}</label>
         </div>
       </a>
     </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
 
   </ion-content>
 </ion-view>

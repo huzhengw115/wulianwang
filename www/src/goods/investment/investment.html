@@ -1,19 +1,22 @@
 <div ng-controller="InvestmentCtrl">
 
-	<ion-content class="investment-content">
-		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopInvest"><i class="ion-arrow-up-a goTopImg"></i></div>
 
-		<div class="investment-list">
-			<a class="investment-list-item item item-thumbnail-right" ng-repeat="data in investmentListItem" href="#/tab/goods/{{data.id}}">
-				<img src="{{data.pic}}">
-				<h2 class="intwoline">{{data.title}}</h2>
-				<div class="investment-list-items">
-					<label>{{data.adress}}</label>
-					<label>{{data.times}}</label>
-				</div>
-			</a>
-		</div>
+  <ion-content class="investment-content" delegate-handle="InvestSrcoll" on-scroll="investToTopScroll()">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-	</ion-content>
+    <div class="investment-list">
+      <a class="investment-list-item item item-thumbnail-right" ng-repeat="data in investmentListItem" href="#/tab/goods/{{data.id}}">
+        <img src="{{data.thumb[0]}}">
+        <h2 class="intwoline">{{data.title}}</h2>
+        <div class="investment-list-items">
+          <label>{{data.trade}}</label>
+          <label>{{data.inputtimes}}</label>
+        </div>
+      </a>
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+
+  </ion-content>
 </div>

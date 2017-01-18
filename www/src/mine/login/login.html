@@ -1,0 +1,21 @@
+<ion-view view-title="登录" hide-tabs="true">
+  <ion-content class="login-content">
+    
+    <div class="login-input">
+      <div class="login-name">
+        <img src="img/mine/head.jpg">
+        <input type="text" placeholder="请输入手机号码" ng-model="mobile">
+      </div>
+
+      <div class="login-password">
+        <img src="img/mine/word.jpg">
+        <input type="password" placeholder="请输入密码" ng-model="password" maxlength="30">
+      </div>
+    </div>
+
+    <p class="login-button" ng-click="goLogin(mobile, password)">登录</p>
+
+    <p class="login-register">还没有账号？<a href="#/tab/register" class="login-register-a">立即注册</a></p>
+    
+  </ion-content>
+</ion-view>

@@ -1,14 +1,16 @@
 <div ng-controller="TenderCtrl">
 
-  <ion-content class="tender-content">
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopTender"><i class="ion-arrow-up-a goTopImg"></i></div>
+
+  <ion-content class="tender-content" delegate-handle="TenderSrcoll" on-scroll="tenderToTopScroll()">
     <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
     <div class="tender-list">
       <a class="item tender-list-item" ng-repeat="data in tenderListItem" href="#/tab/goods/{{data.id}}">
         <h2>{{data.title}}</h2>
         <div class="tender-list-items">
-          <label class="tender-list-items-class">{{data.class}}</label>
-          <label class="tender-list-items-time">{{data.time}}</label>
+          <label class="tender-list-items-class">{{data.trade}}</label>
+          <label class="tender-list-items-time">{{data.inputtime}}</label>
         </div>
       </a>
     </div>

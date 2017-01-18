@@ -20,10 +20,10 @@
         <ul>
           <!-- 投入资金 -->
           <li class="project-table-subname"><p>{{tableTitle.investment}}</p></li>
-          <li class="project-table-subcontent" ng-click="showTable(tableTitle.investment,detailData.investment)">{{detailData.investment}}</li>
+          <li class="project-table-subcontent" ng-click="showTable(tableTitle.investment,detailData.investment)">{{detailData.investment}} 万</li>
           <!-- 预期产生效益 -->
           <li class="project-table-name"><p>{{tableTitle.benefit}}</p></li>
-          <li class="project-table-subcontent" ng-click="showTable(tableTitle.benefit,detailData.benefit)">{{detailData.benefit}}</li>
+          <li class="project-table-subcontent" ng-click="showTable(tableTitle.benefit,detailData.benefit)">{{detailData.benefit}} 万</li>
         </ul>
         <ul>
           <!-- 方案优势 -->
@@ -87,15 +87,23 @@
       </div>
       <div class="project-hot-list">
         <a class="project-hot-item item item-thumbnail-right" ng-repeat="data in projectHotData" href="#/tab/programme/{{data.id}}">
-          <img src="{{data.img}}" alt="">
+          <img src="{{data.thumb[0]}}" alt="">
           <h2 class="intwoline">{{data.title}}</h2>
           <div class="project-hot-item-subtitle">
-            <p>{{data.address}}</p>
-            <p>{{data.time}}</p>
+            <p>{{data.copyfrom}}</p>
+            <p>{{data.inputtime}}</p>
           </div>
         </a>
       </div>
     </div>
 
   </ion-content>
+
+  <div class="page-bottom">
+    <div class="page-bottom-news"><p class="ion-android-person"></p><a href="">我的关注</a></div>
+    <div class="page-bottom-home"><p class="ion-android-home"></p><a href="#/tab/home">首页</a></div>
+    <div class="page-bottom-follow" ng-if="!isFollow" ng-click="goFollow()"><p class="ion-android-favorite-outline"></p><a href="">关注</a></div>
+    <div class="page-bottom-follow" ng-if="isFollow" ng-click="goFollow()"><p class="ion-android-favorite"></p><a href="">已关注</a></div>
+  </div>
+
 </ion-view>

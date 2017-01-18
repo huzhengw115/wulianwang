@@ -1,5 +1,14 @@
 <div ng-controller="EleProgrammeCtrl">
-  <ion-content class="eleProgramme-content">
+
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopElep"><i class="ion-arrow-up-a goTopImg"></i></div>
+  <div class="goFind" ng-click="goFindElep()" ng-if="!isGoFindElep"><i class="ion-search goFindImg"></i></div>
+  <div class="elep-find elep-find-checked" ng-if="isGoFindInputEle">
+    <input type="text" class="elep-input" placeholder="请输入关键字进行查找" ng-model="elepKeyWord">
+    <p class="elep-yes" ng-click="elepYes(elepKeyWord)">确定</p>
+    <p class="elep-no" ng-click="elepNo()">取消</p>
+  </div>
+
+  <ion-content class="eleProgramme-content" delegate-handle="ElepSrcoll" on-scroll="elepToTopScroll()">
     <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
     
     <div class="ele-list">

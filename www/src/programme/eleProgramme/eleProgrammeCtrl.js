@@ -1,9 +1,41 @@
 angular.module('EleProgramme', [])
-.controller('EleProgrammeCtrl', function($scope, programmeService, getDataService) {
+.controller('EleProgrammeCtrl', function($scope, programmeService, $ionicScrollDelegate, getDataService) {
   
   $scope.More = false
   // 定义params
-  var params = {keyword: '', id: 0, catid: 2, dateformat: 1}
+  var params = {keyword: '', id: 0, dateformat: 1}
+
+  // 回到页面的顶端
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.$getByHandle('ElepSrcoll').scrollTop(true)
+  }
+
+  // 点击搜索的按钮隐藏按钮，弹出input框
+  $scope.goFindElep = function () {
+    $scope.isGoFindElep = true
+    $scope.isGoFindInputEle = true
+  }
+
+  // yes 
+  $scope.elepYes = function (data) {
+    $scope.isGoFindElep = false
+    $scope.isGoFindInputEle = false
+    console.log(data)
+    params.keyword = data
+    $scope.doRefresh()
+  }
+
+  // no
+  $scope.elepNo = function () {
+    $scope.isGoFindElep = false
+    $scope.isGoFindInputEle = false
+  }
+
+  // 在ion-content计算页面滚动的距离
+  $scope.elepToTopScroll = function(){
+    $scope.isGoTopElep = $ionicScrollDelegate.$getByHandle('ElepSrcoll').getScrollPosition().top>1000?true:false
+    $scope.$apply()
+  }
 
   // 上拉加载
   $scope.loadMore = function () {
@@ -28,6 +60,7 @@ angular.module('EleProgramme', [])
 
   // 下拉刷新
   $scope.doRefresh = function () {
+    params.id = 0
     getDataService.getProgrammeItem(params).then( function(data) {
       $scope.eleProgrammeItem = data
       console.log('下拉:', $scope.eleProgrammeItem)

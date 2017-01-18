@@ -5,7 +5,7 @@ angular.module('NewProgramme', [])
   $scope.newProgrammeIndex = 0
   $scope.More = false
   // 定义params
-  var params = {keyword: '', id: 0, dateformat: 1}
+  var params = {keyword: '', id: 0, dateformat: 1, catid: 3}
 
   // 回到页面的顶端
   $scope.scrollTop = function() {
@@ -71,6 +71,7 @@ angular.module('NewProgramme', [])
 
   //下拉刷新
   $scope.doRefresh = function () {
+    params.id = 0
     getDataService.getProgrammeItem(params).then( function(data) {
       $scope.newProgrammeItem = data
       console.log('下拉:', $scope.newProgrammeItem)

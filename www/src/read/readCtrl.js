@@ -1,17 +1,18 @@
 angular.module('Read', [])
 
-.controller('ReadCtrl', function ($scope, readService) {
+.controller('ReadCtrl', function ($scope, readService, getDataService) {
 
   // 设置关键字
   $scope.keyTab = ''
-  // 设置推荐‘换一批’按钮的初始状态为静
+  // 设置 推荐 ‘换一批’按钮的初始状态为静
   $scope.isHotUpdata = false
-  // 设置搜索‘换一批’按钮的初始状态为静
+  // 设置 搜索 ‘换一批’按钮的初始状态为静
   $scope.isSearchUpdata = false
   // 定义我的订阅
   // $scope.readMyTab = []
   // 定义删除标签的id
   var removeId
+  var params = {keyword: ''}
 
   // 我的标签的获取
   $scope.getMyTab = function () {
@@ -23,7 +24,7 @@ angular.module('Read', [])
 
   // 推荐标签的获取
   $scope.getHotTab = function () {
-    readService.getHotTab().then(function (hotTab) {
+    getDataService.getTabItem().then(function (hotTab) {
       $scope.readHotTab = hotTab
       console.log('hotTab:', hotTab)
     })
@@ -33,9 +34,10 @@ angular.module('Read', [])
   }
 
   // 搜索标签的获取
-  $scope.toSearch = function () {
+  $scope.toSearch = function (keyTab) {
+    console.log(keyTab)
     $scope.showSearch = true
-    readService.getSearchTab().then(function (searchTab) {
+    getDataService.getTabItem(params).then(function (searchTab) {
       $scope.readSearchTab = searchTab
       console.log('readSearchTab:', $scope.readSearchTab)
     })
@@ -83,13 +85,13 @@ angular.module('Read', [])
     if(number != 1) {
       console.log('id:', index)
       // 1为推荐，0为搜索
-      if(tab == 1) {
-        $scope.readSearchTab[index].show = "1"
-        $scope.readMyTab.push($scope.readSearchTab[index])
-      } else {
-        $scope.readHotTab[index].show = "1"
-        $scope.readMyTab.push($scope.readHotTab[index])
-      }
+      // if(tab == 1) {
+      //   $scope.readSearchTab[index].show = "1"
+      //   $scope.readMyTab.push($scope.readSearchTab[index])
+      // } else {
+      //   $scope.readHotTab[index].show = "1"
+      //   $scope.readMyTab.push($scope.readHotTab[index])
+      // }
     } else {
       console.log('已选中')
     }

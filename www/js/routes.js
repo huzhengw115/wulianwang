@@ -374,18 +374,18 @@ angular.module('starter.routes', [])
     }
   })
 
-  .state('tab.signIn', {
-    url: '/signIn',
+  .state('tab.login', {
+    url: '/login',
     views: {
       'tab-mine': {
-        templateUrl: 'src/mine/signIn/signIn.html',
-        controller: 'SignInCtrl'
+        templateUrl: 'src/mine/login/login.html',
+        controller: 'LoginCtrl'
       }
     },
     resolve: {
       loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load('src/mine/signIn/signInService.js').then(function () {
-          return $ocLazyLoad.load(['src/mine/signIn/signIn.css','src/mine/signIn/signInCtrl.js'])
+        return $ocLazyLoad.load('src/mine/login/loginService.js').then(function () {
+          return $ocLazyLoad.load(['src/mine/login/login.css','src/mine/login/loginCtrl.js'])
         })
       }]
     }
@@ -401,7 +401,9 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/mine/register/register.css','src/mine/register/registerCtrl.js'])
+        return $ocLazyLoad.load('src/mine/register/registerService.js').then(function () {
+          return $ocLazyLoad.load(['src/mine/register/register.css','src/mine/register/registerCtrl.js'])
+        })
       }]
     }
   })

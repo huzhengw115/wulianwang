@@ -4,18 +4,17 @@
   	<div class="page-head">
   		<h2 class="page-head-title">{{pageData.title}}</h2>
   		<div class="page-head-list">
-        <p>{{pageData.times}}</p>
-        <p>{{pageData.adress}}</p>
+        <p>{{pageData.inputtime}}</p>
+        <p>{{pageData.copyfrom}}</p>
   			<p>阅读：{{pageData.clicks}}</p>
   		</div>
-      <img src="{{pageData.pic}}" class="page-head-pic">
   	</div>
 
-  	<main class="page-page" ng-bind-html="pageData.inform"></main>
+  	<main class="page-page" ng-bind-html="pageData.content"></main>
 
   	<div class="page-bottom">
       <div class="page-tag">
-        <p ng-repeat="data in tags">{{data.name}}</p>
+        <p ng-repeat="tab in tags">{{tab.name}}</p>
       </div>
   		<p class="page-author">编辑：{{pageData.author}}</p>
   	</div>
@@ -28,15 +27,21 @@
       </div>
       <div class="page-hot-list">
         <a class="page-hot-item item item-thumbnail-right" ng-repeat="data in pageHotData" href="#/tab/information/page/{{data.id}}">
-          <img src="{{data.img}}" alt="">
+          <img src="{{data.thumb[0]}}" alt="">
           <h2 class="intwoline">{{data.title}}</h2>
           <div class="page-hot-item-subtitle">
-            <p>{{data.address}}</p>
-            <p>{{data.time}}</p>
+            <p>{{data.copyfrom}}</p>
+            <p>{{data.inputtime}}</p>
           </div>
         </a>
       </div>
     </div>
 
   </ion-content>
+  <div class="page-bottom">
+    <div class="page-bottom-news"><p class="ion-android-person"></p><a href="">我的关注</a></div>
+    <div class="page-bottom-home"><p class="ion-android-home"></p><a href="#/tab/home">首页</a></div>
+    <div class="page-bottom-follow" ng-if="!isFollow" ng-click="goFollow()"><p class="ion-android-favorite-outline"></p><a href="">关注</a></div>
+    <div class="page-bottom-follow" ng-if="isFollow" ng-click="goFollow()"><p class="ion-android-favorite"></p><a href="">已关注</a></div>
+  </div>
 </ion-view>

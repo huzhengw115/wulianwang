@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.routes', 'oc.lazyLoad', 'ionicPicker', 'constantService', 'restangular', 'getDataService'])
+angular.module('starter', ['ionic', 'starter.services', 'starter.routes', 'oc.lazyLoad', 'constantService', 'restangular', 'getDataService'])
 
 .run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {

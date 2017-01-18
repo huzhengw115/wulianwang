@@ -4,24 +4,24 @@
     <div class="register-input">
       <div class="register-name">
         <img src="img/mine/head.jpg">
-        <input type="text" placeholder="请输入手机号码">
+        <input type="text" placeholder="请输入手机号码" ng-model="mobile">
       </div>
 
       <div class="register-telp item-input-wrapper">
         <form class="register-telp-form">
           <img src="img/mine/key.jpg">
-          <input type="text" placeholder="请输入手机验证码" maxlength="10">
+          <input type="text" placeholder="请输入手机验证码" maxlength="10" ng-model="code">
         </form>
-        <button class="register-telp-button" ng-click="getTelp()">{{codeTime}}</button>
+        <button class="register-telp-button" ng-click="getTelp(mobile)">{{codeTime}}</button>
       </div>
 
       <div class="register-word">
         <img src="img/mine/word.jpg">
-        <input type="password" placeholder="请输入密码">
+        <input type="password" placeholder="请输入密码" ng-model="password" maxlength="30">
       </div>
     </div>
 
-    <p class="register-button">确定</p>
+    <p class="register-button" ng-click="goRegister(mobile, code, password)">确定</p>
     
   </ion-content>
 </ion-view>

@@ -7,11 +7,12 @@ angular.module('Home', [])
 
   // 获取轮播图片
   var homeTitlePic = function () {
-    homeService.homeTitlePic().then(function (data) {
+    // homeService.homeTitlePic().then(function (data) {
+    getDataService.getPicItem().then(function (data) {
       $scope.ads = []
       $ionicSlideBoxDelegate.$getByHandle('home-pic').update()
       $scope.ads = data
-      // console.log($scope.ads)
+      console.log($scope.ads)
     })
   }
 

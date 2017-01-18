@@ -58,8 +58,13 @@ angular.module('Information', [])
 
   // 根据关键字进行搜索
   $scope.toSearch = function (data) {
-    // 向子级控制器传递搜索的关键字
-    $scope.$broadcast('to-child', data)
+    // 首先判断搜索的关键字是否为空
+    if (data == undefined) {
+      console.log('搜索的关键字为空')
+    } else {
+      // 向子级控制器传递搜索的关键字
+      $scope.$broadcast('to-child', data)
+    }
   }
 
   // 向子级传递fix定位的按钮显示与否，0不显示，1显示

@@ -72,3 +72,31 @@
 	color: #00a0ff;
 	font-size: 12px;
 }
+
+.elep-find-checked {
+	position: absolute;
+	z-index: 101;
+	height: 88px;
+	width: 90%;
+	background-color: #ddd;
+	margin: 5%;
+	border-radius: 5px;
+}
+
+.elep-input {
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+
+.elep-yes, .elep-no {
+	float: left;
+	background-color: #00a0ff;
+	width: 40%;
+	margin: 10px 5% 0;
+	line-height: 25px;
+	height: 25px;
+	text-align: center;
+	border-radius: 10px;
+}

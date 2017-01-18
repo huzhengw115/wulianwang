@@ -1,19 +1,21 @@
 <div ng-controller="BidsCtrl">
 
-	<ion-content class="bids-content">
-		<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopBids"><i class="ion-arrow-up-a goTopImg"></i></div>
 
-		<div class="bids-list">
-			<a class="bids-list-item item" ng-repeat="data in bidsListItem" href="#/tab/goods/{{data.id}}">
-				<h2>{{data.title}}</h2>
-				<div class="bids-list-items">
-					<label>{{data.class}}</label>
-					<label>{{data.adress}}</label>
-					<label>{{data.time}}</label>
-				</div>
-			</a>
-		</div>
+  <ion-content class="bids-content" delegate-handle="BidsSrcoll" on-scroll="bidsToTopScroll()">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-		<ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
-	</ion-content>
+    <div class="bids-list">
+      <a class="bids-list-item item" ng-repeat="data in bidsListItem" href="#/tab/goods/{{data.id}}">
+        <h2>{{data.title}}</h2>
+        <div class="bids-list-items">
+          <label>{{data.trade}}</label>
+          <label>{{data.copyfrom}}</label>
+          <label>{{data.inputtime}}</label>
+        </div>
+      </a>
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
 </div>

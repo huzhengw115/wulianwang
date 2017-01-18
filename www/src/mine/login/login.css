@@ -1,30 +1,30 @@
-.signIn-content {
+.login-content {
 	background-color: #eee;
 }
 
-.signIn-input {
+.login-input {
 	margin-top: 50px;
 }
 
-.signIn-name, .signIn-password {
+.login-name, .login-password {
 	overflow: auto;
 	border-radius: 5px;
 	margin: 20px 15px 10px;
 	background-color: #fff;
 }
 
-.signIn-name img, .signIn-password img {
+.login-name img, .login-password img {
 	width: 25px;
 	float: left;
 	margin-top: 3px;
 }
 
-.signIn-name input, .signIn-password input {
+.login-name input, .login-password input {
 	border-radius: 0 5px 5px 0;
 	width: 90%;
 }
 
-.signIn-button {
+.login-button {
 	background-color: #00a0ff;
 	margin: auto;
 	width: 150px;
@@ -37,13 +37,13 @@
 	margin-top: 20px;
 }
 
-.signIn-register {
+.login-register {
 	width: 150px;
 	margin: auto;
 	margin-top: 20px;
 	color: #999;
 }
 
-.signIn-register-a {
+.login-register-a {
 	text-decoration: none;
 }
