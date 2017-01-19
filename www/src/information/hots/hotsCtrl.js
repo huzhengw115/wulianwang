@@ -1,6 +1,6 @@
 angular.module('Hots', [])
 
-.controller('HotsCtrl', function ($scope, informationService, LoaderService, getDataService, $ionicScrollDelegate) {
+.controller('HotsCtrl', function ($scope, LoaderService, getDataService, $ionicScrollDelegate) {
 
   // 上拉加载的控制
   $scope.More = false

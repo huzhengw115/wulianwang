@@ -7,6 +7,8 @@ angular.module('getDataService', [])
   // 详情 news/detail/id/
   // 首页的轮播图片 index/index
   // 标签的数据 tags/get_list
+  // 广告 service/get_list/catid/97
+  // 申报 service/get_list/catid/98
 
   // 进行搜索操作时列表数据获取，index代表取得是什么值
   function getNewsListItem (params, index) {
@@ -70,6 +72,23 @@ angular.module('getDataService', [])
     return _getDatail(url)
   }
 
+  // 广告服务
+  function getWaiterDetail (params) {
+    return _getData('service/get_list/catid/97', params)
+  }
+
+  // 申报服务
+  function getWaiterItem (params) {
+    return _getData('service/get_list/catid/98', params)
+  }
+
+  // 申报服务的详情页面
+  function getApplyData (id) {
+    var url = 'service/detail/id/'
+    url += id
+    return _getDatail(url)
+  }
+
   // 标签
   function getTabItem (params) {
     return _getDatail('tags/get_list', params)
@@ -77,10 +96,12 @@ angular.module('getDataService', [])
 
   // 各个数据的获取
   function _getData (url, params) {
+    var getData = []
     var deferred = $q.defer()
 
     Restangular.setJsonp(true)
     Restangular.one(url).get(params).then(function (data) {
+      console.log('啦啦啦：', data)
       getData = data.list
       // console.log('请求到的数据: ', getData)
       deferred.resolve(getData)
@@ -94,6 +115,7 @@ angular.module('getDataService', [])
   // 各个详情页面的数据获取
   // 本来可以和上面的和在一起的，但是因为搜索中存在活动这项，data.list必须在getData中实现
   function _getDatail (url, params) {
+    var getData = []
     var deferred = $q.defer()
 
     Restangular.setJsonp(true)
@@ -171,6 +193,9 @@ angular.module('getDataService', [])
     getNewsDetail: getNewsDetail,
     getTabItem: getTabItem,
     getProgrammeDetail: getProgrammeDetail,
-    getGoodsDetail: getGoodsDetail
+    getGoodsDetail: getGoodsDetail,
+    getWaiterDetail: getWaiterDetail,
+    getWaiterItem: getWaiterItem,
+    getApplyData: getApplyData
   }
 })

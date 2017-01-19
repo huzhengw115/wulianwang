@@ -93,9 +93,14 @@ img {
 	border-top: 2px solid #eee;
 }
 
-.page-bottom-news, .page-bottom-home, .page-bottom-follow {
+.page-bottom-news, .page-bottom-home {
 	float: left;
 	width: 33.33%;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	color: #999 !important;
 }
 
 .page-bottom-news p, .page-bottom-home p {
@@ -106,6 +111,13 @@ img {
 	margin-bottom: -5px;
 }
 
+.page-bottom-follow {
+	float: left;
+	width: 33.33%;
+	text-align: center;
+	font-size: 12px;
+}
+
 .page-bottom-follow p {
 	margin-bottom: 0;
 	text-align: center;
@@ -114,18 +126,7 @@ img {
 	margin-bottom: -5px;
 }
 
-.page-bottom-news a, .page-bottom-home a {
-	text-decoration: none;
-	display: block;
-	text-align: center;
-	font-size: 12px;
-	color: #999;
-}
-
 .page-bottom-follow a {
 	text-decoration: none;
-	display: block;
-	text-align: center;
-	font-size: 12px;
 	color: #f00;
 }

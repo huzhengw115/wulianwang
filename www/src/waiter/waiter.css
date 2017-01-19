@@ -34,41 +34,42 @@
 	padding: 3px;
 	text-align: center;
 	padding: 5px 0;
+	height: 45px;
 	border-bottom: 1px solid #eee;
 }
 
 .waiter-ads-channel {
 	float: left;
 	border: 1px solid #ddd;
-	width: 21.42%;
+	width: 14.7%;
 }
 
 .waiter-ads-position {
 	float: left;
 	border: 1px solid #ddd;
 	border-left: 0;
-	width: 11.9%;
+	width: 32.8%;
 }
 
 .waiter-ads-price {
 	float: left;
 	border: 1px solid #ddd;
 	border-left: 0;
-	width: 22.82%;
+	width: 20.82%;
 }
 
 .waiter-ads-size {
 	float: left;
 	border: 1px solid #ddd;
 	border-left: 0;
-	width: 22.3%;
+	width: 16.3%;
 }
 
 .waiter-ads-file {
 	float: left;
 	border: 1px solid #ddd;
 	border-left: 0;
-	width: 21.3%;
+	width: 15.3%;
 }
 
 .waiter-meet-list {

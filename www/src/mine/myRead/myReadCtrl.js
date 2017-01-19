@@ -3,13 +3,22 @@ angular.module('MyRead', [])
 .controller('MyReadCtrl', function ($scope, myReadService, $ionicSlideBoxDelegate, $document, $ionicScrollDelegate, getDataService) {
   
   // 设置关键字
-  var params = {keyword : '', id: 0}
+  var params = {tagid : '', id: 0, dateformat: 1}
   // 一开始关闭上拉
   $scope.More = false
   // 首先默认设置搜索的类型为资讯
   $scope.classIndex = 0
   // 第一的时候没有宽度存在下面的方法可能出现错误
   var firstId = 0
+
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.$getByHandle('myReadSrcoll').scrollTop(true)
+  }
+
+  $scope.myReadToTopScroll = function(){
+    $scope.isGoTopRead = $ionicScrollDelegate.$getByHandle('myReadSrcoll').getScrollPosition().top>1000?true:false
+    $scope.$apply()
+  }
 
   // 获取订阅的标签
   myReadService.getMyTab().then(function (data) {
@@ -26,7 +35,7 @@ angular.module('MyRead', [])
     $ionicSlideBoxDelegate.slide(0)
     if(firstId == 0) {
       // 第一次是资讯
-      params.keyword = $scope.myTab[0].title
+      params.tagid = $scope.myTab[0].id
       // 之后都用下面的方法
       firstId = 1
       getFindData()
@@ -50,8 +59,8 @@ angular.module('MyRead', [])
       }
 
       // 取到选中的标签，并将其赋值给params
-      params.keyword = $scope.myTab[index].title
-      console.log('选中的标签：', params.keyword)
+      params.tagid = $scope.myTab[index].id
+      console.log('选中的标签：', params.tagid)
       getFindData()
     }
   }
@@ -73,29 +82,31 @@ angular.module('MyRead', [])
     getDataService.getNewsListItem(params, $scope.classIndex).then(function (data) {
       Array.prototype.push.apply($scope.findData, data)
       console.log('上拉:', $scope.findData)
-    })
-    .finally(function () {
-      $scope.$broadcast('scroll.infiniteScrollComplete')
       if(data.length < 15) {
         $scope.More = false
       }
+    })
+    .finally(function () {
+      $scope.$broadcast('scroll.infiniteScrollComplete')
     })
   }
 
   // 数据的获取
   function getFindData () {
     // 根据选中的标签进行搜索
+    params.id = 0
     getDataService.getNewsListItem(params, $scope.classIndex).then(function (data) {
       $scope.findData = data
       console.log('搜索到的结果：', $scope.findData)
+      $scope.scrollTop()
     })
     .finally(function () {
       if($scope.findData.length < 15) {
         $scope.More = false
-        console.log('到底是什么：', $scope.More)
+        console.log('到底了没有：', $scope.More)
       } else {
         $scope.More = true
-        console.log('到底是什么：', $scope.More)
+        console.log('到底了没有：', $scope.More)
       }
     })
   }

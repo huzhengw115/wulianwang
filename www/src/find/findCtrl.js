@@ -1,6 +1,6 @@
 angular.module('Find', [])
 
-.controller('FindCtrl', function ($scope, $ionicScrollDelegate, findService, getDataService) {
+.controller('FindCtrl', function ($scope, $ionicScrollDelegate, getDataService) {
   
   // 首先默认设置搜索的类型为资讯
   $scope.classIndex = 0

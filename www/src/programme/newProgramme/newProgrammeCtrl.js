@@ -1,5 +1,5 @@
 angular.module('NewProgramme', [])
-.controller('NewProgrammeCtrl', function($scope, programmeService, getDataService, $ionicScrollDelegate) {
+.controller('NewProgrammeCtrl', function($scope, getDataService, $ionicScrollDelegate) {
   
   // 定义筛选项的初始值
   $scope.newProgrammeIndex = 0
@@ -79,7 +79,7 @@ angular.module('NewProgramme', [])
     .finally(function() {
       // 停止广播ion-refresher
       $scope.$broadcast('scroll.refreshComplete')
-      if($scope.newProgrammeItem < 15) {
+      if($scope.newProgrammeItem.length < 15) {
         $scope.More = false
       } else {
         $scope.More = true
@@ -87,6 +87,11 @@ angular.module('NewProgramme', [])
     })
   }
 
+  var tab = {limitnum: 8}
+  getDataService.getTabItem(tab).then(function (data) {
+    $scope.newProgrammeTab = data
+    console.log('标签：', data)
+  })
+
   $scope.doRefresh()
-  $scope.newProgrammeTab = programmeService.programmeItem
 })

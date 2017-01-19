@@ -1,15 +1,12 @@
 angular.module('Information', [])
 
-.controller('InformationCtrl', function ($scope, homeViewUrl, informationService, $ionicSlideBoxDelegate, $ocLazyLoad) {
+.controller('InformationCtrl', function ($scope, homeViewUrl, $ionicSlideBoxDelegate, $ocLazyLoad) {
   
   // 滑动框初始设定(不能设定初始值，因为初始设定之后ctrl和css不能引入)
   // $scope.slideIndex = 0;
   // 取到视图、js、css
   var informationView = homeViewUrl.informationView
   var informationFile = homeViewUrl.informationFile
-  // slide-box的标题获取informationTitle
-  $scope.informationTitle = informationService.informationTitle
-  console.log('informationTitle:', $scope.informationTitle)
 
   // 滑动下面的滑块，响应上面的tabs切换
   $scope.slideChanged = function (index) {

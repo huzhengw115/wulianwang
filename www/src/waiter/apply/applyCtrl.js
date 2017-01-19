@@ -2,7 +2,7 @@ angular.module('Apply', [])
 .controller('ApplyCtrl', function($scope, getDataService) {
 
   // 设置请求传输的数据
-  var params = {keyword: '', id: 0}
+  var params = {dateformat: 1, id: 0}
 
   // 上拉加载
   $scope.loadMore = function () {
@@ -13,7 +13,7 @@ angular.module('Apply', [])
     params.id = $scope.applyData[dataLength].id
     console.log('params.id:', params.id)
     // 将id值传进去作为下次请求的开始值
-    getDataService.getNewsListItem(params).then(function (data) {
+    getDataService.getWaiterItem(params).then(function (data) {
       if(data.length < 15) {
         $scope.More = false
       }
@@ -27,15 +27,20 @@ angular.module('Apply', [])
 
   // 下拉刷新
   $scope.doRefresh = function () {
+    params.id = 0
     // LoaderService.show()
-    getDataService.getNewsListItem(params).then(function (data) {
+    getDataService.getWaiterItem(params).then(function (data) {
       $scope.applyData = data
       console.log('下拉:', $scope.applyData)
     })
     .finally(function () {
       // 停止广播ion-refresher
       $scope.$broadcast('scroll.refreshComplete')
-      $scope.More = true
+      if ($scope.applyData.length < 15) {
+        $scope.More = false
+      } else {
+        $scope.More = true
+      }
     })
   }
 

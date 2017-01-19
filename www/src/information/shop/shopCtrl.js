@@ -1,6 +1,6 @@
 angular.module('Shop', [])
 
-.controller('ShopCtrl', function ($scope, LoaderService, informationService, getDataService, $ionicScrollDelegate) {
+.controller('ShopCtrl', function ($scope, LoaderService, getDataService, $ionicScrollDelegate) {
 
   // 上拉加载的控制
   $scope.More = false

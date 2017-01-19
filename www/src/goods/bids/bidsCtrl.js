@@ -1,6 +1,6 @@
 angular.module('Bids', [])
 
-.controller('BidsCtrl', function ($scope, goodsService, getDataService, $ionicScrollDelegate) {
+.controller('BidsCtrl', function ($scope, getDataService, $ionicScrollDelegate) {
 
   // 设置请求传输的数据
   var params = {id: 0, catid: 74, dateformat: 1}

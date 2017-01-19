@@ -27,11 +27,11 @@
       </div>
       <div class="goodsDetail-hot-list">
         <a class="goodsDetail-hot-item item item-thumbnail-right" ng-repeat="data in goodsDetailHotData" href="#/tab/information/goodsDetail/{{data.id}}">
-          <img src="{{data.img}}" alt="">
+          <img src="{{data.thumb[0]}}" alt="">
           <h2 class="intwoline">{{data.title}}</h2>
           <div class="goodsDetail-hot-item-subtitle">
-            <p>{{data.address}}</p>
-            <p>{{data.time}}</p>
+            <p>{{data.copyfrom}}</p>
+            <p>{{data.inputtime}}</p>
           </div>
         </a>
       </div>
@@ -40,8 +40,8 @@
   </ion-content>
 
   <div class="page-bottom">
-    <div class="page-bottom-news"><p class="ion-android-person"></p><a href="">我的关注</a></div>
-    <div class="page-bottom-home"><p class="ion-android-home"></p><a href="#/tab/home">首页</a></div>
+    <a class="page-bottom-news"><p class="ion-android-person"></p>我的关注</a>
+    <a class="page-bottom-home" href="#/tab/home"><p class="ion-android-home"></p>首页</a>
     <div class="page-bottom-follow" ng-if="!isFollow" ng-click="goFollow()"><p class="ion-android-favorite-outline"></p><a href="">关注</a></div>
     <div class="page-bottom-follow" ng-if="isFollow" ng-click="goFollow()"><p class="ion-android-favorite"></p><a href="">已关注</a></div>
   </div>

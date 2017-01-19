@@ -43,9 +43,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/information/informationService.js']).then(function () {
-          return $ocLazyLoad.load(['src/information/informationCtrl.js', 'src/information/information.css'])
-        })
+        return $ocLazyLoad.load(['src/information/informationCtrl.js', 'src/information/information.css'])
       }]
     }
   })
@@ -60,9 +58,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load('src/information/detail/detailService.js').then(function () {
-          return $ocLazyLoad.load(['src/information/detail/detailCtrl.js','src/information/detail/detail.css'])
-        })
+        return $ocLazyLoad.load(['src/information/detail/detailCtrl.js','src/information/detail/detail.css'])
       }]
     }
   })
@@ -77,9 +73,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load('src/information/detail/detailService.js').then(function () {
-          return $ocLazyLoad.load(['src/information/detail/detailCtrl.js','src/information/detail/detail.css'])
-        })
+        return $ocLazyLoad.load(['src/information/detail/detailCtrl.js','src/information/detail/detail.css'])
       }]
     }
   })
@@ -94,9 +88,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/programme/programmeService.js']).then(function () {
-          return $ocLazyLoad.load(['src/programme/programmeCtrl.js', 'src/programme/programme.css'])
-        })
+        return $ocLazyLoad.load(['src/programme/programmeCtrl.js', 'src/programme/programme.css'])
       }]
     }
   })
@@ -111,9 +103,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/programme/programmeService.js']).then(function () {
-          return $ocLazyLoad.load(['src/programme/detail/detailCtrl.js', 'src/programme/detail/detail.css'])
-        })
+        return $ocLazyLoad.load(['src/programme/detail/detailCtrl.js', 'src/programme/detail/detail.css'])
       }]
     }
   })
@@ -128,9 +118,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/goods/goodsService.js']).then(function () {
-          return $ocLazyLoad.load(['src/goods/goodsCtrl.js', 'src/goods/goods.css'])
-        })
+        return $ocLazyLoad.load(['src/goods/goodsCtrl.js', 'src/goods/goods.css'])
       }]
     }
   })
@@ -145,9 +133,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/goods/goodsService.js']).then(function () {
-          return $ocLazyLoad.load(['src/goods/detail/detailCtrl.js', 'src/goods/detail/detail.css'])
-        })
+        return $ocLazyLoad.load(['src/goods/detail/detailCtrl.js', 'src/goods/detail/detail.css'])
       }]
     }
   })
@@ -162,26 +148,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/meets/meetsService.js']).then(function () {
-          return $ocLazyLoad.load(['src/meets/meetsCtrl.js', 'src/meets/meets.css'])
-        })
-      }]
-    }
-  })
-
-  .state('tab.meetsDetail', {
-    url: '/meets/:meetsId',
-    views: {
-      'tab-home': {
-        templateUrl: 'src/meets/detail/detail.html',
-        controller: 'MeetsDetailCtrl'
-      }
-    },
-    resolve: {
-      loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/meets/meetsService.js']).then(function () {
-          return $ocLazyLoad.load(['src/meets/detail/detailCtrl.js', 'src/meets/detail/detail.css'])
-        })
+        return $ocLazyLoad.load(['src/meets/meetsCtrl.js', 'src/meets/meets.css'])
       }]
     }
   })
@@ -196,9 +163,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/waiter/waiterService.js']).then(function () {
-          return $ocLazyLoad.load(['src/waiter/waiterCtrl.js', 'src/waiter/waiter.css'])
-        })
+        return $ocLazyLoad.load(['src/waiter/waiterCtrl.js', 'src/waiter/waiter.css'])
       }]
     }
   })
@@ -227,15 +192,13 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load('js/getDataService.js').then(function () {
-          return $ocLazyLoad.load(['src/waiter/apply/apply.css', 'src/waiter/apply/applyCtrl.js'])
-        })
+        return $ocLazyLoad.load(['src/waiter/apply/apply.css', 'src/waiter/apply/applyCtrl.js'])
       }]
     }
   })
 
   .state('tab.applyDetail', {
-    url: '/applyDetail',
+    url: '/apply/:applyId',
     views: {
       'tab-home': {
         templateUrl: 'src/waiter/apply/detail.html',
@@ -244,9 +207,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load('js/getDataService.js').then(function () {
-          return $ocLazyLoad.load(['src/waiter/apply/detail.css', 'src/waiter/apply/detailCtrl.js'])
-        })
+        return $ocLazyLoad.load(['src/waiter/apply/detail.css', 'src/waiter/apply/detailCtrl.js'])
       }]
     }
   })
@@ -270,9 +231,7 @@ angular.module('starter.routes', [])
     },
     resolve: {
       loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/find/findService.js']).then(function () {
-          return $ocLazyLoad.load(['src/find/findCtrl.js', 'src/find/find.css'])
-        })
+        return $ocLazyLoad.load(['src/find/findCtrl.js', 'src/find/find.css'])
       }]
     }
   })
@@ -323,23 +282,6 @@ angular.module('starter.routes', [])
       loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
         return $ocLazyLoad.load(['src/mine/myRead/myReadService.js']).then(function () {
           return $ocLazyLoad.load(['src/mine/myRead/myRead.css','src/mine/myRead/myReadCtrl.js'])
-        })
-      }]
-    }
-  })
-
-  .state('tab.myTab', {
-    url: '/myTab',
-    views: {
-      'tab-mine': {
-        templateUrl: 'src/mine/myTab/myTab.html',
-        controller: 'MyTabCtrl'
-      }
-    },
-    resolve: {
-      loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
-        return $ocLazyLoad.load(['src/mine/myTab/myTabService.js']).then(function () {
-          return $ocLazyLoad.load(['src/mine/myTab/myTab.css','src/mine/myTab/myTabCtrl.js'])
         })
       }]
     }

@@ -1,6 +1,6 @@
 angular.module('Goods', [])
 
-.controller('GoodsDetailCtrl', function ($scope, $stateParams, getDataService) {
+.controller('GoodsDetailCtrl', function ($scope, $stateParams, getDataService, swipeService) {
   
   // 获取ID值
   var pageId = $stateParams.goodsId
@@ -23,13 +23,18 @@ angular.module('Goods', [])
     console.log('$scope.goodsDetailData:', $scope.goodsDetailData)
   })
   .finally(function () {
+    // 图片的插件，将页面中的main标签这种的图片选中
+    swipeService.photoswipe('main')
+    // 去掉页面当中不必要的链接
+    swipeService.clearHref('main')
+
     var params = {
-      keyword: $scope.tags[0].name,
+      tagid: $scope.tags[0].id,
       id: $scope.goodsDetailData.id,
       limitnum: 3,
       dateformat: 1
     }
-    console.log(params)
+    console.log('params:', params)
     // 热门推荐的数据获取
     getDataService.getGoodsItem(params).then(function (data) {
       $scope.goodsDetailHotData = data

@@ -78,3 +78,20 @@ angular.module('constantService', [])
     homeSrc: homeSrc
   }
 })
+
+.service('programmeService', function () {
+  var tableTitle = [{
+    "desc":"方案介绍",
+    "investment":"投入资金",
+    "advantage":"方案优势",
+    "effect":"预期效果",
+    "benefit":"预期产生效益",
+    "range":"应用范围",
+    "difficulty":"实施难易程度",
+    "place":"适用场景"
+  }]
+
+  return {
+    tableTitle: tableTitle
+  }
+})

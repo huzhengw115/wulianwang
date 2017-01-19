@@ -1,6 +1,6 @@
 angular.module('Programme', [])
 
-.controller('ProgrammeCtrl', function ($scope, homeViewUrl, programmeService, $ionicSlideBoxDelegate, $ocLazyLoad) {
+.controller('ProgrammeCtrl', function ($scope, homeViewUrl, $ionicSlideBoxDelegate, $ocLazyLoad) {
   
   //滑动框初始设定(不能设定初始值，因为初始设定之后ctrl和css不能引入)
   //$scope.slideIndex = 0;

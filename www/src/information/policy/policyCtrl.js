@@ -1,6 +1,6 @@
 angular.module('Policy', [])
 
-.controller('PolicyCtrl', function ($scope, informationService, LoaderService, getDataService, $ionicScrollDelegate) {
+.controller('PolicyCtrl', function ($scope, LoaderService, getDataService, $ionicScrollDelegate) {
 
   // 上拉加载的控制
   $scope.More = false

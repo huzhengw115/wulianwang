@@ -1,6 +1,6 @@
 angular.module('Programme', [])
 
-.controller('ProgrammeDetailCtrl', function ($timeout, $scope, programmeService, $stateParams, getDataService) {
+.controller('ProgrammeDetailCtrl', function ($timeout, $scope, programmeService, $stateParams, getDataService, swipeService) {
   $scope.projectData = []
   $scope.openButton = true
   $scope.tableTitle = programmeService.tableTitle[0]
@@ -30,12 +30,15 @@ angular.module('Programme', [])
       //WeixinShare.wxShare($scope.newsData.title, $scope.picture, '#/tab/special/' + newsId, 'desc')
     })
     .finally(function () {
+      swipeService.photoswipe('main')
+      swipeService.clearHref('main')
       var params = {
         id: programmeId,
         limitnum: 3,
         dateformat: 1,
-        keyword: $scope.tags[0].name
+        tagsid: $scope.tags[0].id
       }
+      console.log('params:', params)
       // 热门推荐数据获取
       getDataService.getProgrammeItem(params).then(function (data) {
         $scope.projectHotData = data

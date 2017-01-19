@@ -1,9 +1,9 @@
 angular.module('EleProgramme', [])
-.controller('EleProgrammeCtrl', function($scope, programmeService, $ionicScrollDelegate, getDataService) {
+.controller('EleProgrammeCtrl', function($scope, $ionicScrollDelegate, getDataService) {
   
   $scope.More = false
   // 定义params
-  var params = {keyword: '', id: 0, dateformat: 1}
+  var params = {keyword: '', id: 0, dateformat: 1, posid: 45}
 
   // 回到页面的顶端
   $scope.scrollTop = function() {
@@ -68,7 +68,11 @@ angular.module('EleProgramme', [])
     .finally(function() {
       // 停止广播ion-refresher
       $scope.$broadcast('scroll.refreshComplete')
-      $scope.More = true
+      if($scope.eleProgrammeItem.length < 15) {
+        $scope.More = false
+      } else {
+        $scope.More = true
+      }
     })
   }
 

@@ -1,6 +1,6 @@
 angular.module('Investment', [])
 
-.controller('InvestmentCtrl', function ($scope, getDataService, goodsService, $ionicScrollDelegate) {
+.controller('InvestmentCtrl', function ($scope, getDataService, $ionicScrollDelegate) {
 
   // 设置请求传输的数据
   var params = {id: 0, catid: 73, dateformat: 1}

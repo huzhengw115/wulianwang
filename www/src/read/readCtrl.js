@@ -14,7 +14,7 @@ angular.module('Read', [])
   var removeId
   var params = {keyword: ''}
 
-  // 我的标签的获取
+  // 我的标签的获取 记得去掉0v0
   $scope.getMyTab = function () {
     readService.getMyTab().then(function (myTab) {
       $scope.readMyTab = myTab

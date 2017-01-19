@@ -1,11 +1,11 @@
 angular.module('HotProgramme', [])
-.controller('HotProgrammeCtrl', function($scope, $ionicScrollDelegate, programmeService, getDataService) {
+.controller('HotProgrammeCtrl', function($scope, $ionicScrollDelegate, getDataService) {
   
   // 定义筛选项的初始值
   $scope.hotProgrammeIndex = 0
   $scope.More = false
   // 定义params
-  var params = {keyword: '', id: 0, dateformat: 1}
+  var params = {keyword: '', id: 0, dateformat: 1, posid: 37}
 
   // 回到页面的顶端
   $scope.scrollTop = function() {
@@ -71,6 +71,7 @@ angular.module('HotProgramme', [])
 
   // 下拉刷新
   $scope.doRefresh = function () {
+    $scope.More = false
     params.id = 0
     getDataService.getProgrammeItem(params).then( function(data) {
       $scope.hotProgrammeItem = data
@@ -79,7 +80,7 @@ angular.module('HotProgramme', [])
     .finally(function() {
       // 停止广播ion-refresher
       $scope.$broadcast('scroll.refreshComplete')
-      if($scope.newProgrammeItem < 15) {
+      if($scope.hotProgrammeItem.length < 15) {
         $scope.More = false
       } else {
         $scope.More = true
@@ -87,6 +88,12 @@ angular.module('HotProgramme', [])
     })
   }
 
+  var tab = {limitnum: 8}
+  getDataService.getTabItem(tab).then(function (data) {
+    $scope.hotProgrammeTab = data
+    console.log('标签：', data)
+  })
+
   $scope.doRefresh()
-  $scope.hotProgrammeTab = programmeService.programmeItem
+
 })

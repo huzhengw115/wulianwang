@@ -19,8 +19,8 @@
       </div>
 
       <div class="new-programme-item" ng-repeat="data in newProgrammeTab">
-        <input type="radio" id="new-programme-item-{{data.id}}" ng-checked="newProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="newProgrammeSelect('{{data.tab}}', {{data.id}})">
-        <label for="new-programme-item-{{data.id}}">{{data.tab}}</label>
+        <input type="radio" id="new-programme-item-{{data.id}}" ng-checked="newProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="newProgrammeSelect('{{data.name}}', {{data.id}})">
+        <label for="new-programme-item-{{data.id}}">{{data.name}}</label>
       </div>
 
     </div>

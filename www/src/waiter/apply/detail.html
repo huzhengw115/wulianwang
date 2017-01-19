@@ -1,7 +1,31 @@
-<ion-view>
-  <ion-content>
+<ion-view view-title="方案详情页" hide-tabs="true">
+  <ion-content class="apply-content">
 
-    <p>shabi</p>
+  	<div class="apply-head">
+  		<h2 class="apply-head-title">{{applyData.title}}</h2>
+  		<div class="apply-head-list">
+        <p>{{applyData.inputtime}}</p>
+        <p>{{applyData.copyfrom}}</p>
+  			<p>阅读：{{applyData.clicks}}</p>
+  		</div>
+  	</div>
+
+  	<main class="apply-apply" ng-bind-html="applyData.content"></main>
+
+  	<div class="apply-bottom">
+      <div class="apply-tag">
+        <p ng-repeat="tab in tags">{{tab.name}}</p>
+      </div>
+  		<p class="apply-author">编辑：{{applyData.author}}</p>
+  	</div>
+
+    <div class="detail-footer" ng-include="'src/information/detail/footer.html'"></div>
 
   </ion-content>
+  <div class="page-bottom">
+    <a class="page-bottom-news"><p class="ion-android-person"></p>我的关注</a>
+    <a class="page-bottom-home" href="#/tab/home"><p class="ion-android-home"></p>首页</a>
+    <div class="page-bottom-follow" ng-if="!isFollow" ng-click="goFollow()"><p class="ion-android-favorite-outline"></p><a href="">关注</a></div>
+    <div class="page-bottom-follow" ng-if="isFollow" ng-click="goFollow()"><p class="ion-android-favorite"></p><a href="">已关注</a></div>
+  </div>
 </ion-view>

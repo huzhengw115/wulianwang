@@ -3,7 +3,7 @@
 
     <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
 
-    <a class="item apply-item" href="#/tab/applyDetail" ng-repeat="data in applyData">
+    <a class="item apply-item" href="#/tab/apply/{{data.id}}" ng-repeat="data in applyData">
       <h2>{{data.title}}</h2>
       <p>{{data.copyfrom}}</p>
       <p>{{data.inputtime}}</p>

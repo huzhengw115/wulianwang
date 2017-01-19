@@ -1,5 +1,8 @@
 <ion-view view-title="我的订阅" hide-tabs="true">
   <div class="myRead-head" id="my-read-head">
+
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopRead"><i class="ion-arrow-up-a goTopImg"></i></div>
+
     <ion-scroll direction="x" id="read-tab">
       <div class="myRead-slide-tab" ng-repeat="data in myTab" ng-click="activeSlide($index)" id="tab-default-{{$index}}" ng-class="slectIndex==$index ? 'tab-select' : '' ">
         {{data.title}}
@@ -24,7 +27,7 @@
                     class="myRead-slide-box">
 
       <ion-slide>
-        <ion-content class="myRead-slide-view">
+        <ion-content class="myRead-slide-view" delegate-handle="myReadSrcoll" on-scroll="myReadToTopScroll()">
           <div>
           <!-- 资讯 -->
           <a class="item findResultClass item-thumbnail-right" ng-repeat="data in findData" ng-if=" classIndex == 0 ? true : false " href="#/tab/information/page/{{data.id}}">
@@ -44,14 +47,14 @@
               <label>{{data.copyfrom}}</label>
               <label>{{data.updatetime}}</label>
             </div>
-            <p class="programme-list-money">预计产生效益：1000万</p>
+            <p class="programme-list-money">预计产生效益：{{data.benefit}} 万</p>
           </a>
 
           <!-- 商机 -->
-          <a class="item goods-list-item" ng-repeat="data in findData" ng-if=" classIndex == 2 ? true : false ">
+          <a class="item goods-list-item" ng-repeat="data in findData" ng-if=" classIndex == 2 ? true : false " href="#/tab/goods/{{data.id}}">
             <h2>{{data.title}}</h2>
             <div class="goods-list-items">
-              <label>{{data.copyfrom}}</label>
+              <label>{{data.trade}}</label>
               <label>{{data.copyfrom}}</label>
               <label>{{data.updatetime}}</label>
             </div>

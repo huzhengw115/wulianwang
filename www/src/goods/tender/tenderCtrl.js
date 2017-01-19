@@ -1,6 +1,6 @@
 angular.module('Tender', [])
 
-.controller('TenderCtrl', function ($scope, getDataService, goodsService, $ionicScrollDelegate) {
+.controller('TenderCtrl', function ($scope, getDataService, $ionicScrollDelegate) {
 
   // 设置请求传输的数据
   var params = {id: 0, catid: 72, dateformat: 1}

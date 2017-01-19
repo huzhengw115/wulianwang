@@ -1,6 +1,6 @@
 angular.module('Detail', [])
 
-.controller('PageCtrl', function ($scope, $stateParams, getDataService) {
+.controller('PageCtrl', function ($scope, $stateParams, getDataService, swipeService) {
   // 获取ID值
   var pageId = $stateParams.pageId
   console.log("本页面的ID值是：", pageId)
@@ -17,8 +17,10 @@ angular.module('Detail', [])
     console.log('$scope.pageData:', $scope.pageData)
   })
   .finally(function () {
+    swipeService.photoswipe('main')
+    swipeService.clearHref('main')
     var params = {
-      keyword: $scope.tags[0].name,
+      tagsid: $scope.tags[0].id,
       id: $scope.pageData.id,
       limitnum: 3,
       dateformat: 1
@@ -33,18 +35,18 @@ angular.module('Detail', [])
 })
 // 页面中链接的问题等做图片放大功能时再去实现
 
-.controller('SpecialPageCtrl', function ($scope, detailService, $stateParams) {
-  //获取ID值
-  var specialId = $stateParams.specialId
-  console.log("本页面的ID值是：", specialId)
-  //详情页面的数据获取
-  detailService.getPageData().then(function (pageData) {
-    $scope.specialData = pageData
-    console.log('$scope.specialData:', $scope.specialData)
-  })
-  // 热门推荐的数据获取
-  detailService.getPageHotData().then(function (pageHotData) {
-    $scope.pageHotData = pageHotData
-    console.log('$scope.pageHotData:', $scope.pageHotData)
-  })
+.controller('SpecialPageCtrl', function ($scope, $stateParams) {
+  // //获取ID值
+  // var specialId = $stateParams.specialId
+  // console.log("本页面的ID值是：", specialId)
+  // //详情页面的数据获取
+  // detailService.getPageData().then(function (pageData) {
+  //   $scope.specialData = pageData
+  //   console.log('$scope.specialData:', $scope.specialData)
+  // })
+  // // 热门推荐的数据获取
+  // detailService.getPageHotData().then(function (pageHotData) {
+  //   $scope.pageHotData = pageHotData
+  //   console.log('$scope.pageHotData:', $scope.pageHotData)
+  // })
 })

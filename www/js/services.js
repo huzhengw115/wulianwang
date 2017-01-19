@@ -18,7 +18,8 @@ angular.module('starter.services', [])
 })
 
 .service('swipeService', function ($document) {
-  var photoswipe = function () {
+
+  var photoswipe = function (tab) {
     var items = []
     var pswpElement = document.querySelectorAll('.pswp')[0]
     var options = {
@@ -50,7 +51,7 @@ angular.module('starter.services', [])
         gallery.goTo(index)
       }
     }
-    var databigpic = angular.element($document.find("main"))
+    var databigpic = angular.element($document.find(tab))
     databigpic.ready(function () {
       var imgs = databigpic.find("img")
       console.log('imgs:',imgs)
@@ -60,12 +61,30 @@ angular.module('starter.services', [])
           // 绑定图片加载完成事件，加载完以后才能获取图片Size
           angular.element(img).bind("load", imgOnload(img, index))
         } else {
-          imgOnload(img, index)();
+          imgOnload(img, index)()
         }
       }
     })
   }
-  return{
-    photoswipe: photoswipe
+
+  function clearHref (tab) {
+    // 将页面中的a标签点击事件都禁止掉
+    var hrefClcik = angular.element($document.find(tab))
+    hrefClcik.ready(function () {
+      var hrefs = hrefClcik.find("a")
+      console.log('hrefs:', hrefs)
+      for(var index = 0; index < hrefs.length; ++index) {
+        var label = hrefs[index]
+        // label.href = ''// 这种方法href为空了，但是APP的默认路径为首页，并不能行
+        label.style.cssText = "pointer-events:none"
+      }
+    })
+    console.log('禁止掉了')
   }
+
+  return{
+    photoswipe: photoswipe,
+    clearHref: clearHref
+  }
+
 })

@@ -1,5 +1,5 @@
 angular.module('Meets', [])
-.controller('MeetsCtrl', function($scope, meetsService, $timeout, getDataService) {
+.controller('MeetsCtrl', function($scope, $timeout, getDataService) {
 
   $scope.More = false
   var params = {id: 0}
