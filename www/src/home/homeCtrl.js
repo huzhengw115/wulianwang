@@ -1,13 +1,12 @@
 angular.module('Home', [])
 
-.controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, homeService, $http, $ocLazyLoad, homeSrcService, getDataService) {
+.controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $http, $ocLazyLoad, homeSrcService, getDataService) {
 
   // params定义
   var params = {dateformat: 1}
 
   // 获取轮播图片
   var homeTitlePic = function () {
-    // homeService.homeTitlePic().then(function (data) {
     getDataService.getPicItem().then(function (data) {
       $scope.ads = []
       $ionicSlideBoxDelegate.$getByHandle('home-pic').update()

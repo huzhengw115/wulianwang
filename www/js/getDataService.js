@@ -15,25 +15,25 @@ angular.module('getDataService', [])
     switch(index)
     {
     case 0:
-      console.log('现在是零')
+      console.log('资讯')
       return _getData('news/get_list/keyword', params)
       break
     case 1:
-      console.log('现在是一')
+      console.log('方案')
       return _getData('solutions/get_list/keyword', params)
       break
     case 2:
-      console.log('现在是二')
+      console.log('商机')
       return _getData('business/get_list/keyword', params)
       break
     case 3:
-      console.log('现在是三')
+      console.log('活动')
       return getMeetsData(params)
       break
     default:
-      console.log('现在是妖妖灵')
+      console.log('无')
     }
-    return console.log('妖妖灵')
+    return console.log('结束')
   }
 
   // 资讯
@@ -101,9 +101,7 @@ angular.module('getDataService', [])
 
     Restangular.setJsonp(true)
     Restangular.one(url).get(params).then(function (data) {
-      console.log('啦啦啦：', data)
       getData = data.list
-      // console.log('请求到的数据: ', getData)
       deferred.resolve(getData)
     }, function (err) {
       deferred.reject(err)
@@ -121,7 +119,6 @@ angular.module('getDataService', [])
     Restangular.setJsonp(true)
     Restangular.one(url).get(params).then(function (data) {
       getData = data
-      // console.log('请求到的数据: ', getData)
       deferred.resolve(getData)
     }, function (err) {
       deferred.reject(err)
@@ -137,7 +134,6 @@ angular.module('getDataService', [])
     Restangular.setJsonp(true)
     Restangular.one('index/index').get(params).then(function (data) {
       getData = data
-      // console.log('请求到的数据: ', getData)
       deferred.resolve(getData)
     }, function (err) {
       deferred.reject(err)
@@ -154,7 +150,6 @@ angular.module('getDataService', [])
     console.log(params)
     var url = 'http://www.51banhui.com/api/meet/meet_list'
     var deferred = $q.defer()
-    // var url = SERVICE_API_URL + '?callback=JSON_CALLBACK';
     if (params) {
       params.callback = 'JSON_CALLBACK'
     } else {

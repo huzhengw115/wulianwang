@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.routes', 'oc.lazyLoad', 'constantService', 'restangular', 'getDataService'])
+angular.module('starter', ['ionic', 'starter.services', 'WxService', 'starter.routes', 'oc.lazyLoad', 'constantService', 'restangular', 'getDataService'])
 
-.run(function ($ionicPlatform) {
+.run(function ($ionicPlatform, WeixinService) {
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.routes', 'oc.la
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault()
     }
+    WeixinService.config()
   })
 })
 

@@ -20,7 +20,7 @@ angular.module('Detail', [])
     swipeService.photoswipe('main')
     swipeService.clearHref('main')
     var params = {
-      tagsid: $scope.tags[0].id,
+      tagid: $scope.tags[0].id,
       id: $scope.pageData.id,
       limitnum: 3,
       dateformat: 1

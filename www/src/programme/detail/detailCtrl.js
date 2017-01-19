@@ -36,7 +36,7 @@ angular.module('Programme', [])
         id: programmeId,
         limitnum: 3,
         dateformat: 1,
-        tagsid: $scope.tags[0].id
+        tagid: $scope.tags[0].id
       }
       console.log('params:', params)
       // 热门推荐数据获取
