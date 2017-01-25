@@ -5,7 +5,7 @@
 
     <ion-scroll direction="x" id="read-tab">
       <div class="myRead-slide-tab" ng-repeat="data in myTab" ng-click="activeSlide($index)" id="tab-default-{{$index}}" ng-class="slectIndex==$index ? 'tab-select' : '' ">
-        {{data.title}}
+        {{data.name}}
       </div>
     </ion-scroll>
   </div>

@@ -1,0 +1,21 @@
+<p style="font-size: 20px; color: #00a0ff;">请先登录</p>
+<form class="" style="margin-bottom: 10px;">
+  <input  type="text" 
+          placeholder="请输入手机号码" 
+          maxlength="20" 
+          ng-model="mobile" 
+          style="padding-left: 5px; border: 2px solid #00a0ff; border-radius: 5px;">
+</form>
+<p ng-if="mobileFalse" style="color: #f00;">请输入正确的手机号码</p>
+<form class="">
+  <input  type="password" 
+          placeholder="请输入密码" 
+          maxlength="20" 
+          ng-model="password"
+          style="padding-left: 5px; border: 2px solid #00a0ff; border-radius: 5px;">
+</form>
+<p ng-if="passwordFalse" style="color: #f00;">请输入正确的密码</p>
+<div style="overflow: auto;">
+  <p ng-click="goLogin(mobile, password)" style="width: 45%; background-color: #00a0ff; margin: 10px 5% 0 0; float: left; border-radius: 10px; text-align: center; height: 30px; color: #fff; line-height: 30px;">确定</p>
+  <p ng-click="goCancel()" style="width: 45%; background-color: #999; margin: 10px  0 0 5%; float: left; border-radius: 10px; text-align: center; height: 30px; line-height: 30px;">取消</p>
+</div>

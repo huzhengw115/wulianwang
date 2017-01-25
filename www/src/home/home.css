@@ -67,7 +67,7 @@
 
 .home-ads-pic img{
     width: 100%;
-    height: 180px;
+    min-height: 150px;
 }
 
 .home-list {

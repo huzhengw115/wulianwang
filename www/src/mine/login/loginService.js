@@ -1,18 +1,31 @@
 angular.module('Login', [])
 
-.service('loginService', function ($q, Restangular) {
+.service('loginService', function ($q, Restangular, $ionicLoading, $timeout, Local) {
 
   // 登陆：http://www.im2m.com.cn/api/member/login
 
-  function goLogin (params) {
-    return _getData('member/login', params)
-  }
+  function goLogin (mobile, password, caption) {
+    // 提示正在跳转
+    $ionicLoading.show({
+      title: caption
+    })
 
-  function _getData (url, params) {
     var deferred = $q.defer()
-    console.log(params)
+    var url = 'member/login/'
+    url += 'mobile/'
+    url += mobile
+    url += '/password/'
+    url += password
 
-    Restangular.all(url).post(params).then(function (data) {
+    // 将show隐藏
+    $timeout(function() {
+      $ionicLoading.hide()
+    }, 1000)
+
+    Restangular.all(url).post().then(function (data) {
+      Local.set("loginState", data.errcode)
+      Local.set("uid", data.uid)
+      Local.set("mobile", mobile)
       deferred.resolve(data)
       console.log('success:', data)
     }, function (err) {
@@ -20,6 +33,10 @@ angular.module('Login', [])
       console.log('err:', err)
     })
     return deferred.promise
+  }
+
+  return {
+    goLogin: goLogin
   }
 
 })

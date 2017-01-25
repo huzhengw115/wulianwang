@@ -33,11 +33,7 @@
           <p>热门搜索</p>
         </div>
         <div class="find-hot-item">
-          <a class="item" ng-click="toFind(0)">政策</a>
-          <a class="item" ng-click="toFind(1)">政策</a>
-          <a class="item" ng-click="toFind(2)">政策</a>
-          <a class="item" ng-click="toFind(3)">政策</a>
-          <a class="item" ng-click="toFind(4)">政策</a>
+          <a class="item" ng-click="toFind(data.keyword)" ng-repeat="data in hotSearchData">{{data.keyword}}</a>
         </div>
       </div>
 

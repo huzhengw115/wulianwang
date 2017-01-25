@@ -1,0 +1,20 @@
+<div ng-controller="MyInterInformCtrl">
+
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopInform"><i class="ion-arrow-up-a goTopImg"></i></div>
+
+  <ion-content class="myInter-inform-content" delegate-handle="informSrcoll" on-scroll="informToTopScroll()">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+    <p class="inter-space" ng-if="space">您暂时还没有关注任何内容哦</p>
+
+    <div class="myInter-inform-list">
+      <a href="#/tab/information/page/{{data.id}}" class="item myInter-inform-items item-thumbnail-right" ng-repeat="data in informItem">
+        <img src="{{data.thumb[0]}}" alt="">
+        <h2 class="intwoline">{{data.title}}</h2>
+        <p>{{data.copyfrom}}</p>
+        <p>{{data.inputtime}}</p>
+      </a>
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
+</div>

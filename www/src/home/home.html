@@ -10,17 +10,15 @@
     </ion-refresher>
 
     <div class="home-pic">
-        <ion-slide-box delegate-handle="home-pic"
+      <ion-slide-box delegate-handle="home-pic"
                 active-slide="true"  
                 does-continue="true" 
                 auto-play="true" 
                 slide-interval="5000">
         <ion-slide data-ng-repeat="item in ads" class="home-ads-pic">
-          <div class="pic-box">
-            <a ng-href = "">
-                <img ng-src="{{item.thumb[0]}}">
-            </a>
-          </div>
+          <a ng-href = "">
+            <img ng-src="{{item.src}}">
+          </a>
         </ion-slide>
       </ion-slide-box>
     </div>

@@ -1,0 +1,23 @@
+.myInter-goods-content {
+}
+
+.myInter-goods-items {
+	padding: 12px;
+}
+
+.myInter-goods-items h2 {
+	white-space: normal;
+}
+
+.goods-list-items {
+	margin-top: 10px;
+}
+
+.goods-list-items-class {
+	color: #00a0ff;
+}
+
+.goods-list-items-time {
+	padding-left: 20px;
+	color: #aaa;
+}

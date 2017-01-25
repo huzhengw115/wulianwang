@@ -1,0 +1,54 @@
+.myInter-inform-content {
+}
+
+@media screen and (min-width: 320px){
+    .myInter-inform-items > img {
+        max-width: 150px !important;
+        width: 95px !important;
+        max-height: 70px !important;
+        margin-top: 15px;
+    }
+    .myInter-inform-items > h2 {
+        margin-right: 15px;
+        white-space: normal;
+    }
+}
+
+@media screen and (min-width: 360px){
+    .myInter-inform-items > img {
+        max-width: 150px !important;
+        width: 120px !important;
+        max-height: 70px !important;
+        margin-top: 10px;
+    }
+    .myInter-inform-items > h2 {
+        margin-right: 50px;
+        white-space: normal;
+    }
+}
+
+@media screen and (min-width: 400px){
+    .myInter-inform-items > img {
+        max-width: 150px !important;
+        width: 140px !important;
+        max-height: 80px !important;
+        margin-top: 5px;
+    }
+    .myInter-inform-items > h2 {
+        margin-right: 60px;
+        white-space: normal;
+    }
+}
+
+@media screen and (min-width: 440px){
+    .myInter-inform-items > img {
+        max-width: 150px !important;
+        width: 150px !important;
+        max-height: 80px !important;
+        margin-top: 0px;
+    }
+    .myInter-inform-items > h2 {
+        margin-right: 80px;
+        white-space: normal;
+    }
+}

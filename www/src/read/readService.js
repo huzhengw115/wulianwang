@@ -1,60 +1,52 @@
 angular.module('Read', [])
 
-.service('readService', function ($http, $q) {
-  //热门标签的获取
-  var getHotTab = function () {
-    var hotTab = []
+.service('readService', function ($http, $q, Restangular) {
+
+  // 我的标签 tags/get_user_tags
+  // 添加标签 tags/add_user_tags
+  // 删除标签 tags/delete_user_tags
+  // 关注 news/fucus
+
+  // 标签
+  function getTabItem (params) {
+    return _getDatail('tags/get_list', params)
+  }
+
+  // 我的订阅
+  function getMyTab (params) {
+    return _getDatail('tags/get_user_tags', params)
+  }
+
+  // 订阅标签
+  function goMyTab (params) {
+    return _getDatail('tags/add_user_tags', params)
+  }
+
+  // 删除标签
+  function delMyTab (params) {
+    return _getDatail('tags/delete_user_tags', params)
+  }
+
+  function _getDatail (url, params) {
+    var getData = []
     var deferred = $q.defer()
-    $http.get('json/hotTab.json')
-    .success(function (data) {
-      hotTab = data.tab
-      //console.log(hotTab)
-      deferred.resolve(hotTab)
+
+    Restangular.setJsonp(true)
+    Restangular.one(url).get(params).then(function (data) {
+      getData = data
+      deferred.resolve(getData)
+    }, function (err) {
+      deferred.reject(err)
     })
-    .error(function () {
-      console.log('获取热门标签失败')
-      deferred.reject()
-    })
+
     return deferred.promise
   }
 
-  //搜索标签的获取
-  var getSearchTab = function () {
-    var searchTab = []
-    var deferred = $q.defer()
-    $http.get('json/hotTab.json')
-    .success(function (data) {
-      searchTab = data.search
-      //console.log(searchTab)
-      deferred.resolve(searchTab)
-    })
-    .error(function () {
-      console.log('获取搜索标签失败')
-      deferred.reject()
-    })
-    return deferred.promise
-  }
-
-  //我的标签的获取
-  var getMyTab = function () {
-    var myTab = []
-    var deferred = $q.defer()
-    $http.get('json/hotTab.json')
-    .success(function (data) {
-      myTab = data.my
-      //console.log(myTab)
-      deferred.resolve(myTab)
-    })
-    .error(function () {
-      console.log('获取我的标签失败')
-      deferred.reject()
-    })
-    return deferred.promise
-  }
 
   return {
-    getHotTab: getHotTab,
-    getSearchTab: getSearchTab,
-    getMyTab: getMyTab
+    getTabItem: getTabItem,
+    getMyTab: getMyTab,
+    goMyTab: goMyTab,
+    delMyTab: delMyTab
   }
 })

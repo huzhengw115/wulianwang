@@ -13,14 +13,10 @@ angular.module('constantService', [])
       'src/goods/investment/investment.html',
       'src/goods/bids/bids.html'
       ],
-  homeTemplate: ['',
-        '',
-        '',
-        'src/meets/meets.html',
-        'src/waiter/waiter.html',
-        'src/read/read.html',
-        '',
-        'src/find/find.html'
+  myInterView: ['src/mine/myInter/information/information.html',
+      'src/mine/myInter/programme/programme.html',
+      'src/mine/myInter/goods/goods.html',
+      'src/mine/myInter/waiter/waiter.html'
       ],
   homesFile: ['src/homes/homesCtrl.js', 'src/homes/homes.css'],
   informationFile: [['src/information/hots/hotsCtrl.js', 'src/information/hots/hots.css'],
@@ -38,7 +34,12 @@ angular.module('constantService', [])
               ['src/goods/bids/bidsCtrl.js', 'src/goods/bids/bids.css']
             ],
   waiterFile: ['src/waiter/waiterCtrl.js', 'src/waiter/waiter.css'],
-  findFile: ['src/find/findCtrl.js', 'src/find/find.css']
+  findFile: ['src/find/findCtrl.js', 'src/find/find.css'],
+  myInterFile: [['src/mine/myInter/information/informationCtrl.js', 'src/mine/myInter/information/information.css'],
+              ['src/mine/myInter/programme/programmeCtrl.js', 'src/mine/myInter/programme/programme.css'],
+              ['src/mine/myInter/goods/goodsCtrl.js', 'src/mine/myInter/goods/goods.css'],
+              ['src/mine/myInter/waiter/waiterCtrl.js', 'src/mine/myInter/waiter/waiter.css']
+            ]
 })
 
 .service('homeSrcService', function () {

@@ -1,0 +1,48 @@
+<ion-view view-title="资讯" hide-tabs="true">
+  <div class="myInter-head">
+    <div class="myInter-slide-tab" ng-click="myInterSlide(0)" id="myInter-slide-0">
+      <p class="myInter-slide-p" ng-class="slectIndex==0 ? 'myInter-tab-select' : '' ">资 讯</p>
+    </div>
+    <div class="myInter-slide-tab" ng-click="myInterSlide(1)" id="myInter-slide-1">
+      <p class="myInter-slide-p" ng-class="slectIndex==1 ? 'myInter-tab-select' : '' ">方 案</p>
+    </div>
+    <div class="myInter-slide-tab" ng-click="myInterSlide(2)" id="myInter-slide-2">
+      <p class="myInter-slide-p" ng-class="slectIndex==2 ? 'myInter-tab-select' : '' ">商 机</p>
+    </div>
+    <div class="myInter-slide-tab" ng-click="myInterSlide(3)" id="myInter-slide-3">
+      <p class="myInter-slide-p" ng-class="slectIndex==3 ? 'myInter-tab-select' : '' ">服务申报</p>
+    </div>
+  </div>
+
+  <ion-content class="myInter_content" delegate-handle="news_hot_content" scroll="false" overflow-scroll="ture">
+
+    <ion-slide-box delegate-handle="newsSlider" on-slide-changed="slideChanged(index)" active-slide="slideIndex"  show-pager="false" style="top: 0;bottom: 0;position: absolute !important; width:100%">
+
+      <ion-slide>
+        <div ng-include="information">
+            
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div ng-include="programme">
+            
+        </div>
+      </ion-slide>
+      
+      <ion-slide>
+        <div ng-include="goods">
+            
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div ng-include="waiter">
+            
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+
+  </ion-content>
+</ion-view>

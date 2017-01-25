@@ -1,0 +1,23 @@
+<ion-view view-title="我的发布" hide-tabs="true">
+
+  <ion-content class="myPublish-content" delegate-handle="myPublishSrcoll" on-scroll="myPublishToTopScroll()">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+    <p class="inter-space" ng-if="space">您暂时还没有发布任何内容哦</p>
+
+    <div class="myPublish-list">
+      <a class="item myPublish-list-item intwoline" ng-repeat="data in publishData">
+        <h2 class="intwoline">{{data.title}}</h2>
+        <div class="myPublish-item">
+          <label>{{data.copyfrom}}</label>
+          <label>{{data.inputtime}}</label>
+        </div>
+        <label>{{data.status}}</label>
+        <p>预计产生效益：{{data.benefit}} 万</p>
+      </a>
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

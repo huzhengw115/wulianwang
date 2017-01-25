@@ -1,20 +1,23 @@
 <ion-view view-title="会员中心">
   <ion-content class="mine-content">
     <div class="mine-head-portrait">
-      <div class="mine-head-portrait-pic">
-        <a href="#/tab/login"><img src="img/mine/head.jpg"></a>
+      <div class="mine-head-portrait-pic" ng-click="goLogin()">
+        <img src="img/mine/head.jpg">
       </div>
-      <p>点击登录</p>
+      <p ng-if="!isLogin" ng-click="goLogin()">点击登录</p>
+      <p ng-if="isLogin">{{name}}</p>
     </div>
     <div class="mine-about">
-      <a class="item"><img src="img/mine/write.jpg">我的发布<i class="ion-chevron-right mine-to"></i></a>
-      <a class="item"><img src="img/mine/love.jpg">我的关注<i class="ion-chevron-right mine-to"></i></a>
-      <a class="item" href="#/tab/myRead"><img src="img/mine/read.jpg">我的订阅<i class="ion-chevron-right mine-to"></i></a>
-      <a class="item"><img src="img/mine/time.jpg">最近阅读<i class="ion-chevron-right mine-to"></i></a>
+    <!-- 所有的链接都是需要通过验证用户是否登录的，所以都是要在ctrl内部进行跳转的 -->
+      <a class="item" ng-click="goMine(0)"><img src="img/mine/write.jpg">我的发布<i class="ion-chevron-right mine-to"></i></a>
+      <a class="item" ng-click="goMine(1)"><img src="img/mine/love.jpg">我的关注<i class="ion-chevron-right mine-to"></i></a>
+      <a class="item" ng-click="goMine(2)"><img src="img/mine/read.jpg">我的订阅<i class="ion-chevron-right mine-to"></i></a>
+      <!-- <a class="item" ng-click="goMine(3)"><img src="img/mine/time.jpg">最近阅读<i class="ion-chevron-right mine-to"></i></a> -->
     </div>
     <div class="mine-govmade">
       <a class="item" href="#/tab/about"><img src="img/mine/mine.jpg">关于我们<i class="ion-chevron-right mine-to"></i></a>
       <a class="item" href="#/tab/contact"><img src="img/mine/call.jpg">联系我们<i class="ion-chevron-right mine-to"></i></a>
     </div>
+    <p class="mine-logout" ng-if="isLogin" ng-click="goLogout()">退出登录</p>
   </ion-content>
 </ion-view>

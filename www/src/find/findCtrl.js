@@ -1,6 +1,6 @@
 angular.module('Find', [])
 
-.controller('FindCtrl', function ($scope, $ionicScrollDelegate, getDataService) {
+.controller('FindCtrl', function ($scope, $ionicScrollDelegate, findService) {
   
   // 首先默认设置搜索的类型为资讯
   $scope.classIndex = 0
@@ -18,6 +18,12 @@ angular.module('Find', [])
   // 设置页面最开始时的类型
   $scope.selectItem = $scope.classItem[0].class
 
+  // 热门搜索
+  findService.getSearchData({limitnum: 7}).then(function (data) {
+    $scope.hotSearchData = data
+    console.log('热门搜索:', data)
+  })
+
   // 弹出类型选择框
   $scope.classSelect = function () {
     $scope.isClassShow = !$scope.isClassShow
@@ -30,7 +36,6 @@ angular.module('Find', [])
     // 先选中搜索的类型，然后在按下按钮的时候进行搜索类型的转换
     classNumber = index
     $scope.More = false
-    console.log('$scope.classIndex:', $scope.classIndex)
   }
 
   // 搜索按钮
@@ -44,7 +49,7 @@ angular.module('Find', [])
     if($scope.keyword != '') {
       params.keyword = data
       console.log('params:', params)
-      getDataService.getNewsListItem(params, $scope.classIndex).then(function (data) {
+      findService.getFindItem(params, $scope.classIndex).then(function (data) {
         $scope.findData = data
         console.log('搜索到的结果：', $scope.findData)
       })
@@ -62,7 +67,7 @@ angular.module('Find', [])
   $scope.loadMore = function () {
     var dataLength = $scope.findData.length - 1
     params.id = $scope.findData[dataLength].id
-    getDataService.getNewsListItem(params, $scope.classIndex).then(function (data) {
+    findService.getFindItem(params, $scope.classIndex).then(function (data) {
       if(data.length < 15) {
         $scope.More = false
       }
@@ -96,8 +101,8 @@ angular.module('Find', [])
   }
 
   // 热门历史搜索
-  $scope.toFind = function (index) {
-    $scope.keyword = String(index)
-    $scope.toSearch()
+  $scope.toFind = function (data) {
+    $scope.keyword = data
+    $scope.toSearch(data)
   }
 })

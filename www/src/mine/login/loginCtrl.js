@@ -1,6 +1,6 @@
 angular.module('Login', [])
 
-.controller('LoginCtrl', function ($scope, loginService) {
+.controller('LoginCtrl', function ($scope, loginService, $location) {
 
   $scope.goLogin = function (mobile, password) {
     // 首先判断手机号码是否正确
@@ -11,11 +11,10 @@ angular.module('Login', [])
       if (password == undefined || password.length < 6) {
         console.log('请输入正确的密码')
       } else {
-        var params = {
-          mobile: mobile,
-          password: password
-        }
-        loginService.goLogin(params)
+        var caption = '登录成功，正在跳转'
+        loginService.goLogin(mobile, password, caption).then(function (data) {
+          $location.path("/tab/mine")
+        })
         console.log('please wait a moment')
       }
     }

@@ -5,7 +5,7 @@ angular.module('NewProgramme', [])
   $scope.newProgrammeIndex = 0
   $scope.More = false
   // 定义params
-  var params = {keyword: '', id: 0, dateformat: 1, catid: 3}
+  var params = {keyword: '', id: 0, dateformat: 1, catid: 3, tagid: 0}
 
   // 回到页面的顶端
   $scope.scrollTop = function() {
@@ -40,12 +40,11 @@ angular.module('NewProgramme', [])
   }
 
   // 筛选项的点击事件
-  $scope.newProgrammeSelect = function(data, index) {
+  $scope.newProgrammeSelect = function(index) {
     $scope.newProgrammeIndex = index
     params.id = 0
-    params.keyword = data
+    params.tagid = index
     $scope.doRefresh()
-    console.log('选中的标签：', data)
   }
 
   // 上拉加载

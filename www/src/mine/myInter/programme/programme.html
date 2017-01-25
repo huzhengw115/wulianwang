@@ -1,0 +1,24 @@
+<div ng-controller="MyInterProgCtrl">
+
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopProg"><i class="ion-arrow-up-a goTopImg"></i></div>
+
+  <ion-content class="myInter-prog-content" delegate-handle="progSrcoll" on-scroll="progToTopScroll()">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+    <p class="inter-space" ng-if="space">您暂时还没有关注任何内容哦</p>
+
+    <div class="myInter-prog-list">
+      <a class="item myInter-prog-items intwoline item-thumbnail-right" ng-repeat="data in progItem" href="#/tab/programme/{{data.id}}">
+        <img src="{{data.thumb[0]}}">
+        <h2 class="intwoline">{{data.title}}</h2>
+        <div>
+          <label>{{data.copyfrom}}</label>
+          <label>{{data.inputtime}}</label>
+        </div>
+        <p>预计产生效益：{{data.benefit}} 万</p>
+      </a>
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
+</div>

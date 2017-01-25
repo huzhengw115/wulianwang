@@ -29,7 +29,7 @@
         <p ng-click="updataSearchTab()"><i id="updata-search" class="ion-loop {{ isSearchUpdata ? 'updata-search' : '' }}"></i>换一批</p>
       </div>
       <div class="read-search-tab-item">
-        <p ng-repeat="data in readSearchTab" ng-click="addTab(data,1)" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.name}}</p>
+        <p ng-repeat="data in readSearchTab" ng-click="addTab(data, 1, {{$index}})" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.name}}</p>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
         <p ng-click="updateHotTab()"><i id="updata-hot" class="ion-loop {{ isHotUpdata ? 'updata-hot' : '' }}"></i>换一批</p>
       </div>
       <div class="read-hot-tab-item">
-        <p ng-repeat="data in readHotTab" ng-click="addTab(data,0)" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.name}}</p>
+        <p ng-repeat="data in readHotTab" ng-click="addTab(data, 0, {{$index}})" class="{{data.show == 1 ? 'tabSelected' : ''}}">{{data.name}}</p>
       </div>
     </div>
 
@@ -49,7 +49,7 @@
         <p ng-click=removeTab()>删除标签</p>
       </div>
       <div class="read-mine-tab-item">
-        <p ng-repeat="data in readMyTab" ng-click=selectTab(data) class="{{selectClass == data.id ? 'select-tab': ''}}">{{data.title}}</p>
+        <p ng-repeat="data in readMyTab" ng-click="selectTab(data, {{$index}})" class="{{selectClass == data.id ? 'select-tab': ''}}">{{data.name}}</p>
       </div>
     </div>
 

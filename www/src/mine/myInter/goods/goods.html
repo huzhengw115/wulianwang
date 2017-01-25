@@ -1,0 +1,22 @@
+<div ng-controller="MyInterGoodsCtrl">
+
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopGoods"><i class="ion-arrow-up-a goTopImg"></i></div>
+
+  <ion-content class="myInter-goods-content" delegate-handle="goodsSrcoll" on-scroll="goodsToTopScroll()">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+    <p class="inter-space" ng-if="space">您暂时还没有关注任何内容哦</p>
+
+    <div class="myInter-goods-list">
+      <a class="item myInter-goods-items" ng-repeat="data in goodsItem" href="#/tab/goods/{{data.id}}">
+        <h2>{{data.title}}</h2>
+        <div class="goods-list-items">
+          <label class="goods-list-items-class">{{data.trade}}</label>
+          <label class="goods-list-items-time">{{data.inputtime}}</label>
+        </div>
+      </a>
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+  </ion-content>
+</div>

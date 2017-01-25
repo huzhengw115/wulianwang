@@ -1,0 +1,31 @@
+.myPublish-content {
+}
+
+.myPublish-list-item {
+	position: relative;
+	overflow: auto;
+}
+
+.myPublish-list-item > h2 {
+	white-space: normal;
+}
+
+.myPublish-item label {
+	color: #aaa;
+	font-size: 12px;
+	margin-right: 20px;
+}
+
+.myPublish-list-item > label {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	font-size: 20px;
+	color: #666;
+}
+
+.myPublish-list-item p {
+	bottom: 5px;
+	color: #00a0ff;
+	font-size: 12px;
+}

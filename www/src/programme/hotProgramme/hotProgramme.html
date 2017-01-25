@@ -14,12 +14,12 @@
     <div class="hot-programme">
 
       <div class="hot-programme-item">
-        <input type="radio" id="hot-programme-item-0" ng-checked="hotProgrammeIndex == 0 ? 'checked' : ''" ng-click="hotProgrammeSelect('', 0)">
+        <input type="radio" id="hot-programme-item-0" ng-checked="hotProgrammeIndex == 0 ? 'checked' : ''" ng-click="hotProgrammeSelect(0)">
         <label for="hot-programme-item-0">全部</label>
       </div>
 
       <div class="hot-programme-item" ng-repeat="data in hotProgrammeTab">
-        <input type="radio" id="hot-programme-item-{{data.id}}" ng-checked="hotProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="hotProgrammeSelect('{{data.name}}', {{data.id}})">
+        <input type="radio" id="hot-programme-item-{{data.id}}" ng-checked="hotProgrammeIndex == {{data.id}} ? 'checked' : ''" ng-click="hotProgrammeSelect({{data.id}})">
         <label for="hot-programme-item-{{data.id}}">{{data.name}}</label>
       </div>
 

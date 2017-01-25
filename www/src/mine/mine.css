@@ -46,3 +46,13 @@
 	width: 29px;
 	margin: 0 10px -9px 0;
 }
+
+.mine-logout {
+	margin: 20px 100px;
+	background-color: #f00;
+	font-size: 20px;
+	padding: 5px;
+	text-align: center;
+	border-radius: 10px;
+	color: #ddd;
+}

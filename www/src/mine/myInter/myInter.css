@@ -1,0 +1,30 @@
+.myInter-head {
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.myInter-slide-tab {
+    float: left;
+    width: 25%;
+    text-align: center;
+    height: 44px;
+    font-weight: 700;
+    color: #999;
+}
+
+.myInter-tab-select {
+    color: #00a0ff;
+    border-bottom: 4px solid #00a0ff;
+}
+
+.myInter_content {
+    top: 44px;
+    background-color: #eee;
+}
+
+.myInter-slide-p {
+    height: 44px;
+    line-height: 44px;
+    width: 65px !important;
+    margin: auto;
+}

@@ -1,0 +1,20 @@
+<div ng-controller="MyInterWaiterCtrl">
+
+  <div class="goTop" ng-click="scrollTop()" ng-if="isGoTopWaiter"><i class="ion-arrow-up-a goTopImg"></i></div>
+
+  <ion-content class="myInter-waiter-content" delegate-handle="waiterSrcoll" on-scroll="waiterToTopScroll()">
+
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+
+    <p class="inter-space" ng-if="space">您暂时还没有关注任何内容哦</p>
+
+    <a class="item myInter-waiter-item" href="#/tab/apply/{{data.id}}" ng-repeat="data in waiterData">
+      <h2>{{data.title}}</h2>
+      <p>{{data.copyfrom}}</p>
+      <p>{{data.inputtime}}</p>
+    </a>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%" ng-if="More"></ion-infinite-scroll>
+
+  </ion-content>
+</div>

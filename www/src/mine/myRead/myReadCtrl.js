@@ -1,6 +1,6 @@
 angular.module('MyRead', [])
 
-.controller('MyReadCtrl', function ($scope, myReadService, $ionicSlideBoxDelegate, $document, $ionicScrollDelegate, getDataService) {
+.controller('MyReadCtrl', function ($scope, $ionicSlideBoxDelegate, $document, $ionicScrollDelegate, getDataService, findService) {
   
   // 设置关键字
   var params = {tagid : '', id: 0, dateformat: 1}
@@ -21,7 +21,7 @@ angular.module('MyRead', [])
   }
 
   // 获取订阅的标签
-  myReadService.getMyTab().then(function (data) {
+  getDataService.getMyTab().then(function (data) {
     $scope.myTab = data
     $ionicSlideBoxDelegate.update()
     console.log('myTab:', $scope.myTab)
@@ -31,10 +31,11 @@ angular.module('MyRead', [])
 
   // 点击上方的tab时触发
   $scope.activeSlide = function (index) {
+    // 这个是控制标签的样式的
     $scope.slectIndex = index
     $ionicSlideBoxDelegate.slide(0)
+    // 第一次是资讯
     if(firstId == 0) {
-      // 第一次是资讯
       params.tagid = $scope.myTab[0].id
       // 之后都用下面的方法
       firstId = 1
@@ -79,7 +80,7 @@ angular.module('MyRead', [])
   $scope.loadMore = function () {
     var dataLength = $scope.findData.length - 1
     params.id = $scope.findData[dataLength].id
-    getDataService.getNewsListItem(params, $scope.classIndex).then(function (data) {
+    findService.getFindItem(params, $scope.classIndex).then(function (data) {
       Array.prototype.push.apply($scope.findData, data)
       console.log('上拉:', $scope.findData)
       if(data.length < 15) {
@@ -95,7 +96,7 @@ angular.module('MyRead', [])
   function getFindData () {
     // 根据选中的标签进行搜索
     params.id = 0
-    getDataService.getNewsListItem(params, $scope.classIndex).then(function (data) {
+    findService.getFindItem(params, $scope.classIndex).then(function (data) {
       $scope.findData = data
       console.log('搜索到的结果：', $scope.findData)
       $scope.scrollTop()

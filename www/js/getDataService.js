@@ -9,32 +9,7 @@ angular.module('getDataService', [])
   // 标签的数据 tags/get_list
   // 广告 service/get_list/catid/97
   // 申报 service/get_list/catid/98
-
-  // 进行搜索操作时列表数据获取，index代表取得是什么值
-  function getNewsListItem (params, index) {
-    switch(index)
-    {
-    case 0:
-      console.log('资讯')
-      return _getData('news/get_list/keyword', params)
-      break
-    case 1:
-      console.log('方案')
-      return _getData('solutions/get_list/keyword', params)
-      break
-    case 2:
-      console.log('商机')
-      return _getData('business/get_list/keyword', params)
-      break
-    case 3:
-      console.log('活动')
-      return getMeetsData(params)
-      break
-    default:
-      console.log('无')
-    }
-    return console.log('结束')
-  }
+  // 关注 news/fucus
 
   // 资讯
   function getNewsItem (params) {
@@ -94,6 +69,31 @@ angular.module('getDataService', [])
     return _getDatail('tags/get_list', params)
   }
 
+  // 我的订阅
+  function getMyTab (params) {
+    return _getDatail('tags/get_user_tags', params)
+  }
+
+  // 资讯关注
+  function newsFollow (params) {
+    return _getMyFollow('news/fucus', params)
+  }
+
+  // 方案关注
+  function programmeFollow (params) {
+    return _getMyFollow('solutions/fucus', params)
+  }
+
+  // 商机关注
+  function goodsFollow (params) {
+    return _getMyFollow('business/fucus', params)
+  }
+
+  // 服务关注
+  function waiterFollow (params) {
+    return _getMyFollow('service/fucus', params)
+  }
+
   // 各个数据的获取
   function _getData (url, params) {
     var getData = []
@@ -101,6 +101,7 @@ angular.module('getDataService', [])
 
     Restangular.setJsonp(true)
     Restangular.one(url).get(params).then(function (data) {
+      console.log('取到的数据：', data)
       getData = data.list
       deferred.resolve(getData)
     }, function (err) {
@@ -144,6 +145,20 @@ angular.module('getDataService', [])
   
   }
 
+  function _getMyFollow (url, params) {
+    var deferred = $q.defer()
+    console.log(params)
+
+    Restangular.one(url).get(params).then(function (data) {
+      deferred.resolve(data)
+      console.log('success:', data)
+    }, function (err) {
+      deferred.reject(err)
+      console.log('err:', err)
+    })
+    return deferred.promise
+  }
+
   // 活动列表的获取
   function getMeetsData (params) {
     var meetsData = []
@@ -179,7 +194,6 @@ angular.module('getDataService', [])
   }
 
   return {
-    getNewsListItem: getNewsListItem,
     getNewsItem: getNewsItem,
     getProgrammeItem: getProgrammeItem,
     getPicItem: getPicItem,
@@ -191,6 +205,11 @@ angular.module('getDataService', [])
     getGoodsDetail: getGoodsDetail,
     getWaiterDetail: getWaiterDetail,
     getWaiterItem: getWaiterItem,
-    getApplyData: getApplyData
+    getApplyData: getApplyData,
+    getMyTab: getMyTab,
+    newsFollow: newsFollow,
+    programmeFollow: programmeFollow,
+    goodsFollow: goodsFollow,
+    waiterFollow: waiterFollow
   }
 })

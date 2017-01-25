@@ -130,3 +130,11 @@ img {
 	text-decoration: none;
 	color: #f00;
 }
+
+.inter-space {
+	text-align: center;
+	margin-top: 100px;
+	font-size: 24px;
+	font-weight: 700;
+	color: #666;
+}
